@@ -1,0 +1,43 @@
+@use "@/app/styles/media-queries.scss" as *;
+@use "@/app/styles/mixins.scss" as *;
+
+.faq {
+    @include section-style;
+
+    > .faqItem:last-child {
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--gray-color);
+    }
+
+.headingStyle {
+  margin: 0;
+
+  img {
+    width: 100px;   // базово для маленьких
+    height: auto;
+  }
+
+  @include tablet-m {
+    img { width: 120px; }   // >= 820px
+  }
+
+  @include desktop-m {
+    img { width: 140px; }   // >= 1280px
+  }
+}
+
+
+    .textStyle {
+        text-indent: var(--text-indent);
+    }
+
+    .container{
+        @include section-style;
+
+    
+        @include tablet-l {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}

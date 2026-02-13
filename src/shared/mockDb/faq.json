@@ -1,0 +1,91 @@
+{
+  "items": [
+    {
+      "_id": "live-ammo",
+      "question": "Are these rounds live ammunition?",
+      "answer": "No. These are completely inert training dummy rounds intended only for dry fire practice, function checks, and safe firearms training. They contain no primer, no powder, and no projectile, and cannot fire under any circumstances."
+    },
+    {
+      "_id": "materials",
+      "question": "What materials are used?",
+      "answer": "Our training rounds are manufactured from high-strength durable PLA material engineered for repeated training cycles. The material helps maintain consistent shape, reliable feeding, and long service life during repetitive drills."
+    },
+    {
+      "_id": "usage",
+      "question": "What are these rounds used for?",
+      "answer": "Training rounds are commonly used for dry fire practice, malfunction clearing drills, magazine loading and unloading practice, chamber and cycling checks, and firearms handling instruction."
+    },
+    {
+      "_id": "dimensions",
+      "question": "Are the dimensions realistic?",
+      "answer": "Yes. Each dummy round is engineered for consistent chamber fit and cycling checks, closely matching real ammunition dimensions to provide a realistic training experience."
+    },
+    {
+      "_id": "firearm-safety",
+      "question": "Can these rounds damage a firearm?",
+      "answer": "No. These rounds are designed specifically for safe dry-fire training and repeated chambering when normal firearm safety rules are followed."
+    },
+    {
+      "_id": "audience",
+      "question": "Who are these rounds intended for?",
+      "answer": "Our products are primarily supplied to shooting instructors, training centers, firearms schools, retailers, distributors, and law enforcement training programs."
+    },
+   {
+  "_id": "calibers",
+  "question": "Which calibers do your dummy rounds support?",
+  "variants": [
+    {
+      "label": "9mm",
+      "answer": "Our 9mm dummy rounds are designed for safe dry-fire training, magazine drills, and chamber checks in most 9mm pistols."
+    },
+    {
+      "label": ".223 Rem",
+      "answer": ".223 Rem dummy rounds are used for loading practice, malfunction clearing drills, and function checks in AR-platform rifles and similar semi-automatic rifles."
+    },
+    {
+      "label": ".308 Win",
+      "answer": ".308 Winchester dummy rounds are ideal for bolt-action and semi-automatic rifle training, helping simulate realistic handling and cycling practice."
+    },
+    {
+      "label": ".22 LR",
+      "answer": ".22 LR dummy rounds are suitable for training with rimfire pistols and rifles commonly used for beginner practice and target shooting."
+    },
+    {
+      "label": ".38 Special",
+      "answer": ".38 Special dummy rounds are designed for revolver training, including loading, unloading, and safe handling exercises."
+    },
+    {
+      "label": ".45 ACP",
+      "answer": ".45 ACP dummy rounds are intended for training with full-size and compact pistols chambered in .45 ACP, supporting dry-fire and function checks."
+    },
+    {
+      "label": ".40 S&W",
+      "answer": ".40 S&W dummy rounds are used for dry-fire practice and handling drills in pistols chambered for .40 S&W."
+    },
+    {
+      "label": ".12 Gauge",
+      "answer": "12 Gauge dummy rounds are designed for shotgun training, including loading drills, cycling practice, and safe handling instruction."
+    },
+    {
+      "label": ".44 Magnum",
+      "answer": ".44 Magnum dummy rounds are intended for revolver training and function checks in firearms chambered for .44 Magnum."
+    },
+    {
+      "label": "10mm",
+      "answer": "10mm dummy rounds are suitable for training with pistols chambered in 10mm Auto, supporting realistic dry-fire and handling practice."
+    }
+  ]
+}
+,
+    {
+      "_id": "ordering",
+      "question": "How can I place a wholesale order?",
+      "answer": "Simply submit the Wholesale Request Form on our website. Our team will contact you with pricing options, bulk packaging availability, and shipping details."
+    },
+    {
+      "_id": "delivery",
+      "question": "How long does delivery take?",
+      "answer": "Delivery usually takes 5–10 business days depending on order volume and destination."
+    }
+  ]
+}

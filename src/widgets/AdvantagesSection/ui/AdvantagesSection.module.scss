@@ -1,0 +1,102 @@
+@use "@/app/styles/media-queries.scss" as *;
+@use "@/app/styles/mixins.scss" as *;
+
+.advantagesSection{
+    @include section-style;
+    background-color: #18181a;
+     color: #f9f9f8;
+}
+
+.headingStyle {
+    text-transform: var(--text-uppercase);
+}
+
+.textProccess,
+.textStyle {
+    text-indent: var(--text-indent);
+   
+}
+
+.textWithHyphens {
+    text-align: justify;
+    hyphens: auto;
+   
+}
+
+.picture {
+    width: 100%;
+
+    @include tablet-m {
+        min-width: 550px;
+    }
+
+    img {
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+.container {
+  @include tablet-m {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px; // чтобы между блоками было расстояние (если нужно)
+  }
+
+  /* список (первый блок) — шире */
+  > :last-child {
+    flex: 1 1 50%;
+  }
+
+  /* picture (фото) — уже */
+  > :first-child {
+    flex: 0 1 50%;
+    min-width: 0; // важно, чтобы мог сжиматься
+  }
+}
+
+
+/* Mobile-first: базовый (самый маленький) размер */
+.iconWrapper {
+  width: 58px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #1e1e1e;
+  border: 1px solid #E6D2AA;
+
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Иконка масштабируется вместе с кругом */
+.icon {
+  width: 60%;
+  height: auto;
+  display: block;
+}
+
+/* На более широких экранах — увеличиваем */
+@include mobile-xl {
+  .iconWrapper {
+    width: 70px;
+  }
+}
+
+@include tablet-m {
+  .iconWrapper {
+    width: 85px;
+  }
+}
+
+@include tablet-l {
+  .iconWrapper {
+    width: 100px;
+  }
+}

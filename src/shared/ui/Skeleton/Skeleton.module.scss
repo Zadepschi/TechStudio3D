@@ -1,0 +1,33 @@
+@use "@/app/styles/vars.scss" as *;
+@use "@/app/styles/media-queries.scss" as *;
+
+.skeleton {
+  position: relative;
+  background: #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 300%;
+  height: 200%;
+  
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.6) 50%,
+    transparent 70%
+  );
+  animation: glass 2s infinite;
+}
+
+@keyframes glass {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+
