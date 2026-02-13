@@ -57,7 +57,7 @@
     text-indent: var(--text-indent);
   }
 
-  // ✅ фиксируем размер и поведение иконки плюса/минуса
+  // ===== Mobile plus/minus icon =====
   .svgMobile {
     width: 32px;
     height: 32px;
@@ -69,18 +69,32 @@
     }
   }
 
-  // ✅ контейнер для кнопок вариантов
+  // ===== Variant buttons wrapper =====
   .variantButtons {
     flex-wrap: wrap;
     gap: 24px;
   }
 
-  // ✅ если нужно — только “layout” для кнопки (без цветов/бордеров/паддингов)
+  // ===== Variant buttons (dark background) =====
   .variantBtn {
     flex: 0 0 auto;
     white-space: nowrap;
+
+    background-color: rgba(120, 119, 119, 0.1);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+
+      border-color: #3a3a3a;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #caa86a;
+      outline-offset: 2px;
+    }
   }
 
+  // ===== FAQ animation =====
   @keyframes slideDown {
     0% {
       max-height: 0;
