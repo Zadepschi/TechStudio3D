@@ -83,6 +83,8 @@ export const HeroSection = () => {
                     >
                         {"See Products"}
                     </HashLink>
+                    <h2  className={style.buttonDesktop}>Amazon</h2>
+                    <h2  className={style.buttonDesktop}>eBay</h2>
                 </Stack>
 
                 <img
