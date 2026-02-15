@@ -52,6 +52,8 @@ export const HeroSection = () => {
                         {"See Products"}
 
                     </HashLink>
+                     <h2  className={style.buttonMobile}>Amazon</h2>
+                    <h2  className={style.buttonMobile}>eBay</h2>
                 </Stack>
             </Stack>
 
