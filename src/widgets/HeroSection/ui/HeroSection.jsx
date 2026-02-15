@@ -46,6 +46,7 @@ export const HeroSection = () => {
                     <HashLink
                         smooth
                         to="#portfolio"
+                         direction="column"
                         className={style.buttonMobile}
                         aria-label="Navigation to Portfolio"
                     >
@@ -80,6 +81,7 @@ export const HeroSection = () => {
                     <HashLink
                         smooth
                         to="#portfolio"
+                         direction="column"
                         className={style.buttonDesktop}
                         aria-label="Navigation to Portfolio"
                     >
