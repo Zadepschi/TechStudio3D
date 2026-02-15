@@ -1,0 +1,123 @@
+@use "@/app/styles/media-queries.scss" as *;
+@use "@/app/styles/mixins.scss" as *;
+
+.containerMobile {
+  @include section-style;
+
+  @include tablet-m {
+    display: none;
+  }
+  
+}
+
+.mobileTitle {
+  text-transform: var(--text-uppercase);
+  font-size: clamp(48px, 6vw, 56px);
+
+  span {
+    color: var(--red-color);
+  }
+
+  @include tablet-m {
+    display: none;
+  }
+}
+
+.textAbout {
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.6;
+
+  text-indent: var(--text-indent);
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.buttonMobile {
+  color: var(--red-color);
+  font-family: var(--font-lato);
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.2;
+  text-decoration: none;
+
+  @include tablet-m {
+    display: none;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+
+  @include tablet-m {
+    width: 60%;
+    transform: translateX(240px); // ← сдвиг влево
+  }
+
+  @include tablet-l {
+    z-index: -1;
+    width: 70%;
+    transform: translateX(320px); // чуть сильнее на большом экране
+  }
+}
+
+
+.containerDesktop {
+  display: none;
+
+  @include tablet-m {
+    @include section-style;
+    display: flex;
+    position: relative;
+    gap: 32px;
+    align-items: center;
+    margin-top: 5rem;
+  }
+}
+
+.desktopTitle {
+  display: none;
+
+  span {
+    color: var(--red-color);
+  }
+
+  @include tablet-m {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: -90px;
+    text-transform: var(--text-uppercase);
+    white-space: nowrap;
+    font-size: clamp(48px, 6vw, 96px);
+    line-height: 1;
+    
+  }
+
+  @include tablet-l {
+    top: -80px;
+    
+    
+  }
+
+  @include desktop-m {
+    font-size: var(--font-size-xxl);
+    top: -80px;
+  }
+}
+
+.buttonDesktop {
+  color: var(--text-color);
+  font-family: var(--font-lato);
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.2;
+  text-decoration: none;
+
+  @include tablet-m {
+    display: inline-flex;
+    align-items: center;
+  }
+}
