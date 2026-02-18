@@ -1,0 +1,133 @@
+@use "@/app/styles/vars.scss" as *;
+
+.footerContainer {
+  width: 100%;
+  background: #0f0f12;
+  padding: 60px 40px 25px;
+  font-family: var(--font-lato);
+  color: var(--text-color);
+  position: relative;
+}
+
+/* MAIN GRID */
+.content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 60px;
+}
+
+/* LEFT */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* POLICY LINKS */
+.policyLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.9;
+
+    &:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* DISCLAIMER */
+.disclaimer {
+  max-width: 750px;
+
+  p {
+    margin: 0 0 10px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.75;
+  }
+}
+
+/* RIGHT */
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  text-align: right;
+}
+
+.logo {
+  height: 80px;
+}
+
+.meta {
+  font-size: 0.95rem;
+  opacity: 0.85;
+
+  span {
+    color: var(--red-color);
+  }
+}
+
+/* GLOW LINE */
+.bottomLine {
+  width: 100%;
+  height: 2px;
+  margin-top: 35px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 120, 0, 0.7),
+    transparent
+  );
+}
+
+/* ========================= */
+/* MOBILE ADAPTATION */
+/* ========================= */
+
+@media (max-width: 992px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .right {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .logo {
+    height: 65px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerContainer {
+    padding: 50px 20px 20px;
+  }
+
+  .policyLinks {
+    gap: 14px;
+
+    a {
+      font-size: 0.9rem;
+    }
+  }
+
+  .disclaimer p {
+    font-size: 0.85rem;
+  }
+
+  .logo {
+    height: 55px;
+  }
+}

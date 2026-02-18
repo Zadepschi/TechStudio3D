@@ -1,23 +1,23 @@
 export const navigation = {
+      home: {
+        path: "header",
+        text: "Home"
+    },
     about: {
         path: "about",
         text: "About"
     },
-    portfolio: {
-        path: "portfolio",
-        text: "Portfolio"
+    products: {
+        path: "products",
+        text: "Products"
     },
-    servicesAndPrices: {
-        path: "services-and-prices",
-        text: "Services"
+    whyChooseUs: {
+        path: "why-сhoose-us",
+        text: "Why Choose Us"
     },
-    howItWorks: {
-        path: "how-it-works",
-        text: "HowItWorks"
-    },
-    review: {
-        path: "review",
-        text: "Review"
+    faq: {
+        path: "faq",
+        text: "Faq"
     },
     contacts: {
         path: "contacts",

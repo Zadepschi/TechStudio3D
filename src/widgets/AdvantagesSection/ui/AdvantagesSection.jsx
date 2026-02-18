@@ -9,7 +9,7 @@ export const AdvantagesSection = () => {
   return (
     <Stack
       tag="section"
-      id="how-it-works"
+      id="why-сhoose-us"
       direction="column"
       gap="32"
       className={styles.advantagesSection}
