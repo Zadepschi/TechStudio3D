@@ -7,7 +7,8 @@ import styles from "./Contacts.module.scss";
 import { CONTACT_ITEMS } from "../lib/contacts.config";
 import { Typography } from "@/shared/ui/Typography";
 import contactsData from "@/shared/mockDb/contactsPage.json";
-import { RequestQuoteForm } from "@/features/requestQuote";
+import { RequestQuoteForm } from "@/features/requestQuote/ui/RequestQuoteForm.jsx";
+
 
 
 export const Contacts = () => {
