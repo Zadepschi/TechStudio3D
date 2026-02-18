@@ -1,4 +1,4 @@
-import { ProductCard } from "@/entities/product";
+import { ProductCard } from "@/entities/Product";
 import styles from "./ProductsGrid.module.scss";
 
 export function ProductsGrid({ products }) {

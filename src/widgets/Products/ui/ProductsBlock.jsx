@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchProducts } from "@/entities/product";
+import { fetchProducts } from "@/entities/Product";
 import { ProductsGrid } from "./ProductsGrid";
 import styles from "./ProductsBlock.module.scss";
 
