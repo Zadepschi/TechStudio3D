@@ -1,18 +1,12 @@
-import { Stack } from "../../shared/ui/Stack/Stack"
+import { useParams } from "react-router-dom";
 
+export default function ProductDetailsPage() {
+  const { slug } = useParams();
 
-
-const ProductDetailsPage = () =>  {
-    return(
-     <Stack
-        direction="column"
-         align="center"
-         gap="16"
-     >
-    
-       <h1>Product Details Page</h1>
-     </Stack>
-
-    )
+  return (
+    <div style={{ padding: "40px" }}>
+      <h1>Детали товара</h1>
+      <p>Slug товара: {slug}</p>
+    </div>
+  );
 }
-export default ProductDetailsPage;

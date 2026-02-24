@@ -98,8 +98,11 @@ export const FaqItem = memo(({ item, defaultOpen = false }) => {
           )}
 
           <Typography className={styles.content}>{answer}</Typography>
+          
         </Stack>
       )}
     </div>
   );
 });
+
+
