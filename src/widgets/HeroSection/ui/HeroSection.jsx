@@ -1,6 +1,6 @@
 import { Stack } from "@/shared/ui/Stack";
 import techStudio from "@/shared/assets/images/hero.webp";
-import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import style from "./HeroSection.module.scss";
 import { Typography } from "@/shared/ui/Typography";
 
@@ -43,17 +43,21 @@ export const HeroSection = () => {
                 </div>
 
                 <Stack justify="center"  direction="column">
-                    <HashLink
-                        smooth
-                        to="#portfolio"
-                        className={style.buttonMobile}
-                        aria-label="Navigation to Portfolio"
-                    >
-                        {"See Products"}
-
-                    </HashLink>
-                     <h2  className={style.buttonMobile}>Amazon</h2>
-                    <h2  className={style.buttonMobile}>eBay</h2>
+                <Link
+    to="/products"
+    className={style.buttonMobile}
+    aria-label="Navigation to Products"
+>
+    {"See Products"}
+</Link>
+                 <a
+    href="https://www.amazon.com/stores/TechStudio3D/page/D738D241-8A71-4A1A-A6B3-E0E82E3AD8D2?lp_asin=B0FVFSF2WG&ref_=ast_bln"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={style.buttonMobile}
+>
+    Amazon
+</a>
                 </Stack>
             </Stack>
 
@@ -77,16 +81,21 @@ export const HeroSection = () => {
                         {"Hero Text"}
                     </Typography>
 
-                    <HashLink
-                        smooth
-                        to="#portfolio"
-                        className={style.buttonDesktop}
-                        aria-label="Navigation to Portfolio"
-                    >
-                        {"See Products"}
-                    </HashLink>
-                    <h2  className={style.buttonDesktop}>Amazon</h2>
-                    <h2  className={style.buttonDesktop}>eBay</h2>
+                <Link
+    to="/products"
+    className={style.buttonDesktop}
+    aria-label="Navigation to Products"
+>
+    {"See Products"}
+</Link>
+                 <a
+    href="https://www.amazon.com/stores/TechStudio3D/page/D738D241-8A71-4A1A-A6B3-E0E82E3AD8D2?lp_asin=B0FVFSF2WG&ref_=ast_bln"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={style.buttonDesktop}
+>
+    Amazon
+</a>
                 </Stack>
 
                 <img

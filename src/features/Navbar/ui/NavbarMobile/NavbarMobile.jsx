@@ -35,7 +35,7 @@ export const NavbarMobile = () => {
         <ul className={style.menu}>
           {Object.values(navigation).map(({ text, path }) => (
             <li key={path} onClick={close}>
-              <HashLink smooth to={`#${path}`} className={style.sectionLink}>
+              <HashLink smooth to={`/#${path}`} className={style.sectionLink}>
                 {text.toUpperCase()}
               </HashLink>
             </li>

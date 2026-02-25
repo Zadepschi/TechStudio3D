@@ -12,7 +12,7 @@ export const navigation = {
         text: "Products"
     },
     whyChooseUs: {
-        path: "why-сhoose-us",
+        path: "why-choose-us",
         text: "Why Choose Us"
     },
     faq: {

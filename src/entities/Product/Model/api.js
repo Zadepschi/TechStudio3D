@@ -1,5 +1,5 @@
-import { MOCK_PRODUCTS } from "./mockProducts";
+import { mockProducts } from "./mockProducts";
 
 export async function fetchProducts() {
-  return MOCK_PRODUCTS;
+  return mockProducts;
 }
