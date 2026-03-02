@@ -9,7 +9,7 @@ import { useProductsCatalog } from "@/widgets/ProductsCatalog/model/useProductsC
 
 import { ProductsGrid } from "@/widgets/ProductsCatalog/ui/ProductsGrid";
 import { ProductsControls } from "@/widgets/ProductsCatalog/ui/ProductsCatalog"; 
-import { RequestQuoteModal } from "../../features/requestQuote";
+import { RequestQuoteModal } from "../../features/RequestQuote";
 // ⚠️ тут путь под твой проект: если у тебя файл называется ProductsCatalog.jsx,
 // то ок. Если он называется ProductsControls.jsx — поменяй путь.
 
