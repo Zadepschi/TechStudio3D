@@ -7,7 +7,6 @@ import { FaqSection } from "@/widgets/Faq/ui/FaqSection/FaqSection";
 import { AboutSection } from "@/widgets/About/ui/AboutSection";
 import { HeroSection } from "../../widgets/HeroSection";
 import { Contacts } from "../../widgets/Contacts";
-import { Footer } from "../../widgets/Footer";
 import { ProductsBlock } from "../../widgets/Products";
 
 const ScrollToSection = () => {
@@ -52,7 +51,6 @@ const MainPage = () => {
         <AdvantagesSection />
         <FaqSection />
         <Contacts />
-        <Footer />
       </Stack>
     </>
   );
