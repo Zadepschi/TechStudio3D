@@ -1,111 +1,58 @@
-import { Stack } from "@/shared/ui/Stack";
-import techStudio from "@/shared/assets/images/hero.webp";
 import { Link } from "react-router-dom";
+import techStudio from "@/shared/assets/images/hero.webp";
 import style from "./HeroSection.module.scss";
 import { Typography } from "@/shared/ui/Typography";
 
+const HERO = {
+  headline: "Snap Caps Dummy Rounds Built for Safe and Effective Training",
+  subheadline: "Protect your firearm, improve trigger control, and train with confidence using durable, high-visibility training rounds.",
+};
 
 export const HeroSection = () => {
+  return (
+    <section
+      id="hero_section"
+      className={style.hero}
+      style={{ backgroundImage: `url(${techStudio})` }}
+      aria-label="Hero section"
+    >
+      {/* ЛОГО — ВНЕ карточки, поверх фото */}
+      <Typography
+        variant="h1"
+        font="poiretOne"
+        weight="normal"
+        className={style.logoOutside}
+      >
+        tec<span>h</span>studio<span>3d</span>
+      </Typography>
 
+      {/* Тёмный градиент поверх фото */}
+      <div className={style.backdrop} />
 
-    return (
-        <section id="hero_section"  className={style.hero}>
-            <Stack
-                id="textContainer"
-                direction="column"
-                className={style.containerMobile}
-                gap="24"
-            >
-                <Typography
-                    variant="h1"
-                    font="poiretOne"
-                    className={style.mobileTitle}
-                >
-                    tec<span>h</span>studio<span>3d</span>
-                </Typography>
+      {/* Glass-карточка */}
+      <div className={style.card} role="region" aria-label="Hero content">
+        <Typography variant="h2" className={style.title}>
+          {HERO.headline}
+        </Typography>
 
-                <Typography
-                    variant="body14"
-                    className={style.textAbout}
-                >
-                    {"Hero Text Mobile"}
-                </Typography>
+        <Typography variant="body14" className={style.subtitle}>
+          {HERO.subheadline}
+        </Typography>
 
-                <div>
+        <div className={style.actions}>
+          <Link
+            to="/products"
+            className={style.primaryButton}
+            aria-label="Navigate to products"
+          >
+            SEE PRODUCTS
+            <span className={style.arrow} aria-hidden="true">
+              ›
+            </span>
+          </Link>
+        </div>
 
-                    <img
-                        id="imgContainer"
-                        src={techStudio}
-                        loading="lazy"
-                        alt="room design"
-                        className={style.image}
-                    />
-                </div>
-
-                <Stack justify="center"  direction="column">
-                <Link
-    to="/products"
-    className={style.buttonMobile}
-    aria-label="Navigation to Products"
->
-    {"See Products"}
-</Link>
-                 <a
-    href="https://www.amazon.com/stores/TechStudio3D/page/D738D241-8A71-4A1A-A6B3-E0E82E3AD8D2?lp_asin=B0FVFSF2WG&ref_=ast_bln"
-    target="_blank"
-    rel="noopener noreferrer"
-    className={style.buttonMobile}
->
-    Amazon
-</a>
-                </Stack>
-            </Stack>
-
-            <Stack className={style.containerDesktop} gap="32">
-                <Stack
-                    id="textContainer"
-                    direction="column"
-                    justify="center"
-                    gap="24"
-                >
-                    <Typography
-                        variant="h1"
-                        font="poiretOne"
-                        weight="normal"
-                        className={style.desktopTitle}
-                    >
-                        tec<span>h</span>studio<span>3d</span>
-                    </Typography>
-
-                    <Typography variant="body14"  noMargin className={style.textAbout} >
-                        {"Hero Text"}
-                    </Typography>
-
-                <Link
-    to="/products"
-    className={style.buttonDesktop}
-    aria-label="Navigation to Products"
->
-    {"See Products"}
-</Link>
-                 <a
-    href="https://www.amazon.com/stores/TechStudio3D/page/D738D241-8A71-4A1A-A6B3-E0E82E3AD8D2?lp_asin=B0FVFSF2WG&ref_=ast_bln"
-    target="_blank"
-    rel="noopener noreferrer"
-    className={style.buttonDesktop}
->
-    Amazon
-</a>
-                </Stack>
-
-                <img
-                    id="imgContainer"
-                    src={techStudio}
-                    loading="lazy"
-                    alt="room design"
-                    className={style.image}
-                />
-            </Stack>
-        </section>
-    );
+      </div>
+    </section>
+  );
 };

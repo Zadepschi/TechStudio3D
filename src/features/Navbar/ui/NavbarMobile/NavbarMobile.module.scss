@@ -2,33 +2,173 @@
 @use "@/app/styles/media-queries.scss" as *;
 
 .navbarMobile {
-    position: relative;
-    width: 100%;
-    height: 60px;
-    justify-content: flex-end;
-    padding: 0 20px;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  justify-content: flex-end;
+  padding: 0 20px;
 }
 
-
+/* fullscreen menu */
 .menu {
-    list-style: none;
-    background-color: var(--background-color);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 16;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    height: 100%;
+  list-style: none;
+
+  position: fixed;
+  inset: 0;
+  z-index: 16;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+
+  min-height: 100dvh;
+
+  /* ===== MULTI-LAYER PREMIUM BACKGROUND ===== */
+  background:
+
+    /* главный оранжевый glow справа (основной источник света) */
+    radial-gradient(
+      900px 500px at 88% 48%,
+      rgba(255, 140, 0, 0.18),
+      rgba(255, 140, 0, 0.10) 30%,
+      rgba(255, 140, 0, 0.04) 48%,
+      transparent 70%
+    ),
+
+    /* secondary glow слева для баланса */
+    radial-gradient(
+      700px 420px at 12% 60%,
+      rgba(255, 140, 0, 0.10),
+      rgba(255, 140, 0, 0.04) 40%,
+      transparent 70%
+    ),
+
+    /* верхний мягкий ambient свет */
+    radial-gradient(
+      1200px 400px at 50% -10%,
+      rgba(255, 255, 255, 0.05),
+      transparent 60%
+    ),
+
+    /* базовый premium dark */
+    linear-gradient(
+      180deg,
+      #0c0c0c 0%,
+      #080808 50%,
+      #050505 100%
+    );
+
+  backdrop-filter: blur(16px);
+
+  /* ===== EDGE VIGNETTE (очень важно для depth) ===== */
+  box-shadow:
+    inset 0 0 140px rgba(0, 0, 0, 0.75),
+    inset 0 0 60px rgba(0, 0, 0, 0.6),
+
+    /* orange atmospheric glow */
+    inset 0 0 180px rgba(255, 140, 0, 0.045),
+
+    /* subtle outer lift */
+    0 0 40px rgba(255, 140, 0, 0.05);
 }
 
+
+
+/* ===== MOBILE BUTTONS (same design as desktop) ===== */
 .sectionLink {
-    font-family: var(--font-lato);
-    text-decoration: none;
-    color: var(--black-color);
+  border: 0;
+  cursor: pointer;
+
+  padding: 12px 16px;
+  border-radius: 999px;
+
+  background: transparent;
+
+  /* ✅ тот же шрифт, что и на десктопе */
+  font-family: var(--font-poiret-one);
+  font-size: 16px;        /* крупнее */
+  font-weight: 400;       /* у Poiret One почти всегда только 400 */
+  letter-spacing: 0.12em; /* чтобы выглядело premium */
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  outline: none;
+
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.sectionLink:hover {
+  transform: translateY(-1px);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* underline base */
+.sectionLink::after {
+  content: "";
+  position: absolute;
+
+  left: 14px;
+  right: 14px;
+  bottom: 7px;
+
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 140, 0, 0),
+    transparent
+  );
+
+  opacity: 0;
+  transform: scaleX(0.6);
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+/* hover */
+.sectionLink:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 140, 0, 0.75),
+    transparent
+  );
+}
+
+/* optional: active state (если ты добавляешь className="active") */
+.sectionLink.active {
+  color: rgba(255, 255, 255, 0.92);
+}
+.sectionLink.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 140, 0, 0.9),
+    transparent
+  );
 }

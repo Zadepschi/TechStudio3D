@@ -18,12 +18,15 @@ const CALIBERS = [
 ];
 
 // OUTER: показывает success и управляет reset
-export function RequestQuoteForm() {
+export function RequestQuoteForm({ onSuccess }) {
   const [formInstanceKey, setFormInstanceKey] = useState(0);
   const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSuccess = () => {
     setShowSuccess(true);
+
+    // ✅ внешний колбэк (например закрыть модалку)
+    onSuccess?.();
 
     // показываем сообщение 2.5 сек, потом сбрасываем форму и скрываем сообщение
     window.setTimeout(() => {
@@ -60,7 +63,9 @@ function RequestQuoteFormInner({ onSuccess }) {
 
   const toggleCaliber = (caliber) => {
     setSelected((prev) =>
-      prev.includes(caliber) ? prev.filter((c) => c !== caliber) : [...prev, caliber]
+      prev.includes(caliber)
+        ? prev.filter((c) => c !== caliber)
+        : [...prev, caliber]
     );
   };
 
@@ -77,7 +82,9 @@ function RequestQuoteFormInner({ onSuccess }) {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       {/* EMAIL */}
-      <label className={styles.label} htmlFor="email">Email Address</label>
+      <label className={styles.label} htmlFor="email">
+        Email Address
+      </label>
       <input
         className={styles.input}
         id="email"
@@ -106,10 +113,18 @@ function RequestQuoteFormInner({ onSuccess }) {
       {isOpen && (
         <div className={styles.dropdownPanel}>
           <div className={styles.dropdownActions}>
-            <button className={styles.actionBtn} type="button" onClick={() => setSelected(CALIBERS)}>
+            <button
+              className={styles.actionBtn}
+              type="button"
+              onClick={() => setSelected(CALIBERS)}
+            >
               Select all
             </button>
-            <button className={styles.actionBtn} type="button" onClick={() => setSelected([])}>
+            <button
+              className={styles.actionBtn}
+              type="button"
+              onClick={() => setSelected([])}
+            >
               Clear
             </button>
           </div>
@@ -128,7 +143,9 @@ function RequestQuoteFormInner({ onSuccess }) {
       )}
 
       {/* MESSAGE */}
-      <label className={styles.label} htmlFor="message">Message</label>
+      <label className={styles.label} htmlFor="message">
+        Message
+      </label>
       <textarea
         className={styles.textarea}
         id="message"

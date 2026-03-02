@@ -1,7 +1,9 @@
 import cls from "./ProductFilters.module.scss";
+
 import { TABS, SORTS } from "../Model/filters.config";
 
 export const ProductFilters = ({
+  
   query,
   setQuery,
   tab,
@@ -10,6 +12,8 @@ export const ProductFilters = ({
   setSort,
   resetVisible,
 }) => {
+    console.log("ProductFilters rendered");
+  console.log("cls:", cls);
   return (
     <section className={cls.controls}>
       {/* SEARCH */}

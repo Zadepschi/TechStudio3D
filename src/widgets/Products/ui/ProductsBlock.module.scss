@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  padding: 80px 24px 80px;
+  padding: 20px 24px 20px;
   position: relative;
   overflow: hidden;
 
@@ -30,6 +30,9 @@
   );
   filter: blur(60px);
   z-index: 0;
+
+  /* ✅ вот это добавь */
+  pointer-events: none;
 }
 
 /* Лёгкая виньетка */

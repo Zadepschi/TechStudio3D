@@ -1,0 +1,54 @@
+/* ========== Modal ========== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.70);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  padding: 16px;
+
+  /* ✅ если модалка выше экрана — пусть скроллится оверлей */
+  overflow-y: auto;
+}
+
+.modal {
+  width: min(820px, 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 10, 12, 0.92);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.75);
+
+  /* ✅ ключ: ограничиваем высоту и разрешаем скролл внутри */
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+
+  padding: 16px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 6px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 14px;
+}
+
+.modalTitle {
+  font-size: 14px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.modalClose {
+  border: 1px solid rgba(255, 170, 70, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 235, 210, 0.95);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}

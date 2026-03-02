@@ -1,49 +1,103 @@
 @use "@/app/styles/media-queries.scss" as *;
 
 .faqItem {
-  border-top: 1px solid var(--gray-color);
-  padding-top: 1.5rem;
-  cursor: pointer;
   user-select: none;
   outline: none;
 
+  /* spacing between items */
+  padding: 10px 0;
+
+  /* ONE unified card */
+  position: relative;
+  border-radius: 18px;
+
+  background:
+    radial-gradient(900px 420px at 85% 15%, rgba(255, 106, 0, 0.10), transparent 55%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.92), rgba(10, 10, 10, 0.96));
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+
+  /* orange glow border */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    pointer-events: none;
+    box-shadow:
+      0 0 0 1px rgba(255, 106, 0, 0.20),
+      0 0 24px rgba(255, 106, 0, 0.12);
+    opacity: 0.55;
+    transition: opacity 0.18s ease;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 106, 0, 0.20);
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+    &::before {
+      opacity: 0.85;
+    }
+  }
+
+  /* HEADER (clickable) */
   .titleContainer {
     position: relative;
+    cursor: pointer;
+
+    padding: 16px 16px;
+    border-radius: 18px; /* same as card */
+    background: transparent;
+
+    &:focus-visible {
+      outline: 2px solid rgba(255, 140, 0, 0.55);
+      outline-offset: 4px;
+    }
+
+    @include mobile-xl {
+      padding: 18px 20px;
+    }
   }
 
   .title {
     font-size: var(--font-size-sm);
     text-align: start !important;
     text-transform: var(--text-uppercase);
+    letter-spacing: 0.14em;
+    color: rgba(255, 255, 255, 0.92);
 
     @include mobile-xl {
       font-size: var(--font-size-m);
     }
   }
 
-  .list {
-    color: var(--text-color);
-    background-color: var(--gray-light-color);
-    padding: 1rem;
-    font-size: var(--font-size-xs);
-    cursor: default;
-
-    @include tablet-l {
-      list-style-type: none;
-      line-height: 2;
-      overflow: hidden;
-      animation: slideDown 0.3s ease forwards;
-    }
-  }
-
+  /* chevron desktop */
   .opened,
   .closed {
     display: none;
 
     @include tablet-l {
       display: block;
+      color: rgba(255, 255, 255, 0.86);
+      opacity: 0.85;
+      transition: transform 0.26s ease, opacity 0.26s ease;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.45));
+    }
+  }
+
+  .opened {
+    @include tablet-l {
       transform: rotate(180deg);
-      transition: transform 0.3s ease;
+      opacity: 1;
     }
   }
 
@@ -53,69 +107,220 @@
     }
   }
 
-  .content {
-    text-indent: var(--text-indent);
-  }
-
-  // ===== Mobile plus/minus icon =====
+  /* mobile plus/minus */
   .svgMobile {
     width: 32px;
     height: 32px;
     flex: 0 0 32px;
     display: block;
+    color: rgba(255, 255, 255, 0.90);
+    opacity: 0.9;
 
     @include tablet-l {
       display: none;
     }
   }
 
-  // ===== Variant buttons wrapper =====
+  /* CONTENT AREA (inside the same card) */
+  .list {
+    cursor: default;
+
+    /* subtle divider, not a second card */
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+
+    padding: 14px 16px 18px;
+
+    background:
+      radial-gradient(700px 240px at 30% 0%, rgba(255, 106, 0, 0.12), transparent 60%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.00));
+
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+
+    color: rgba(255, 255, 255, 0.82);
+    font-size: var(--font-size-xs);
+    line-height: 1.75;
+
+    overflow: hidden;
+    animation: accordionIn 0.22s ease forwards;
+
+    @include mobile-xl {
+      padding: 16px 20px 20px;
+    }
+
+    @include tablet-l {
+      list-style-type: none;
+    }
+  }
+
+  .content {
+    text-indent: 0;
+    text-align: left;
+    hyphens: none;
+    max-width: 70ch;
+  }
+
+  /* ===== VARIANTS WRAPPER ===== */
   .variantButtons {
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 6px;
   }
 
-  // ===== Variant buttons (dark background) =====
+  /* ===== VARIANT BUTTON (same style as navigationButton) ===== */
   .variantBtn {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    padding: 3px;
-    border-radius: 4px;
-    background-color: rgba(80, 78, 78, 0.9);
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    border: 0 !important;
+    cursor: pointer;
+   
+    padding: 10px 16px !important;
+    border-radius: 999px !important;
 
-    &:hover {
+    background: transparent !important;
 
-      border-color: #3a3a3a;
-    }
+    /* FONT */
+    font-family: var(--font-poiret-one) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.12em !important;
 
-    &:focus-visible {
-      outline: 2px solid #caa86a;
-      outline-offset: 2px;
-    }
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+
+    color: rgba(255, 255, 255, 0.78) !important;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative !important;
+    outline: none !important;
+
+    transition:
+      color 160ms ease,
+      background 160ms ease,
+      transform 160ms ease;
   }
 
-  // ===== FAQ animation =====
-  @keyframes slideDown {
-    0% {
-      max-height: 0;
+  /* ===== UNDERLINE BASE ===== */
+  .variantBtn::after {
+    content: "";
+    position: absolute;
+
+    left: 1px;
+    right: 14px;
+    bottom: 6px;
+
+    height: 2px;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 140, 0, 0),
+      transparent
+    );
+
+    opacity: 0;
+    transform: scaleX(0.6);
+  
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease;
+  }
+
+  /* ===== HOVER EFFECT ===== */
+  .variantBtn:hover {
+    color: rgba(255, 255, 255, 0.92) !important;
+    transform: translateY(-1px);
+  }
+
+  .variantBtn:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 140, 0, 0.75),
+      transparent
+    );
+
+    box-shadow: 0 0 18px rgba(255, 140, 0, 0.25);
+  }
+
+  /* ===== KEYBOARD FOCUS ===== */
+  .variantBtn:focus-visible {
+    outline: 2px solid rgba(255, 140, 0, 0.55) !important;
+    outline-offset: 3px;
+  }
+
+  /* ===== ACTIVE VARIANT =====
+     Мы не меняем JSX, поэтому ловим "primary" любым вероятным способом.
+     Оставляет подчёркивание + делает текст оранжевым (как линия). */
+  .variantBtn.primary,
+  .variantBtn[data-variant="primary"],
+  .variantBtn[variant="primary"],
+  .variantBtn[aria-current="true"],
+  .variantBtn[aria-selected="true"] {
+    color: rgba(255, 140, 0, 0.92) !important;
+  }
+
+  .variantBtn.primary::after,
+  .variantBtn[data-variant="primary"]::after,
+  .variantBtn[variant="primary"]::after,
+  .variantBtn[aria-current="true"]::after,
+  .variantBtn[aria-selected="true"]::after {
+    opacity: 1;
+    transform: scaleX(1);
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 140, 0, 0.90),
+      transparent
+    );
+
+    box-shadow: 0 0 18px rgba(255, 140, 0, 0.28);
+  }
+
+  /* Active + hover чуть сильнее */
+  .variantBtn.primary:hover,
+  .variantBtn[data-variant="primary"]:hover,
+  .variantBtn[variant="primary"]:hover,
+  .variantBtn[aria-current="true"]:hover,
+  .variantBtn[aria-selected="true"]:hover {
+    color: rgba(255, 140, 0, 1) !important;
+  }
+
+  @keyframes accordionIn {
+    from {
       opacity: 0;
+      transform: translateY(-6px);
+      max-height: 0;
     }
-    25% {
-      max-height: 125px;
-      opacity: 0.25;
-    }
-    50% {
-      max-height: 250px;
-      opacity: 0.5;
-    }
-    75% {
-      max-height: 375px;
-      opacity: 0.75;
-    }
-    100% {
-      max-height: 500px;
+    to {
       opacity: 1;
+      transform: translateY(0);
+      max-height: 650px;
     }
   }
+}
+
+/* ===== ACTIVE VARIANT (reliable) ===== */
+.variantBtn[data-active="true"] {
+  color: rgba(255, 140, 0, 0.92) !important;
+}
+
+.variantBtn[data-active="true"]::after {
+  opacity: 1;
+  transform: scaleX(1);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 140, 0, 0.90),
+    transparent
+  );
+  box-shadow: 0 0 18px rgba(255, 140, 0, 0.28);
 }

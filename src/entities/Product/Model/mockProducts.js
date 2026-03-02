@@ -14,7 +14,8 @@ export const mockProducts = [
     price: 49,
     isNew: true,
     tag: "MOST POPULAR",
-    amazonUrl: "",
+    amazonUrl: "https://www.amazon.com/stores/page/B8F49A19-43C9-4131-B1DE-280B6AFB8E6F?ingress=2&lp_context_asin=B0FVFSF2WG&visitId=8faa0f3b-ba5a-42d6-a310-415800921076&ref_=ast_bln",
+  
   },
   {
     slug: "p-223",
@@ -25,7 +26,8 @@ export const mockProducts = [
     popular: 92,
     price: 39,
     isNew: true,
-    amazonUrl: "",
+      amazonUrl: "https://www.amazon.com/stores/page/B8F49A19-43C9-4131-B1DE-280B6AFB8E6F?ingress=2&lp_context_asin=B0FVFSF2WG&visitId=8faa0f3b-ba5a-42d6-a310-415800921076&ref_=ast_bln",
+  
   },
   {
     slug: "p-9mm",

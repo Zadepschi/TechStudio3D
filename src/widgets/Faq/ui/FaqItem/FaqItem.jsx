@@ -78,20 +78,21 @@ export const FaqItem = memo(({ item, defaultOpen = false }) => {
                 const isActive = index === safeActiveVariant;
 
                 return (
-                  <Button
-                    key={v.label}
-                    type="button"
-                    size="xs"
-                    variant={isActive ? "primary" : "secondary"}
-                    className={styles.variantBtn}
-                    ariaLabel={`Select ${v.label}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveVariant(index);
-                    }}
-                  >
-                    {v.label}
-                  </Button>
+            <Button
+  key={v.label}
+  type="button"
+  size="xs"
+  variant={isActive ? "primary" : "secondary"}
+  className={styles.variantBtn}
+  data-active={isActive ? "true" : "false"}
+  ariaLabel={`Select ${v.label}`}
+  onClick={(e) => {
+    e.stopPropagation();
+    setActiveVariant(index);
+  }}
+>
+  {v.label}
+</Button>
                 );
               })}
             </Stack>

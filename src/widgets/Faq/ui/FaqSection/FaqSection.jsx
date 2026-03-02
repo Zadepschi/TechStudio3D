@@ -75,13 +75,7 @@ export const FaqSection = () => {
         )}
       </Stack>
 
-      <Stack direction="column" align="center" className={styles.container} gap="8">
- <Typography>{contacts?.ctaText}</Typography>
-<WhatsAppLink
-  phone={contacts?.phone}
-  message={contacts?.whatsappMessage}
-/>
-      </Stack>
+
     </Stack>
   );
 };

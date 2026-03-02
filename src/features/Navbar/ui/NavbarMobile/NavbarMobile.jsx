@@ -12,7 +12,7 @@ export const NavbarMobile = () => {
   const isMobile = width <= 1024;
 
   useOverflowHidden(isOpen);
-  console.log("NavbarMobile render", { isOpen, width });
+
 
   return (
     <Stack

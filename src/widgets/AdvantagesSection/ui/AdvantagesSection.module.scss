@@ -1,63 +1,155 @@
 @use "@/app/styles/media-queries.scss" as *;
 @use "@/app/styles/mixins.scss" as *;
 
-.advantagesSection{
-    @include section-style;
+.advantagesSection {
+  @include section-style;
 
+  /* premium backplate */
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+
+  min-height: 100svh;
+  min-height: 100vh;
+
+  padding: clamp(18px, 2.4vw, 40px);
+
+  background:
+    radial-gradient(900px 520px at 82% 18%, rgba(255, 106, 0, 0.10), transparent 58%),
+    radial-gradient(700px 420px at 20% 88%, rgba(255, 106, 0, 0.06), transparent 60%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.92), rgba(10, 10, 10, 0.97));
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* glow border */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    pointer-events: none;
+    box-shadow:
+      0 0 0 1px rgba(255, 106, 0, 0.22),
+      0 0 34px rgba(255, 106, 0, 0.14);
+    opacity: 0.75;
+  }
+
+  /* subtle texture */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    pointer-events: none;
+    background: radial-gradient(circle at 30% 10%, rgba(255,255,255,0.04), transparent 40%);
+    opacity: 0.55;
+    mix-blend-mode: overlay;
+  }
+
+  /* keep content above overlays */
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .headingStyle {
-    text-transform: var(--text-uppercase);
+  text-transform: var(--text-uppercase);
+  letter-spacing: 0.12em;
+  margin: 0;
 }
 
+/* ===== Text tuning ===== */
 .textProccess,
 .textStyle {
-    text-indent: var(--text-indent);
-   
+  text-indent: 0;
+  color: rgba(255, 255, 255, 0.80);
+  line-height: 1.65;
+  max-width: 68ch;
 }
 
 .textWithHyphens {
-    text-align: justify;
-    hyphens: auto;
-   
+  text-align: left; /* ✅ вместо justify */
+  hyphens: none;
 }
 
-.picture {
-    width: 100%;
-
-    @include tablet-m {
-        min-width: 550px;
-    }
-
-    img {
-        width: 100%;
-        object-fit: contain;
-    }
-}
-
+/* ===== Layout container ===== */
 .container {
+  /* give more vertical breathing room */
+  padding-top: 6px;
+
   @include tablet-m {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    gap: 32px; // чтобы между блоками было расстояние (если нужно)
+    gap: clamp(20px, 2.4vw, 36px);
   }
 
-  /* список (первый блок) — шире */
+  /* list — wider */
   > :last-child {
-    flex: 1 1 50%;
+    flex: 1 1 52%;
+    min-width: 0;
   }
 
-  /* picture (фото) — уже */
+  /* picture — framed */
   > :first-child {
-    flex: 0 1 50%;
-    min-width: 0; // важно, чтобы мог сжиматься
+    flex: 0 1 48%;
+    min-width: 0;
   }
 }
 
+/* ===== Picture block (premium frame + fade) ===== */
+.picture {
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
 
-/* Mobile-first: базовый (самый маленький) размер */
+  background:
+    radial-gradient(700px 240px at 30% 0%, rgba(255, 106, 0, 0.14), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,0.55),
+    0 0 26px rgba(255, 106, 0, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+
+  @include tablet-m {
+    min-width: 520px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+
+    /* cinematic */
+    filter: contrast(1.04) saturate(1.02);
+    transform: scale(1.02);
+  }
+
+  /* fade to dark for readability near text */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.55) 100%);
+
+    @include tablet-m {
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.65) 100%);
+    }
+  }
+}
+
+/* ===== Icon + timeline look ===== */
 .iconWrapper {
   width: 58px;
   aspect-ratio: 1;
@@ -67,35 +159,54 @@
   align-items: center;
   justify-content: center;
 
-  background-color: #1e1e1e;
-  border: 1px solid #E6D2AA;
+  background:
+    radial-gradient(120px 120px at 30% 20%, rgba(255, 106, 0, 0.12), transparent 60%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.92), rgba(10, 10, 10, 0.96));
+
+  border: 1px solid rgba(255, 106, 0, 0.35);
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.55),
+    0 0 18px rgba(255, 106, 0, 0.12),
+    inset 0 1px 0 rgba(255,255,255,0.06);
 
   flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 106, 0, 0.55);
+    box-shadow:
+      0 18px 44px rgba(0, 0, 0, 0.60),
+      0 0 26px rgba(255, 106, 0, 0.18);
+  }
 }
 
-/* Иконка масштабируется вместе с кругом */
 .icon {
-  width: 60%;
+  width: 58%;
   height: auto;
   display: block;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.45));
 }
 
-/* На более широких экранах — увеличиваем */
+/* scale icons on bigger screens */
 @include mobile-xl {
-  .iconWrapper {
-    width: 70px;
-  }
+  .iconWrapper { width: 70px; }
 }
-
 @include tablet-m {
-  .iconWrapper {
-    width: 85px;
-  }
+  .iconWrapper { width: 85px; }
+}
+@include tablet-l {
+  .iconWrapper { width: 96px; }
 }
 
-@include tablet-l {
-  .iconWrapper {
-    width: 100px;
-  }
+/* ===== Line component styling (only if Line renders an element we can target) =====
+   Если Line — это div с классом, лучше добавить класс в компонент.
+   Но можно попробовать глобально тонко подкрасить hr/line внутри секции. */
+.advantagesSection :global(hr),
+.advantagesSection :global(.line),
+.advantagesSection :global([data-line]) {
+  opacity: 0.7;
+  filter: drop-shadow(0 0 12px rgba(255, 106, 0, 0.18));
 }
