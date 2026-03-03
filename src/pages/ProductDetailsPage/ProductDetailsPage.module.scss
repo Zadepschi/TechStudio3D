@@ -205,9 +205,7 @@
   font-weight: 600;
 }
 
-.list li :global(*) {
-  /* protects from nested tags */
-}
+
 
 .actions {
   display: flex;
