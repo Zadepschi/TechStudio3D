@@ -35,21 +35,22 @@ export default function ProductDetailsPage() {
         ← Back to products
       </Link>
 
-      {/* Верхняя зона: слева фото, справа title + specs + CTA */}
+      {/* ВСЕГДА сверху: tag + title + subtitle + meta */}
+      <div className={styles.pageHeader}>
+
+        <h1 className={styles.title}>{product.title}</h1>
+       {/* <p className={styles.subtitle}>{product.subtitle}</p>  */}
+
+        <div className={styles.meta}>
+          <Meta label="Category" value={product.category} />
+        </div>
+      </div>
+
+      {/* Верхняя зона: слева фото, справа specs + CTA */}
       <div className={styles.top}>
         <ProductGallery images={product.images} title={product.title} />
 
         <div className={styles.right}>
-          <div className={styles.header}>
-            {product.tag ? <div className={styles.tag}>{product.tag}</div> : null}
-            <h1 className={styles.title}>{product.title}</h1>
-            <p className={styles.subtitle}>{product.subtitle}</p>
-
-            <div className={styles.meta}>
-              <Meta label="Category" value={product.category} />
-            </div>
-          </div>
-
           {specs ? (
             <section className={styles.specs}>
               <h2 className={styles.h2}>Specifications</h2>
@@ -112,7 +113,9 @@ export default function ProductDetailsPage() {
           <section className={styles.section}>
             <h2 className={styles.h2}>Description</h2>
 
-            {description ? <p className={styles.description}>{description}</p> : null}
+            {description ? (
+              <p className={styles.description}>{description}</p>
+            ) : null}
 
             {benefits?.length ? (
               <ul className={styles.bullets}>
