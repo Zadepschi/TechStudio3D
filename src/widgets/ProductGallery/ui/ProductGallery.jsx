@@ -14,17 +14,17 @@ export function ProductGallery({ images = [], title = "" }) {
   const goPrev = () => setActiveIndex((i) => clampIndex(i - 1));
   const goNext = () => setActiveIndex((i) => clampIndex(i + 1));
 
-  // клавиатура для слайдера (когда НЕ fullscreen)
+  // клавиатура для обычного слайдера (НЕ fullscreen)
   useEffect(() => {
     const onKey = (e) => {
       if (isLightboxOpen) return;
       if (e.key === "ArrowLeft") goPrev();
       if (e.key === "ArrowRight") goNext();
     };
+
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLightboxOpen, safeImages.length]);
+  }, [isLightboxOpen]);
 
   if (!safeImages.length) {
     return <div className={styles.empty}>No images</div>;
@@ -35,13 +35,12 @@ export function ProductGallery({ images = [], title = "" }) {
   return (
     <>
       <div className={styles.gallery}>
-        {/* MAIN */}
         <div className={styles.main}>
           <button
             type="button"
             className={styles.navBtn}
-            aria-label="Previous image"
             onClick={goPrev}
+            aria-label="Previous image"
           >
             ‹
           </button>
@@ -56,62 +55,49 @@ export function ProductGallery({ images = [], title = "" }) {
               className={styles.mainImage}
               src={activeSrc}
               alt={`${title} — image ${activeIndex + 1}`}
-              loading="eager"
             />
           </button>
 
           <button
             type="button"
             className={styles.navBtn}
-            aria-label="Next image"
             onClick={goNext}
+            aria-label="Next image"
           >
             ›
           </button>
         </div>
 
-        {/* THUMBS */}
-        <div className={styles.thumbs} role="list" aria-label="Product images">
-          {safeImages.map((src, idx) => {
-            const isActive = idx === activeIndex;
-            return (
-              <button
-                key={`${src}-${idx}`}
-                type="button"
-                role="listitem"
-                className={`${styles.thumbBtn} ${isActive ? styles.active : ""}`}
-                onClick={() => setActiveIndex(idx)}
-                aria-label={`Show image ${idx + 1}`}
-                aria-current={isActive ? "true" : "false"}
-              >
-                <img
-                  className={styles.thumbImg}
-                  src={src}
-                  alt=""
-                  loading="lazy"
-                />
-              </button>
-            );
-          })}
+        <div className={styles.thumbs}>
+          {safeImages.map((src, idx) => (
+            <button
+              key={idx}
+              className={`${styles.thumbBtn} ${
+                idx === activeIndex ? styles.active : ""
+              }`}
+              onClick={() => setActiveIndex(idx)}
+            >
+              <img className={styles.thumbImg} src={src} alt="" />
+            </button>
+          ))}
         </div>
       </div>
 
       {isLightboxOpen && (
         <Lightbox
           images={safeImages}
-          title={title}
           startIndex={activeIndex}
+          title={title}
           onClose={() => setIsLightboxOpen(false)}
-          onChangeIndex={(idx) => setActiveIndex(idx)}
+          onChangeIndex={(i) => setActiveIndex(i)}
         />
       )}
     </>
   );
 }
 
-function Lightbox({ images, title, startIndex, onClose, onChangeIndex }) {
+function Lightbox({ images, startIndex, title, onClose, onChangeIndex }) {
   const [index, setIndex] = useState(startIndex);
-  const overlayRef = useRef(null);
 
   const clampIndex = (i) => (i + images.length) % images.length;
   const goPrev = () => setIndex((i) => clampIndex(i - 1));
@@ -122,9 +108,9 @@ function Lightbox({ images, title, startIndex, onClose, onChangeIndex }) {
     onChangeIndex(index);
   }, [index, onChangeIndex]);
 
-  // focus + esc + arrows
+  // блокируем скролл страницы
   useEffect(() => {
-    const prevOverflow = document.body.style.overflow;
+    const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     const onKey = (e) => {
@@ -134,65 +120,67 @@ function Lightbox({ images, title, startIndex, onClose, onChangeIndex }) {
     };
 
     window.addEventListener("keydown", onKey);
-    overlayRef.current?.focus();
 
     return () => {
-      document.body.style.overflow = prevOverflow;
+      document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [onClose]);
 
-  const src = images[index];
+  // swipe
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+
+  const onTouchStart = (e) => {
+    const t = e.touches[0];
+    touchStartX.current = t.clientX;
+    touchStartY.current = t.clientY;
+  };
+
+  const onTouchEnd = (e) => {
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStartX.current;
+    const dy = t.clientY - touchStartY.current;
+
+    if (Math.abs(dy) > Math.abs(dx)) return;
+
+    const threshold = 50;
+    if (dx > threshold) goPrev();
+    if (dx < -threshold) goNext();
+  };
 
   return (
     <div
       className={styles.lbOverlay}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Image viewer"
-      tabIndex={-1}
-      ref={overlayRef}
       onMouseDown={(e) => {
-        // закрыть по клику на фон
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <button
-        type="button"
-        className={styles.lbClose}
-        aria-label="Close"
-        onClick={onClose}
-      >
+      <button className={styles.lbClose} onClick={onClose}>
         ✕
       </button>
 
-      <button
-        type="button"
-        className={styles.lbNav}
-        aria-label="Previous"
-        onClick={goPrev}
-      >
+      <button className={styles.lbNav} onClick={goPrev}>
         ‹
       </button>
 
-      <figure className={styles.lbFigure}>
+      <figure
+        className={styles.lbFigure}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <img
           className={styles.lbImage}
-          src={src}
-          alt={`${title} — image ${index + 1} fullscreen`}
+          src={images[index]}
+          alt={`${title} fullscreen`}
+          draggable={false}
         />
         <figcaption className={styles.lbCaption}>
           {index + 1} / {images.length}
         </figcaption>
       </figure>
 
-      <button
-        type="button"
-        className={styles.lbNav}
-        aria-label="Next"
-        onClick={goNext}
-      >
+      <button className={styles.lbNav} onClick={goNext}>
         ›
       </button>
     </div>
