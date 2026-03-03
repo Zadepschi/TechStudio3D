@@ -1,3 +1,4 @@
+// ProductDetailsPage.jsx
 import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { mockProducts } from "@/entities/Product/Model";
@@ -35,20 +36,18 @@ export default function ProductDetailsPage() {
         ← Back to products
       </Link>
 
-      {/* ВСЕГДА сверху: tag + title + subtitle + meta */}
       <div className={styles.pageHeader}>
-
         <h1 className={styles.title}>{product.title}</h1>
-       {/* <p className={styles.subtitle}>{product.subtitle}</p>  */}
 
         <div className={styles.meta}>
           <Meta label="Category" value={product.category} />
         </div>
       </div>
 
-      {/* Верхняя зона: слева фото, справа specs + CTA */}
       <div className={styles.top}>
-        <ProductGallery images={product.images} title={product.title} />
+        <div className={styles.left}>
+          <ProductGallery images={product.images} title={product.title} />
+        </div>
 
         <div className={styles.right}>
           {specs ? (
@@ -107,7 +106,6 @@ export default function ProductDetailsPage() {
         </div>
       </div>
 
-      {/* Нижняя зона: description + benefits (коротко) + what's included */}
       <div className={styles.bottom}>
         {(description || benefits?.length) && (
           <section className={styles.section}>
