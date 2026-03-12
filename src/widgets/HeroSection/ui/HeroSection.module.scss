@@ -2,14 +2,15 @@
 
 .hero {
   position: relative;
-  min-height: clamp(640px, 90vh, 920px);
+  min-height: calc(100vh - 70px);
+  min-height: calc(100svh - 70px);
   width: 100%;
   display: flex;
   align-items: center;
 
- background-size: contain;
-background-position: right center;
-background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
 
   padding: clamp(18px, 3vw, 56px);
   isolation: isolate;
@@ -19,8 +20,8 @@ background-repeat: no-repeat;
 /* ===== ЛОГО ПОВЕРХ ФОТО ===== */
 .logoOutside {
   position: absolute;
-   top: clamp(8px, 1.5vw, 24px);     // выше
-  left: clamp(180px, 10vw, 180px); 
+  top: clamp(8px, 1.5vw, 24px);
+  left: clamp(180px, 10vw, 180px);
   z-index: 5;
 
   font-size: clamp(48px, 6vw, 96px);
@@ -72,128 +73,107 @@ background-repeat: no-repeat;
 }
 
 /* контейнер glow сегментов */
-.card::before{
-  content:"";
-  position:absolute;
-  inset:-1px;                 /* вровень с твоим border */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
   border-radius: inherit;
-  pointer-events:none;
+  pointer-events: none;
   z-index: 1;
 
-  /* "энергия" по кругу */
   background:
     conic-gradient(
       from var(--a),
       transparent 0deg,
-      rgba(255,140,0,0.0) 40deg,
-      rgba(255,190,90,0.95) 60deg,
-      rgba(255,140,0,0.0) 85deg,
+      rgba(255, 140, 0, 0) 40deg,
+      rgba(255, 190, 90, 0.95) 60deg,
+      rgba(255, 140, 0, 0) 85deg,
       transparent 140deg,
       transparent 360deg
     );
 
-  /* Оставляем только рамку (толщина = 1px) */
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 
-  padding: 1px;              /* толщина "рамки" */
+  padding: 1px;
   opacity: 0.95;
 
   filter:
-    drop-shadow(0 0 10px rgba(255,140,0,0.55))
-    drop-shadow(0 0 22px rgba(255,140,0,0.35));
+    drop-shadow(0 0 10px rgba(255, 140, 0, 0.55))
+    drop-shadow(0 0 22px rgba(255, 140, 0, 0.35));
 
   animation: borderOrbit 5.5s linear infinite;
 }
 
-/* мягкая "внутренняя подсветка" (по желанию, но красиво) */
-.card::after{
-  content:"";
-  position:absolute;
+/* мягкая внутренняя подсветка */
+.card::after {
+  content: "";
+  position: absolute;
   inset: 0;
   border-radius: inherit;
-  pointer-events:none;
+  pointer-events: none;
   z-index: 0;
 
   background:
-    radial-gradient(120% 80% at 20% 10%,
-      rgba(255,140,0,0.14),
-      transparent 55%);
+    radial-gradient(
+      120% 80% at 20% 10%,
+      rgba(255, 140, 0, 0.14),
+      transparent 55%
+    );
 
   opacity: 0.9;
 }
 
-@keyframes borderOrbit{
-  to { --a: 360deg; }
+@keyframes borderOrbit {
+  to {
+    --a: 360deg;
+  }
 }
 
-/* регистрируем переменную, чтобы анимация была плавной */
-@property --a{
+@property --a {
   syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
 }
 
+/* hover glow */
 .card:hover::before {
   background:
-    linear-gradient(180deg, transparent, rgba(255,140,0,1), transparent)
-      left 0 top 28% / 2px 30% no-repeat,
-
-    linear-gradient(90deg, transparent, rgba(255,140,0,1), transparent)
-      left 32% top 0 / 32% 2px no-repeat,
-
-    linear-gradient(180deg, transparent, rgba(255,140,0,0.95), transparent)
-      right 0 bottom 22% / 2px 22% no-repeat;
-
-  filter:
-    drop-shadow(0 0 10px rgba(255,130,0,0.55))
-    drop-shadow(0 0 18px rgba(255,130,0,0.25));
-}
-
-/* hover усиление */
-.card:hover::before {
-  background:
-
     linear-gradient(
       180deg,
       transparent,
-      rgba(255,140,0,1),
+      rgba(255, 140, 0, 1),
       transparent
     ) left 0 top 28% / 2px 30% no-repeat,
-
     linear-gradient(
       90deg,
       transparent,
-      rgba(255,140,0,1),
+      rgba(255, 140, 0, 1),
       transparent
     ) left 32% top 0 / 32% 2px no-repeat,
-
     linear-gradient(
       180deg,
       transparent,
-      rgba(255,140,0,0.95),
+      rgba(255, 140, 0, 0.95),
       transparent
     ) right 0 bottom 22% / 2px 22% no-repeat;
 
-  filter: drop-shadow(0 0 10px rgba(255,130,0,0.55))
-          drop-shadow(0 0 18px rgba(255,130,0,0.25));
+  filter:
+    drop-shadow(0 0 10px rgba(255, 130, 0, 0.55))
+    drop-shadow(0 0 18px rgba(255, 130, 0, 0.25));
 }
-
-
 
 /* hover card */
 .card:hover {
-
-  border-color: rgba(255,140,0,0.35);
+  border-color: rgba(255, 140, 0, 0.35);
 
   box-shadow:
-    inset 0 0 0 1px rgba(0,0,0,0.35),
-    0 28px 78px rgba(0,0,0,0.75);
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 28px 78px rgba(0, 0, 0, 0.75);
 }
-
 
 /* ===== Лого ===== */
 .logo {
@@ -217,8 +197,6 @@ background-repeat: no-repeat;
 
   font-family: var(--font-poiret-one);
   font-weight: 600;
-
-  /* уменьшили размер */
   font-size: clamp(20px, 2vw, 32px);
 
   color: rgba(255, 255, 255, 0.95);
@@ -264,7 +242,10 @@ background-repeat: no-repeat;
     0 10px 28px rgba(255, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.22);
 
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -335,17 +316,14 @@ background-repeat: no-repeat;
   color: #ffffff;
   text-transform: uppercase;
 
-  /* базовый фон */
   background: linear-gradient(
     180deg,
     rgba(32, 32, 32, 0.95) 0%,
     rgba(18, 18, 18, 0.95) 100%
   );
 
-  /* border с Amazon-подсветкой */
   border: 1px solid rgba(255, 153, 0, 0.35);
 
-  /* мягкое премиальное свечение */
   box-shadow:
     0 0 0 1px rgba(255, 153, 0, 0.15) inset,
     0 4px 14px rgba(255, 153, 0, 0.18);
@@ -383,23 +361,35 @@ background-repeat: no-repeat;
   }
 }
 
-/* ===== Адаптация: на маленьких экранах делаем градиент сильнее и карточку шире ===== */
-@include tablet-m {
+/* ===== Планшеты и экраны < 1500px ===== */
+@media (max-width: 1500px) {
   .hero {
+    flex-direction: column;
+    align-items: flex-start;
     padding: clamp(18px, 3vw, 56px) clamp(18px, 4vw, 84px);
   }
 
   .card {
+    margin-top: auto;
+    margin-bottom: 20px;
     padding: clamp(26px, 2.8vw, 46px);
+  }
+
+  .logoOutside {
+    left: clamp(80px, 10vw, 180px);
   }
 }
 
-/* Мобилка — карточка на всю ширину, фон центрируем */
+/* ===== Мобильные ===== */
 @media (max-width: 767px) {
   .hero {
     align-items: flex-start;
     padding-top: 22px;
     background-position: center;
+  }
+
+  .logoOutside {
+    left: clamp(20px, 10vw, 180px);
   }
 
   .backdrop {
