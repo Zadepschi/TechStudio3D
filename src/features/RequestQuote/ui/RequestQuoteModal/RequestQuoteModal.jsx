@@ -1,5 +1,5 @@
 import cls from "./RequestQuoteModal.module.scss";
-import { RequestQuoteForm } from "./RequestQuoteForm.jsx";
+import { RequestQuoteForm } from "../RequestQuoteForm/RequestQuoteForm";
 
 export function RequestQuoteModal({ isOpen, onClose }) {
   if (!isOpen) return null;

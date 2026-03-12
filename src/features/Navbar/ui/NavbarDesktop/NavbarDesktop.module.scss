@@ -1,70 +1,66 @@
 @use "@/app/styles/vars.scss" as *;
 @use "@/app/styles/media-queries.scss" as *;
 
-/* ===== NAV CONTAINER ===== */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .navigation {
   display: flex;
-  gap: 20px;
-  list-style: none;
-
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
 
+  list-style: none;
   margin: 0;
-  padding: 0 ;
-  
+  padding: 12px 0;
 }
 
-
-/* ===== NAV BUTTON ===== */
 .navigationButton {
-  border: 0;
-  cursor: pointer;
-
-  padding: 10px 16px;
-  border-radius: 999px;
-
-  background: transparent;
-
-  /* FONT — ставим здесь */
-  font-family: var(--font-poiret-one);
-
-  font-size: 16px;        /* было 13px → стало читаемо */
-  font-weight: 400;       /* Poiret One не имеет bold, 400 — максимум */
-  letter-spacing: 0.12em; /* critical для premium look */
-
-  text-transform: uppercase;
-  text-decoration: none;
-
-  color: rgba(255, 255, 255, 0.78);
+  position: relative;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  position: relative;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
   outline: none;
+  cursor: pointer;
+
+  background: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  font-family: var(--font-poiret-one);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1;
+
+  color: rgba(255, 255, 255, 0.78);
 
   transition:
     color 160ms ease,
     background 160ms ease,
-    transform 160ms ease;
+    transform 160ms ease,
+    box-shadow 160ms ease;
 }
-
-
-/* ===== UNDERLINE BASE ===== */
 
 .navigationButton::after {
   content: "";
-
   position: absolute;
-
   left: 14px;
   right: 14px;
   bottom: 6px;
 
   height: 2px;
+  opacity: 0;
+  transform: scaleX(0.6);
 
   background: linear-gradient(
     90deg,
@@ -73,25 +69,20 @@
     transparent
   );
 
-  opacity: 0;
-
-  transform: scaleX(0.6);
-
   transition:
     opacity 180ms ease,
     transform 180ms ease,
-    box-shadow 180ms ease,
     background 180ms ease;
 }
 
+.navigationButton:hover {
+  transform: translateY(-1px);
+  color: rgba(255, 255, 255, 0.94);
 
-/* ===== HOVER EFFECT ===== */
-
-
+}
 
 .navigationButton:hover::after {
   opacity: 1;
-
   transform: scaleX(1);
 
   background: linear-gradient(
@@ -100,19 +91,71 @@
     rgba(255, 140, 0, 0.75),
     transparent
   );
-
-
 }
 
+.navigationButton:focus-visible {
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 140, 0, 0.05);
+}
 
+.navigationButton:focus-visible::after {
+  opacity: 0;
+  transform: scaleX(0.6);
 
-/* ===== OPTIONAL: subtle hover background (premium look) ===== */
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 140, 0, 0),
+    transparent
+  );
+}
 
+.navigationButton:active {
+  transform: translateY(0);
+}
 
-/* ===== DESKTOP SIZE ===== */
+.navigationButton:active::after {
+  opacity: 1;
+  transform: scaleX(1);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 140, 0, 0.9),
+    transparent
+  );
+}
+
+.navigationButtonActive {
+  color: rgba(255, 255, 255, 0.78);
+  background: transparent;
+}
+
+.navigationButtonActive::after {
+  opacity: 0;
+  transform: scaleX(0.6);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 140, 0, 0),
+    transparent
+  );
+}
 
 @include desktop-l {
+  .navigation {
+    gap: 24px;
+  }
+
   .navigationButton {
     min-width: 100px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigationButton,
+  .navigationButton::after {
+    transition: none;
   }
 }

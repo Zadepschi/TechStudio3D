@@ -1,12 +1,15 @@
-// ProductDetailsPage.jsx
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { mockProducts } from "@/entities/Product/Model";
+import { ProductSpecs } from "@/entities/Product/ui/ProductSpecs/ProductSpecs";
+import { ProductDescription } from "@/entities/Product/ui/ProductDescription/ProductDescription";
 import { ProductGallery } from "@/widgets/ProductGallery";
+import { RequestQuoteButton, RequestQuoteModal } from "@/features/RequestQuote";
 import styles from "./ProductDetailsPage.module.scss";
 
 export default function ProductDetailsPage() {
   const { slug } = useParams();
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   const product = useMemo(
     () => mockProducts.find((item) => item.slug === slug),
@@ -23,12 +26,15 @@ export default function ProductDetailsPage() {
     );
   }
 
+  const openQuote = () => setIsQuoteOpen(true);
+  const closeQuote = () => setIsQuoteOpen(false);
+
   const whatsappLink =
     product.contacts?.whatsapp ||
     "https://wa.me/15550001111?text=" +
       encodeURIComponent(`Hello! I want a quote for ${product.title}.`);
 
-  const { specs, benefits, whatsIncluded, description } = product;
+  const { specs, benefits, description } = product;
 
   return (
     <div className={styles.wrap}>
@@ -50,49 +56,10 @@ export default function ProductDetailsPage() {
         </div>
 
         <div className={styles.right}>
-          {specs ? (
-            <section className={styles.specs}>
-              <h2 className={styles.h2}>Specifications</h2>
-
-              <ul className={styles.list}>
-                {specs.caliber ? (
-                  <li>
-                    <b>Caliber:</b> {specs.caliber}
-                  </li>
-                ) : null}
-                {specs.platform ? (
-                  <li>
-                    <b>Platform:</b> {specs.platform}
-                  </li>
-                ) : null}
-                {specs.material ? (
-                  <li>
-                    <b>Material:</b> {specs.material}
-                  </li>
-                ) : null}
-                {specs.color ? (
-                  <li>
-                    <b>Color:</b> {specs.color}
-                  </li>
-                ) : null}
-                {specs.inert ? (
-                  <li>
-                    <b>Inert:</b> {specs.inert}
-                  </li>
-                ) : null}
-                {specs.packOptions?.length ? (
-                  <li>
-                    <b>Pack options:</b> {specs.packOptions.join(", ")}
-                  </li>
-                ) : null}
-              </ul>
-            </section>
-          ) : null}
+          <ProductSpecs specs={specs} />
 
           <div className={styles.actions}>
-            <button className={styles.primaryBtn} type="button">
-              Request a Quote
-            </button>
+            <RequestQuoteButton onClick={openQuote} />
 
             <a
               className={styles.secondaryBtn}
@@ -107,35 +74,16 @@ export default function ProductDetailsPage() {
       </div>
 
       <div className={styles.bottom}>
-        {(description || benefits?.length) && (
-          <section className={styles.section}>
-            <h2 className={styles.h2}>Description</h2>
-
-            {description ? (
-              <p className={styles.description}>{description}</p>
-            ) : null}
-
-            {benefits?.length ? (
-              <ul className={styles.bullets}>
-                {benefits.slice(0, 5).map((t) => (
-                  <li key={t}>{t}</li>
-                ))}
-              </ul>
-            ) : null}
-          </section>
-        )}
-
-        {whatsIncluded?.length ? (
-          <section className={styles.section}>
-            <h2 className={styles.h2}>What’s included</h2>
-            <ul className={styles.bullets}>
-              {whatsIncluded.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
+        <ProductDescription
+          description={description}
+          benefits={benefits}
+        />
       </div>
+
+      <RequestQuoteModal
+        isOpen={isQuoteOpen}
+        onClose={closeQuote}
+      />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 @use "@/app/styles/vars.scss" as *;
 @use "@/app/styles/media-queries.scss" as *;
+@use "@/app/styles/mixins.scss" as *;
 
 .navbarMobile {
   position: relative;
@@ -28,40 +29,7 @@
 
   min-height: 100dvh;
 
-  /* ===== MULTI-LAYER PREMIUM BACKGROUND ===== */
-  background:
-
-    /* главный оранжевый glow справа (основной источник света) */
-    radial-gradient(
-      900px 500px at 88% 48%,
-      rgba(255, 140, 0, 0.18),
-      rgba(255, 140, 0, 0.10) 30%,
-      rgba(255, 140, 0, 0.04) 48%,
-      transparent 70%
-    ),
-
-    /* secondary glow слева для баланса */
-    radial-gradient(
-      700px 420px at 12% 60%,
-      rgba(255, 140, 0, 0.10),
-      rgba(255, 140, 0, 0.04) 40%,
-      transparent 70%
-    ),
-
-    /* верхний мягкий ambient свет */
-    radial-gradient(
-      1200px 400px at 50% -10%,
-      rgba(255, 255, 255, 0.05),
-      transparent 60%
-    ),
-
-    /* базовый premium dark */
-    linear-gradient(
-      180deg,
-      #0c0c0c 0%,
-      #080808 50%,
-      #050505 100%
-    );
+ @include ambient-orange-bg;
 
   backdrop-filter: blur(16px);
 

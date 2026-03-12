@@ -1,0 +1,78 @@
+.specs {
+  position: relative;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.75), rgba(12, 12, 12, 0.55));
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.62),
+    0 0 34px rgba(255, 140, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+  font-family: var(--font-lato);
+}
+
+.specs::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 200px at 15% 0%, rgba(255, 140, 0, 0.22), transparent 55%),
+    radial-gradient(700px 220px at 90% 110%, rgba(255, 80, 30, 0.18), transparent 60%);
+  opacity: 0.7;
+}
+
+.specs::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.10), transparent);
+  opacity: 0.8;
+}
+
+.h2 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.list li {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.list li b {
+  color: rgba(255, 255, 255, 0.70);
+  font-weight: 600;
+}
+
+@media (max-width: 980px) {
+  .list li {
+    grid-template-columns: 110px 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .list li {
+    grid-template-columns: 1fr;
+  }
+}

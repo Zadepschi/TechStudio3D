@@ -1,7 +1,19 @@
 import img9mm from "@/shared/assets/productsImages/9mm.webp";
+import img9mm1 from "@/shared/assets/productsImages/9mm1.webp";
+import img9mm2 from "@/shared/assets/productsImages/9mm2.webp";
+import img9mm3 from "@/shared/assets/productsImages/9mm3.webp";
+import img9mm4 from "@/shared/assets/productsImages/9mm4.webp";
+
 import img12ga from "@/shared/assets/productsImages/12ga.webp";
 import img223 from "@/shared/assets/productsImages/223.webp";
 import img308 from "@/shared/assets/productsImages/308win.webp";
+
+
+
+
+
+
+
 
 const baseBenefits = [
   "Safe & inert — no primer, no powder",
@@ -26,24 +38,24 @@ const baseContacts = {
 
 export const mockProducts = [
   {
-    slug: "p-308",
-    title: ".308 WINCHESTER",
+    slug: "p-9mm",
+    title: "9 mm LUGER",
     subtitle: "Dry Fire Training",
-    image: img308,
-    images: [img308, img12ga, img9mm, img223],
-    category: "rifles",
+    image: img9mm,
+    images: [img9mm, img9mm1, img9mm2, img9mm3,img9mm4],
+    category: "pistols",
     popular: 98,
     price: 49,
-    isNew: true,
+    isNew: false,
     tag: "MOST POPULAR",
 
     description:
-      "Inert snap caps for safe, repeatable rifle training. Designed for dry fire practice, loading/unloading drills, and routine function checks with high-visibility identification.",
+       "Inert 9mm snap caps designed for safe, repeatable handgun training. Ideal for dry fire practice, malfunction drills, loading and unloading exercises, and routine function checks. High-visibility orange color ensures clear identification during training.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".308 Winchester",
-      platform: "Rifles (bolt-action & semi-auto)",
-      material: "Matte inert polymer",
+      caliber: "9×19 mm Blank",
+      platform: "Blank-firing pistols, SMG & carbines",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
@@ -79,7 +91,7 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-9mm",
+    slug: "p-9mmvv",
     title: "9mm LUGER",
     subtitle: "Handgun Training",
     image: img9mm,

@@ -1,111 +1,203 @@
-@use './media-queries.scss' as *;
+@use "@/app/styles/vars.scss" as *;
+@use "@/app/styles/media-queries.scss" as *;
 
 @mixin section-style {
-    width: 100%;
-    padding: 0 20px;
-    margin: auto;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
 
-    @include tablet-l {
-        padding: 0 30px;
-    }
-
-    @include desktop-m {
-        width: 1200px;
-        padding: 0 40px;
-    }
-
-    @include desktop-l {
-        width: 1280px;
-        padding: 0;
-    }
-
-    @include desktop-xl {
-        width: 1400px;
-    }
+  @include tablet-l {
+    padding: 0 32px;
+  }
 }
 
-@mixin section-style-admin {
-    width: 100%;
-    margin: auto;
-    padding: 4rem 1rem;
+@mixin ambient-orange-bg {
+  background:
+    radial-gradient(
+      900px 500px at 88% 48%,
+      rgba(255, 140, 0, 0.18),
+      rgba(255, 140, 0, 0.10) 30%,
+      rgba(255, 140, 0, 0.04) 48%,
+      transparent 70%
+    ),
+    radial-gradient(
+      700px 420px at 12% 60%,
+      rgba(255, 140, 0, 0.10),
+      rgba(255, 140, 0, 0.04) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      1200px 400px at 50% -10%,
+      rgba(255, 255, 255, 0.05),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #0c0c0c 0%,
+      #080808 50%,
+      #050505 100%
+    );
 
-    @include tablet-m {
-        padding: 4rem 2.5rem;
-        margin-left: 320px !important;
-    }
-
-    @include tablet-l {
-        width: 92%;
-    }
-
-    @include tablet-l {
-        width: 80%;
-    }
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-@mixin dashed-border {
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='black' stroke-width='2' stroke-dasharray='8%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+@mixin glow-frame(
+  $radius: 20px,
+  $color: rgba(255, 106, 0, 0.25),
+  $glow: rgba(255, 106, 0, 0.16)
+) {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: $radius;
+    box-shadow:
+      0 0 0 1px $color,
+      0 0 30px $glow;
+    opacity: 0.85;
+  }
 }
 
-@mixin modal-style {
-    padding: 2.5rem 2rem 2rem 2rem;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--white);
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+@mixin section-surface(
+  $radius: 20px,
+  $border: rgba(255, 255, 255, 0.08),
+  $bg-start: rgba(18, 18, 18, 0.94),
+  $bg-end: rgba(10, 10, 10, 0.97)
+) {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius;
+  border: 1px solid $border;
 
-    @include tablet-m {
-        width: 80vw;
-    }
+  background:
+    radial-gradient(900px 520px at 85% 20%, rgba(255, 106, 0, 0.10), transparent 55%),
+    linear-gradient(180deg, $bg-start, $bg-end);
+
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-@mixin button-modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 237px;
-    transition: background-color 0.3s ease;
-    @include dashed-border;
+@mixin surface-texture(
+  $radius: 20px,
+  $opacity: 0.55
+) {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: $radius;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.04), transparent 40%);
+    opacity: $opacity;
+    mix-blend-mode: overlay;
+  }
 }
 
-@mixin form-style {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    overflow-y: auto;
-    padding-right: 5px;
-    width: 100%;
-    height: 100%;
+@mixin section-title(
+  $color: rgba(255, 255, 255, 0.92)
+) {
+  font-family: var(--font-poiret-one);
+
+  font-size: clamp(32px, 3vw, 48px);
+  font-weight: 400;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  line-height: 1.1;
+  color: $color;
+
+  margin: 0;
 }
 
-@mixin placeholder {
-    font-family: var(--font-lato);
-    font-size: var(--font-size-xxs);
-    color: var(--gray-dark-color);
+@mixin readable-text(
+  $max-width: 58ch,
+  $color: rgba(255, 255, 255, 0.80),
+  $line-height: 1.65
+) {
+  text-align: left;
+  text-indent: 0;
+  hyphens: none;
+  max-width: $max-width;
+
+  color: $color;
+  line-height: $line-height;
+  opacity: 0.98;
 }
 
-@mixin placeholder-support {
-    &::placeholder {
-        @include placeholder;
-    }
+@mixin accent-card(
+  $radius: 14px,
+  $outline: rgba(255, 106, 0, 0.18)
+) {
+  padding: 18px 18px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: $radius;
+  outline: 1px solid $outline;
 
-    &::-webkit-input-placeholder {
-        @include placeholder;
-    }
+  background:
+    radial-gradient(600px 240px at 30% 0%, rgba(255, 106, 0, 0.14), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
 
-    &:-moz-placeholder {
-        @include placeholder;
-    }
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(255, 106, 0, 0.10);
+}
 
-    &::-moz-placeholder {
-        @include placeholder;
-    }
+@mixin glowing-orange-button {
+  border: none;
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 
-    &:-ms-input-placeholder {
-        @include placeholder;
-    }
+  background:
+    radial-gradient(
+      120% 170% at 20% 10%,
+      rgba(255, 190, 90, 0.35),
+      rgba(255, 140, 0, 0.18) 48%,
+      rgba(255, 140, 0, 0.10) 100%
+    );
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.62),
+    0 0 34px rgba(255, 140, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  transition: transform 0.14s ease, filter 0.2s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -40%;
+    width: 60%;
+    height: 220%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.18),
+      transparent
+    );
+    transform: rotate(18deg);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.5s ease;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
+  }
+
+  &:hover::after {
+    opacity: 1;
+    transform: translateX(160%) rotate(18deg);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }

@@ -8,7 +8,12 @@ export const Navbar = () => {
   const { hash, pathname } = useLocation();
 
   return (
-    <Stack tag="nav" aria-label="Main navigation" align="center" >
+    <Stack
+      tag="nav"
+      aria-label="Main navigation"
+      align="center"
+      className={style.navbar}
+    >
       <ul className={style.navigation}>
         {Object.values(navigation).map(({ text, path }) => {
           const to = `/#${path}`;

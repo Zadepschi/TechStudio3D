@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ValidationError } from "@formspree/react";
-import { useRequestQuoteForm } from "../model/useRequestQuoteForm";
+import { useRequestQuoteForm } from "../../model/useRequestQuoteForm";
 import styles from "./RequestQuoteForm.module.scss";
 
 const CALIBERS = [

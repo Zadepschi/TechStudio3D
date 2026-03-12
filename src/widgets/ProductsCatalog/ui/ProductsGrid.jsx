@@ -1,4 +1,4 @@
-import { ProductCard } from "@/entities/Product/ui/ProductCard";
+import { ProductCard } from "@/entities/Product";
 
 export function ProductsGrid({
   products,
