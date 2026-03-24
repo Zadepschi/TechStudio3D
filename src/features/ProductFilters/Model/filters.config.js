@@ -9,6 +9,5 @@ export const TABS = [
 export const SORTS = [
   { key: "popular", label: "Sort: Popular" },
   { key: "new", label: "Sort: New" },
-  { key: "priceAsc", label: "Sort: Price ↑" },
-  { key: "priceDesc", label: "Sort: Price ↓" },
+
 ];

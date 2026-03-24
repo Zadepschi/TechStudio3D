@@ -1,11 +1,8 @@
-
-@use "@/app/styles/vars.scss" as *;
-
 .form {
   display: flex;
   flex-direction: column;
   gap: 16px;
-   font-family: var(--font-lato);
+  font-family: var(--font-lato);
 }
 
 /* LABELS */
@@ -13,6 +10,7 @@
   font-size: 14px;
   font-weight: 500;
   color: #f5f5f5;
+  font-family: var(--font-poiret-one); // акцент оставляем
 }
 
 /* INPUTS / TEXTAREA */
@@ -25,6 +23,7 @@
   background: rgba(20, 20, 20, 0.9);
   color: #fff;
   font-size: 14px;
+  font-family: var(--font-lato); // 👈 явно Lato
   transition: 0.2s ease;
 
   &:focus {
@@ -39,8 +38,7 @@
   resize: vertical;
 }
 
-/* ===== CALIBER DROPDOWN ===== */
-
+/* DROPDOWN */
 .dropdownButton {
   width: 100%;
   padding: 12px 14px;
@@ -50,11 +48,18 @@
   color: #fff;
   text-align: left;
   cursor: pointer;
-  transition: 0.2s ease;
   position: relative;
+  font-family: var(--font-lato); // 👈 тоже Lato
+  transition: 0.2s ease;
 
   &:hover {
     border-color: rgba(255, 123, 0, 0.6);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #ff7b00;
+    box-shadow: 0 0 0 2px rgba(255, 123, 0, 0.2);
   }
 
   &:after {
@@ -67,7 +72,7 @@
   }
 }
 
-/* OPEN PANEL */
+/* PANEL */
 .dropdownPanel {
   margin-top: 8px;
   padding: 14px;
@@ -77,7 +82,6 @@
   max-height: 260px;
   overflow-y: auto;
 
-  /* nice custom scrollbar */
   &::-webkit-scrollbar {
     width: 6px;
   }
@@ -88,7 +92,7 @@
   }
 }
 
-/* CHECKBOX ROW */
+/* CHECKBOX */
 .checkboxLabel {
   display: flex;
   align-items: center;
@@ -97,6 +101,7 @@
   font-size: 14px;
   color: #f2f2f2;
   cursor: pointer;
+  font-family: var(--font-lato); // 👈 тоже Lato
 
   input {
     accent-color: #ff7b00;
@@ -105,7 +110,7 @@
   }
 }
 
-/* SMALL ACTION BUTTONS */
+/* ACTION BUTTONS */
 .dropdownActions {
   display: flex;
   gap: 8px;
@@ -120,14 +125,17 @@
   color: #ff7b00;
   cursor: pointer;
   font-size: 12px;
+  font-family: var(--font-lato); // 👈 Lato
+  transition: 0.2s ease;
 
   &:hover {
     background: rgba(255, 123, 0, 0.25);
   }
 }
 
-/* SUBMIT BUTTON */
+/* MAIN BUTTON */
 .submitBtn {
+  width: 100%;
   margin-top: 8px;
   padding: 12px 16px;
   border-radius: 12px;
@@ -136,10 +144,11 @@
   color: #fff;
   font-weight: 600;
   cursor: pointer;
+  font-family: var(--font-lato); // 👈 Lato
   transition: 0.2s ease;
 
   &:hover {
-    transform: translateY(-1px);
+    transform: translateY(-0.5px);
     box-shadow: 0 6px 16px rgba(255, 123, 0, 0.35);
   }
 
@@ -148,16 +157,19 @@
     cursor: not-allowed;
   }
 }
+
 .wrapper {
   position: relative;
 }
 
-.success {
-  margin-bottom: 12px;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 123, 0, 0.35);
-  background: rgba(255, 123, 0, 0.12);
-  color: #fff;
+.fieldError {
+  margin-top: 6px;
   font-size: 14px;
+  line-height: 1.35;
+  color: #ff6b6b;
+  font-family: var(--font-lato); // 👈 Lato
+}
+
+.inputError {
+  border-color: #ff6b6b;
 }

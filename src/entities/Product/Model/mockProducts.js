@@ -38,12 +38,12 @@ const baseContacts = {
 
 export const mockProducts = [
   {
-    slug: "p-9mm",
-    title: "9 mm LUGER",
+    slug: "9mm-luger-polymer",
+    title: "9mm Luger — Inert Polymer Rounds",
     subtitle: "Dry Fire Training",
     image: img9mm,
     images: [img9mm, img9mm1, img9mm2, img9mm3,img9mm4],
-    category: "pistols",
+    category: "handgun",
     popular: 98,
     price: 49,
     isNew: false,
@@ -53,8 +53,8 @@ export const mockProducts = [
        "Inert 9mm snap caps designed for safe, repeatable handgun training. Ideal for dry fire practice, malfunction drills, loading and unloading exercises, and routine function checks. High-visibility orange color ensures clear identification during training.",
     benefits: baseBenefits,
     specs: {
-      caliber: "9×19 mm Blank",
-      platform: "Blank-firing pistols, SMG & carbines",
+      caliber: "9×19mm Luger",
+      platform: "Semi-auto pistols, SMGs & carbines",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
