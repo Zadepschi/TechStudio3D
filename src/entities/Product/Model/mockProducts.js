@@ -1,12 +1,111 @@
-import img9mm from "@/shared/assets/productsImages/9mm.webp";
-import img9mm1 from "@/shared/assets/productsImages/9mm1.webp";
-import img9mm2 from "@/shared/assets/productsImages/9mm2.webp";
-import img9mm3 from "@/shared/assets/productsImages/9mm3.webp";
-import img9mm4 from "@/shared/assets/productsImages/9mm4.webp";
+import img9mm from "@/shared/assets/productsImages/9mm-pla/9mm.webp";
+import img9mm1 from "@/shared/assets/productsImages/9mm-pla/9mm1.webp";
+import img9mm2 from "@/shared/assets/productsImages/9mm-pla/9mm2.webp";
+import img9mm3 from "@/shared/assets/productsImages/9mm-pla/9mm3.webp";
+import img9mm4 from "@/shared/assets/productsImages/9mm-pla/9mm4.webp";
 
-import img12ga from "@/shared/assets/productsImages/12ga.webp";
-import img223 from "@/shared/assets/productsImages/223.webp";
-import img308 from "@/shared/assets/productsImages/308win.webp";
+import img9mmBrass1 from "@/shared/assets/productsImages/9mm-brass/Brass1.webp";
+import img9mmBrass2 from "@/shared/assets/productsImages/9mm-brass/Brass2.webp";
+import img9mmBrass3 from "@/shared/assets/productsImages/9mm-brass/Brass3.webp";
+import img9mmBrass4 from "@/shared/assets/productsImages/9mm-brass/Brass4.webp";
+import img9mmBrass5 from "@/shared/assets/productsImages/9mm-brass/Brass5.webp";
+import img9mmBrass6 from "@/shared/assets/productsImages/9mm-brass/Brass6.webp";
+import img9mmBrass7 from "@/shared/assets/productsImages/9mm-brass/Brass7.webp";
+
+import img44Mag1 from "@/shared/assets/productsImages/44Mag/44Mag1.webp";
+import img44Mag2 from "@/shared/assets/productsImages/44Mag/44Mag2.webp";
+import img44Mag3 from "@/shared/assets/productsImages/44Mag/44Mag3.webp";
+import img44Mag4 from "@/shared/assets/productsImages/44Mag/44Mag4.webp";
+import img44Mag5 from "@/shared/assets/productsImages/44Mag/44Mag5.webp";
+import img44Mag6 from "@/shared/assets/productsImages/44Mag/44Mag6.webp";
+
+import img12ga1 from "@/shared/assets/productsImages/12gauge/12Ga1.webp";
+import img12ga2 from "@/shared/assets/productsImages/12gauge/12Ga2.webp";
+import img12ga3 from "@/shared/assets/productsImages/12gauge/12Ga3.webp";
+import img12ga4 from "@/shared/assets/productsImages/12gauge/12Ga4.webp";
+import img12ga5 from "@/shared/assets/productsImages/12gauge/12Ga5.webp";
+import img12ga6 from "@/shared/assets/productsImages/12gauge/12Ga6.webp";
+
+import img40sw1 from "@/shared/assets/productsImages/40sw/40sw1.webp";
+import img40sw2 from "@/shared/assets/productsImages/40sw/40sw2.webp";
+import img40sw3 from "@/shared/assets/productsImages/40sw/40sw3.webp";
+import img40sw4 from "@/shared/assets/productsImages/40sw/40sw4.webp";
+import img40sw5 from "@/shared/assets/productsImages/40sw/40sw5.webp";
+import img40sw6 from "@/shared/assets/productsImages/40sw/40sw6.webp";
+import img40sw7 from "@/shared/assets/productsImages/40sw/40sw7.webp";
+
+import img22lr1 from "@/shared/assets/productsImages/22lr/22lr1.webp";
+import img22lr2 from "@/shared/assets/productsImages/22lr/22lr2.webp";
+import img22lr3 from "@/shared/assets/productsImages/22lr/22lr3.webp";
+import img22lr4 from "@/shared/assets/productsImages/22lr/22lr4.webp";
+import img22lr5 from "@/shared/assets/productsImages/22lr/22lr5.webp";
+import img22lr6 from "@/shared/assets/productsImages/22lr/22lr6.webp";
+
+import imgNeon1 from "@/shared/assets/productsImages/9mm-neon/Neon1.webp";
+import imgNeon2 from "@/shared/assets/productsImages/9mm-neon/Neon2.webp";
+import imgNeon3 from "@/shared/assets/productsImages/9mm-neon/Neon3.webp";
+import imgNeon4 from "@/shared/assets/productsImages/9mm-neon/Neon4.webp";
+import imgNeon5 from "@/shared/assets/productsImages/9mm-neon/Neon5.webp";
+import imgNeon6 from "@/shared/assets/productsImages/9mm-neon/Neon6.webp";
+import imgNeon7 from "@/shared/assets/productsImages/9mm-neon/Neon7.webp";
+
+import img308win1 from "@/shared/assets/productsImages/308win/308win1.webp";
+import img308win2 from "@/shared/assets/productsImages/308win/308win2.webp";
+import img308win3 from "@/shared/assets/productsImages/308win/308win3.webp";
+import img308win4 from "@/shared/assets/productsImages/308win/308win4.webp";
+import img308win5 from "@/shared/assets/productsImages/308win/308win5.webp";
+import img308win6 from "@/shared/assets/productsImages/308win/308win6.webp";
+
+import img380acp1 from "@/shared/assets/productsImages/380acp/380acp1.webp";
+import img380acp2 from "@/shared/assets/productsImages/380acp/380acp2.webp";
+import img380acp3 from "@/shared/assets/productsImages/380acp/380acp3.webp";
+import img380acp4 from "@/shared/assets/productsImages/380acp/380acp4.webp";
+import img380acp5 from "@/shared/assets/productsImages/380acp/380acp5.webp";
+
+import img10mm1 from "@/shared/assets/productsImages/10mm-pla/10mm1.webp";
+import img10mm2 from "@/shared/assets/productsImages/10mm-pla/10mm2.webp";
+import img10mm3 from "@/shared/assets/productsImages/10mm-pla/10mm3.webp";
+import img10mm4 from "@/shared/assets/productsImages/10mm-pla/10mm4.webp";
+import img10mm5 from "@/shared/assets/productsImages/10mm-pla/10mm5.webp";
+import img10mm6 from "@/shared/assets/productsImages/10mm-pla/10mm6.webp";
+import img10mm7 from "@/shared/assets/productsImages/10mm-pla/10mm7.webp";
+
+import img357sig1 from "@/shared/assets/productsImages/357sig/357sig1.webp";
+import img357sig2 from "@/shared/assets/productsImages/357sig/357sig2.webp";
+import img357sig3 from "@/shared/assets/productsImages/357sig/357sig3.webp";
+import img357sig4 from "@/shared/assets/productsImages/357sig/357sig4.webp";
+import img357sig5 from "@/shared/assets/productsImages/357sig/357sig5.webp";
+import img357sig6 from "@/shared/assets/productsImages/357sig/357sig6.webp";
+
+import img45acp1 from "@/shared/assets/productsImages/45acp/45acp1.webp";
+import img45acp2 from "@/shared/assets/productsImages/45acp/45acp2.webp";
+import img45acp3 from "@/shared/assets/productsImages/45acp/45acp3.webp";
+import img45acp4 from "@/shared/assets/productsImages/45acp/45acp4.webp";
+import img45acp5 from "@/shared/assets/productsImages/45acp/45acp5.webp";
+
+import img38spl1 from "@/shared/assets/productsImages/38spl/38spl1.webp";
+import img38spl2 from "@/shared/assets/productsImages/38spl/38spl2.webp";
+import img38spl3 from "@/shared/assets/productsImages/38spl/38spl3.webp";
+import img38spl4 from "@/shared/assets/productsImages/38spl/38spl4.webp";
+import img38spl5 from "@/shared/assets/productsImages/38spl/38spl5.webp";
+import img38spl6 from "@/shared/assets/productsImages/38spl/38spl6.webp";
+
+import img223rem1 from "@/shared/assets/productsImages/223rem/223rem1.webp";
+import img223rem2 from "@/shared/assets/productsImages/223rem/223rem2.webp";
+import img223rem3 from "@/shared/assets/productsImages/223rem/223rem3.webp";
+import img223rem4 from "@/shared/assets/productsImages/223rem/223rem4.webp";
+import img223rem5 from "@/shared/assets/productsImages/223rem/223rem5.webp";
+import img223rem6 from "@/shared/assets/productsImages/223rem/223rem6.webp";
+
+import imgfn1 from "@/shared/assets/productsImages/fn5.7×28mm/fn5.7-1.webp";
+import imgfn2 from "@/shared/assets/productsImages/fn5.7×28mm/fn5.7-2.webp";
+import imgfn3 from "@/shared/assets/productsImages/fn5.7×28mm/fn5.7-3.webp";
+import imgfn4 from "@/shared/assets/productsImages/fn5.7×28mm/fn5.7-4.webp";
+import imgfn5 from "@/shared/assets/productsImages/fn5.7×28mm/fn5.7-5.webp";
+import imgfn6 from "@/shared/assets/productsImages/fn5.7×28mm/fn5.7-6.webp";
+import imgfn7 from "@/shared/assets/productsImages/fn5.7×28mm/fn5.7-4.webp";
+
+
 
 
 
@@ -65,12 +164,12 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-223",
-    title: ".223 REMINGTON",
+    slug: "44magnum",
+    title: ".44 Magnum",
     subtitle: "AR-15 Compatible",
-    image: img223,
-    images: [img223, img12ga, img9mm, img223],
-    category: "ar",
+    image: img44Mag1,
+    images: [img44Mag1, img44Mag2, img44Mag3, img44Mag4, img44Mag5, img44Mag6],
+    category: "Handgun",
     popular: 92,
     price: 39,
     isNew: true,
@@ -79,7 +178,7 @@ export const mockProducts = [
       "AR-platform oriented inert snap caps for safe practice and drills. Built for repeated handling, chambering, and basic function checks during dry fire routines.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".223 Remington",
+      caliber: ".44 Magnum",
       platform: "AR-15 platform rifles",
       material: "Matte inert polymer",
       color: "High-visibility orange",
@@ -91,11 +190,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-9mmvv",
-    title: "9mm LUGER",
+    slug: "9mm-luger-brass",
+    title: "9mm LUGER BRASS",
     subtitle: "Handgun Training",
-    image: img9mm,
-    images: [img9mm, img12ga, img9mm, img9mm],
+    image: img9mmBrass1,
+    images: [img9mmBrass1, img9mmBrass2, img9mmBrass3, img9mmBrass4, img9mmBrass5, img9mmBrass6, img9mmBrass7],
     category: "handgun",
     popular: 95,
     price: 35,
@@ -117,12 +216,12 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-12ga",
+    slug: "12gauge",
     title: "12 GAUGE",
     subtitle: "Shotgun Dummy Rounds",
-    image: img12ga,
-    images: [img12ga, img12ga, img12ga, img12ga],
-    category: "rifles",
+    image: img12ga1,
+    images: [img12ga1, img12ga2, img12ga3, img12ga4, img12ga5, img12ga6],
+    category: "Shotgun",
     popular: 74,
     price: 31,
     isNew: false,
@@ -143,11 +242,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-40sw-a",
+    slug: "40s&w",
     title: ".40 S&W",
     subtitle: "Pistol Snap Caps",
-    image: img9mm,
-    images: [img9mm, img12ga, img9mm, img9mm],
+    image: img40sw1,
+    images: [img40sw1, img40sw2, img40sw3, img40sw4, img40sw5, img40sw6, img40sw7],
     category: "handgun",
     popular: 78,
     price: 27,
@@ -169,11 +268,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-45acp-a",
-    title: ".45 ACP",
+    slug: "22lr",
+    title: "22 lr",
     subtitle: "Dry Fire Training",
-    image: img12ga,
-    images: [img12ga, img12ga, img12ga, img12ga],
+    image: img22lr1,
+    images: [img22lr1, img22lr2, img22lr3, img22lr4, img22lr5, img22lr6],
     category: "handgun",
     popular: 88,
     price: 33,
@@ -183,7 +282,7 @@ export const mockProducts = [
       "Inert .45 ACP snap caps for safe practice and repeated handling drills. Designed for function checks and dry fire routines with clear visual identification.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".45 ACP",
+      caliber: ".22 LR",
       platform: "Semi-auto pistols",
       material: "Matte inert polymer",
       color: "High-visibility orange",
@@ -195,11 +294,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-12ga-a",
-    title: "12 GAUGE",
+    slug: "9mm-neon-metal",
+    title: "9mm NEON METAL",
     subtitle: "Shotgun Dummy Rounds",
-    image: img12ga,
-    images: [img12ga, img12ga, img12ga, img12ga],
+    image: imgNeon1,
+    images: [imgNeon1, imgNeon2, imgNeon3, imgNeon4, imgNeon5, imgNeon6, imgNeon7],
     category: "rifles",
     popular: 74,
     price: 31,
@@ -209,7 +308,7 @@ export const mockProducts = [
       "Inert 12 gauge training rounds for safe practice sessions. Helps support consistent handling drills and basic function checks.",
     benefits: baseBenefits,
     specs: {
-      caliber: "12 Gauge",
+      caliber: "9 mm",
       platform: "Shotguns",
       material: "Matte inert polymer",
       color: "High-visibility orange",
@@ -221,11 +320,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-357",
-    title: ".357 MAGNUM",
+    slug: "308-winchester",
+    title: ".308 WINCHESTER",
     subtitle: "Revolver Basics",
-    image: img308,
-    images: [img308, img12ga, img308, img308],
+    image: img308win1,
+    images: [img308win1, img308win2, img308win3, img308win4, img308win5, img308win6],
     category: "revolver",
     popular: 80,
     price: 32,
@@ -235,7 +334,7 @@ export const mockProducts = [
       "Inert .357 Magnum snap caps for safe revolver practice and handling basics. High-visibility design supports easy identification during training routines.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".357 Magnum",
+      caliber: ".308 Winchester",
       platform: "Revolvers",
       material: "Matte inert polymer",
       color: "High-visibility orange",
@@ -247,11 +346,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-40sw-b",
-    title: ".40 S&W",
+    slug: "380-acp",
+    title: ".380 ACP",
     subtitle: "Pistol Snap Caps",
-    image: img223,
-    images: [img223, img12ga, img223, img223],
+    image: img380acp1,
+    images: [img380acp1, img380acp2, img380acp3, img380acp4, img380acp5],
     category: "handgun",
     popular: 70,
     price: 25,
@@ -261,7 +360,7 @@ export const mockProducts = [
       "Inert .40 S&W snap caps for safe drills, handling practice, and function checks. Suitable for repeated dry fire routines.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".40 S&W",
+      caliber: ".380 ACP",
       platform: "Semi-auto pistols",
       material: "Matte inert polymer",
       color: "High-visibility orange",
@@ -273,11 +372,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-45acp-b",
-    title: ".45 ACP",
+    slug: "10mm",
+    title: "10 mm",
     subtitle: "Dry Fire Training",
-    image: img308,
-    images: [img308, img12ga, img308, img308],
+    image: img10mm1,
+    images: [img10mm1, img10mm2, img10mm3, img10mm4, img10mm5, img10mm6, img10mm7],
     category: "handgun",
     popular: 84,
     price: 34,
@@ -287,7 +386,7 @@ export const mockProducts = [
       "Inert .45 ACP snap caps designed for safe practice sessions. Supports dry fire routines, manipulation drills, and routine checks.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".45 ACP",
+      caliber: "10 mm",
       platform: "Semi-auto pistols",
       material: "Matte inert polymer",
       color: "High-visibility orange",
@@ -299,11 +398,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-12ga-b",
-    title: "12 GAUGE",
+    slug: "357sig",
+    title: ".357 SIG",
     subtitle: "Shotgun Dummy Rounds",
-    image: img12ga,
-    images: [img12ga, img12ga, img12ga, img12ga],
+    image: img357sig1,
+    images: [img357sig1, img357sig2, img357sig3, img357sig4, img357sig5, img357sig6],
     category: "rifles",
     popular: 73,
     price: 30,
@@ -313,7 +412,7 @@ export const mockProducts = [
       "Inert 12 gauge dummy rounds for safe shotgun training workflows. High-visibility color supports quick identification during drills.",
     benefits: baseBenefits,
     specs: {
-      caliber: "12 Gauge",
+      caliber: ".357 SIG",
       platform: "Shotguns",
       material: "Matte inert polymer",
       color: "High-visibility orange",
@@ -325,11 +424,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-ar-kit",
-    title: "AR KIT",
+    slug: "45acp",
+    title: ".45 ACP",
     subtitle: "Platform Essentials",
-    image: img223,
-    images: [img223, img12ga, img223, img223],
+    image: img45acp1,
+    images: [img45acp1, img45acp2, img45acp3, img45acp4, img45acp5],
     category: "ar",
     popular: 86,
     price: 44,
@@ -339,7 +438,7 @@ export const mockProducts = [
       "A practical AR platform training bundle concept for safe, repeatable drills. Great for instruction environments and bulk purchase requests.",
     benefits: baseBenefits,
     specs: {
-      caliber: "Mixed (AR kit)",
+      caliber: ".45 ACP",
       platform: "AR platform rifles",
       material: "Matte inert polymer",
       color: "High-visibility orange",
@@ -351,11 +450,11 @@ export const mockProducts = [
   },
 
   {
-    slug: "p-rifle-kit",
-    title: "RIFLE KIT",
+    slug: "38special",
+    title: ".38 SPECIAL",
     subtitle: "Practice Pack",
-    image: img308,
-    images: [img308, img308, img308, img308],
+    image: img38spl1,
+    images: [img38spl1, img38spl2, img38spl3, img38spl4, img38spl5, img38spl6],
     category: "rifles",
     popular: 77,
     price: 42,
@@ -365,7 +464,7 @@ export const mockProducts = [
       "A rifle training bundle concept for safe practice routines and handling drills. Quote-based packs available for clubs and instructors.",
     benefits: baseBenefits,
     specs: {
-      caliber: "Mixed (Rifle kit)",
+      caliber: ".38 SPECIAL",
       platform: "Rifles",
       material: "Matte inert polymer",
       color: "High-visibility orange",
@@ -377,6 +476,31 @@ export const mockProducts = [
   },
 
   {
+    slug: "fn5.7*28mm",
+    title: ".FN 5.7x28mm",
+    subtitle: "Starter Bundle",
+    image: imgfn1,
+    images: [imgfn1, imgfn2, imgfn3, imgfn4, imgfn5, imgfn6, imgfn7],
+    category: "handgun",
+    popular: 90,
+    price: 46,
+    isNew: true,
+
+    description:
+      "A handgun starter bundle concept for safe dry fire routines and handling practice. Designed for training environments and bulk quote requests.",
+    benefits: baseBenefits,
+    specs: {
+      caliber: ".FN 5.7x28mm",
+      platform: "Semi-auto pistols",
+      material: "Matte inert polymer",
+      color: "High-visibility orange",
+      packOptions: ["Bundle / quote-based"],
+      inert: "No primer / no powder",
+    },
+    whatsIncluded: baseIncluded,
+    contacts: baseContacts,
+  },
+   {
     slug: "p-handgun-kit",
     title: "HANDGUN KIT",
     subtitle: "Starter Bundle",
