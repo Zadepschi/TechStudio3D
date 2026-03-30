@@ -6,8 +6,8 @@
   z-index: 9999;
 
   width: 100vw;
+  height: 100vh;
   height: 100dvh;
-  height: 100svh;
 
   background:
     radial-gradient(900px 520px at 20% 20%, rgba(255, 140, 0, 0.14), transparent 60%),
@@ -92,7 +92,6 @@
 .lbImage {
   max-width: 100%;
   max-height: calc(100dvh - 120px);
-  max-height: calc(100svh - 120px);
   object-fit: contain;
   display: block;
 
@@ -108,8 +107,6 @@
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* Responsive */
-
 @media (max-width: 768px) {
   .lbOverlay {
     grid-template-columns: 1fr;
@@ -122,13 +119,11 @@
 
   .lbImage {
     max-height: calc(100dvh - 170px);
-    max-height: calc(100svh - 170px);
   }
 
   .lbClose {
     top: auto;
     right: auto;
-
     left: 50%;
     transform: translateX(-50%);
     bottom: calc(14px + env(safe-area-inset-bottom));
