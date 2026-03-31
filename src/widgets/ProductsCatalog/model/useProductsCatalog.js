@@ -6,17 +6,19 @@ export function useProductsCatalog(products) {
   const [sort, setSort] = useState("popular");
   const [visibleCount, setVisibleCount] = useState(12);
 
-  // 🔹 Фильтрация + сортировка
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
 
     let list = products.filter((p) => {
-      const matchesTab = tab === "all" ? true : p.category === tab;
+      const matchesTab =
+        tab === "all"
+          ? true
+          : Array.isArray(p.category)
+            ? p.category.includes(tab)
+            : p.category === tab;
 
       const matchesQuery = q
-        ? `${p.title ?? ""} ${p.subtitle ?? ""}`
-            .toLowerCase()
-            .includes(q)
+        ? `${p.title ?? ""} ${p.subtitle ?? ""}`.toLowerCase().includes(q)
         : true;
 
       return matchesTab && matchesQuery;
@@ -46,12 +48,11 @@ export function useProductsCatalog(products) {
     return list;
   }, [products, query, tab, sort]);
 
-  // 🔹 Пагинация
   const shown = filtered.slice(0, visibleCount);
   const canShowMore = visibleCount < filtered.length;
 
   const showMore = () => {
-    setVisibleCount((v) => Math.min(v + 12, filtered.length));
+    setVisibleCount((prev) => Math.min(prev + 12, filtered.length));
   };
 
   const resetVisible = () => {
@@ -59,19 +60,14 @@ export function useProductsCatalog(products) {
   };
 
   return {
-    // state
     query,
     setQuery,
     tab,
     setTab,
     sort,
     setSort,
-
-    // data
     shown,
     canShowMore,
-
-    // actions
     showMore,
     resetVisible,
   };

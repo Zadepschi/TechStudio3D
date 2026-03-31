@@ -1,9 +1,10 @@
 export const TABS = [
   { key: "all", label: "All" },
-  { key: "rifles", label: "Rifles" },
-  { key: "ar", label: "AR Platform" },
   { key: "handgun", label: "Handgun" },
-  { key: "revolver", label: "Revolver" },
+  { key: "revolver", label: "Handgun – Revolver" },
+  { key: "rifle", label: "Rifle" },
+  { key: "shotgun", label: "Shotgun" },
+  { key: "rimfire", label: "Rimfire" },
 ];
 
 export const SORTS = [
