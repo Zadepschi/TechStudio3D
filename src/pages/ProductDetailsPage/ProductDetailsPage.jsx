@@ -5,6 +5,7 @@ import { ProductSpecs } from "@/entities/Product/ui/ProductSpecs/ProductSpecs";
 import { ProductDescription } from "@/entities/Product/ui/ProductDescription/ProductDescription";
 import { ProductGallery } from "@/widgets/ProductGallery";
 import { RequestQuoteButton, RequestQuoteModal } from "@/features/RequestQuote";
+import { TABS } from "@/features/ProductFilters/Model/filters.config";
 import styles from "./ProductDetailsPage.module.scss";
 
 export default function ProductDetailsPage() {
@@ -36,6 +37,8 @@ export default function ProductDetailsPage() {
 
   const { specs, benefits, description } = product;
 
+  const formattedCategory = formatCategory(product.category);
+
   return (
     <div className={styles.wrap}>
       <Link className={styles.back} to="/products">
@@ -46,7 +49,7 @@ export default function ProductDetailsPage() {
         <h1 className={styles.title}>{product.title}</h1>
 
         <div className={styles.meta}>
-          <Meta label="Category" value={product.category} />
+          <Meta label="Category" value={formattedCategory} />
         </div>
       </div>
 
@@ -95,4 +98,18 @@ function Meta({ label, value }) {
       <div className={styles.metaValue}>{value}</div>
     </div>
   );
+}
+
+function formatCategory(category) {
+  if (!category) return "";
+
+  const categories = Array.isArray(category) ? category : [category];
+
+  return categories
+    .map((key) => getCategoryLabel(key))
+    .join(" / ");
+}
+
+function getCategoryLabel(key) {
+  return TABS.find((tab) => tab.key === key)?.label || key;
 }
