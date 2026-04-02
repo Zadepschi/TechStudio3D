@@ -1,15 +1,17 @@
+import styles from "./ProductSort.module.scss";
+
 export function ProductSort({
   value,
   onChange,
-  options,
+  options = [],
   ariaLabel = "Sort",
-  wrapClassName,
-  selectClassName,
+  wrapClassName = "",
+  selectClassName = "",
 }) {
   return (
-    <div className={wrapClassName}>
+    <div className={`${styles.sortWrap} ${wrapClassName}`}>
       <select
-        className={selectClassName}
+        className={`${styles.sortSelect} ${selectClassName}`}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         aria-label={ariaLabel}

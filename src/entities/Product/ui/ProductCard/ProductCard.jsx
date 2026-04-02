@@ -31,7 +31,7 @@ export function ProductCard({ product }) {
       <div className={styles.cardBody}>
         <h3 className={styles.cardTitle}>{p.title}</h3>
 
-        {/* Если на главной нет subtitle — можно показать caliber, но стилем как subtitle */}
+
         <p className={styles.cardSub}>
           {p.subtitle ? p.subtitle : p.caliber ? `Caliber: ${p.caliber}` : ""}
         </p>

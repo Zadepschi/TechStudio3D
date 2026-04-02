@@ -137,14 +137,14 @@ const baseContacts = {
 
 export const mockProducts = [
   {
-    slug: "9mm-luger-polymer",
-    title: "9mm Luger — Inert Polymer Rounds",
+    slug: "9mm-pla",
+    title: "9mm PLA",
     subtitle: "Dry Fire Training",
     image: img9mm,
     images: [img9mm, img9mm1, img9mm2, img9mm3,img9mm4],
     category: ["handgun"],
     type: "Snap caps (inert training rounds)",
-    popular: 98,
+    popular: 100,
     price: 49,
     isNew: false,
     tag: "MOST POPULAR",
@@ -153,7 +153,7 @@ export const mockProducts = [
        "Inert 9mm Luger snap caps made from lightweight PLA polymer, designed for safe and repeatable handgun training. Ideal for dry fire practice, trigger control, and everyday handling drills.   High-visibility orange color allows quick identification, while the reusable design makes them perfect for regular training sessions.",
     benefits: baseBenefits,
     specs: {
-      caliber: "9×19mm Luger",
+      caliber: "9×19mm Luger", 
       platform: "Semi-auto pistols, SMGs & carbines",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
@@ -171,16 +171,16 @@ export const mockProducts = [
     image: img44Mag1,
     images: [img44Mag1, img44Mag2, img44Mag3, img44Mag4, img44Mag5, img44Mag6],
     category: ["revolver", "handgun"],
-    popular: 92,
+    popular: 70,
     price: 39,
-    isNew: true,
+    isNew: false,
 
     description:
       "Heavy-duty .44 Magnum snap caps designed for revolver training and dry fire practice. Ideal for handling drills and cylinder loading exercises. Provides safe training for powerful revolver platforms.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".44 Magnum",
-      platform: "AR-15 platform rifles",
+      caliber: ".44 Remington Magnum",
+      platform: "Revolvers",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
@@ -191,24 +191,24 @@ export const mockProducts = [
   },
 
   {
-    slug: "9mm-luger-brass",
-    title: "9mm LUGER BRASS",
+    slug: "9mm-brass",
+    title: "9mm Brass",
     subtitle: "Handgun Training",
     image: img9mmBrass1,
     images: [img9mmBrass1, img9mmBrass2, img9mmBrass3, img9mmBrass4, img9mmBrass5, img9mmBrass6, img9mmBrass7],
     category: ["handgun"],
-    popular: 95,
+    popular: 99,
     price: 35,
-    isNew: true,
-
+    isNew: false,
+    tag: "MOST POPULAR",
     description:
-      "9mm Luger brass snap caps designed for realistic weight and reliable feeding during training. Perfect for dry fire practice, malfunction drills, and magazine handling exercises. Durable brass construction closely simulates live ammunition for a more authentic training experience.",
+      "9mm Luger brass snap caps designed for realistic size and reliable feeding during training. Perfect for dry fire practice, malfunction drills, and magazine handling exercises. Durable brass construction closely simulates live ammunition for a more authentic training experience.",
     benefits: baseBenefits,
     specs: {
-      caliber: "9mm Luger",
-      platform: "Semi-auto pistols",
-      material: "Matte inert polymer",
-      color: "High-visibility orange",
+      caliber: "9×19mm Luger",
+      platform: "Semi-auto pistols, SMGs & carbines" ,
+      material: "Brass casing",
+      color: "Brass & high-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
     },
@@ -223,7 +223,7 @@ export const mockProducts = [
     image: img12ga1,
     images: [img12ga1, img12ga2, img12ga3, img12ga4, img12ga5, img12ga6],
     category: ["shotgun"],
-    popular: 74,
+    popular: 92,
     price: 31,
     isNew: false,
 
@@ -232,7 +232,7 @@ export const mockProducts = [
     benefits: baseBenefits,
     specs: {
       caliber: "12 Gauge",
-      platform: "Shotguns",
+      platform: "Shotguns (pump-action & semi-auto)",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
@@ -249,7 +249,7 @@ export const mockProducts = [
     image: img40sw1,
     images: [img40sw1, img40sw2, img40sw3, img40sw4, img40sw5, img40sw6, img40sw7],
     category: ["handgun"],
-    popular: 78,
+    popular: 80,
     price: 27,
     isNew: false,
 
@@ -257,7 +257,7 @@ export const mockProducts = [
       ".40 S&W snap caps for safe and controlled firearm training. Perfect for dry fire drills, trigger practice, and malfunction simulations. Designed to improve handling skills while protecting internal firearm components.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".40 S&W",
+      caliber: ".40 Smith & Wesson",
       platform: "Semi-auto pistols",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
@@ -270,12 +270,12 @@ export const mockProducts = [
 
   {
     slug: "22lr",
-    title: "22 lr",
+    title: ".22 lr",
     subtitle: "Dry Fire Training",
     image: img22lr1,
     images: [img22lr1, img22lr2, img22lr3, img22lr4, img22lr5, img22lr6],
     category: ["rimfire"],
-    popular: 88,
+    popular: 95,
     price: 33,
     isNew: false,
 
@@ -283,8 +283,8 @@ export const mockProducts = [
       ".22 LR snap caps designed for safe rimfire training and dry fire practice. Ideal for beginner shooters, training drills, and firearm maintenance checks. Lightweight and easy to use across a wide range of firearms.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".22 LR",
-      platform: "Semi-auto pistols",
+      caliber: ".22 Long Rifle",
+      platform: "Rimfire pistols & rifles" ,
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
@@ -295,24 +295,24 @@ export const mockProducts = [
   },
 
   {
-    slug: "9mm-neon-metal",
-    title: "9mm NEON METAL",
+    slug: "9mm-metal",
+    title: "9mm Metal",
     subtitle: "Shotgun Dummy Rounds",
     image: imgNeon1,
     images: [imgNeon1, imgNeon2, imgNeon3, imgNeon4, imgNeon5, imgNeon6, imgNeon7],
     category: ["handgun"],
-    popular: 74,
+    popular: 97,
     price: 31,
     isNew: false,
-
+    tag: "MOST POPULAR",
     description:
       "Durable 9mm metal snap caps built for intensive training and repeated use. Designed for dry fire practice, cycling drills, and firearm function testing.  Metal construction ensures extended lifespan and consistent performance.",
     benefits: baseBenefits,
     specs: {
-      caliber: "9 mm",
-      platform: "Shotguns",
-      material: "Matte inert polymer",
-      color: "High-visibility orange",
+      caliber: "9×19mm Luger",
+      platform: "Semi-auto pistols, SMGs & carbines",
+      material: "Metal alloy",
+      color: "Metal casing with high-visibility neon yellow tip",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
     },
@@ -327,7 +327,7 @@ export const mockProducts = [
     image: img308win1,
     images: [img308win1, img308win2, img308win3, img308win4, img308win5, img308win6],
     category: ["rifle"],
-    popular: 80,
+    popular: 85,
     price: 32,
     isNew: false,
 
@@ -336,7 +336,7 @@ export const mockProducts = [
     benefits: baseBenefits,
     specs: {
       caliber: ".308 Winchester",
-      platform: "Revolvers",
+      platform: "Rifles (bolt-action & semi-auto)" ,
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
@@ -353,7 +353,7 @@ export const mockProducts = [
     image: img380acp1,
     images: [img380acp1, img380acp2, img380acp3, img380acp4, img380acp5],
     category: ["handgun"],
-    popular: 70,
+    popular: 78,
     price: 25,
     isNew: false,
 
@@ -362,7 +362,7 @@ export const mockProducts = [
     benefits: baseBenefits,
     specs: {
       caliber: ".380 ACP",
-      platform: "Semi-auto pistols",
+      platform: "Compact & subcompact pistols",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
@@ -374,12 +374,12 @@ export const mockProducts = [
 
   {
     slug: "10mm",
-    title: "10 mm",
+    title: "10mm",
     subtitle: "Dry Fire Training",
     image: img10mm1,
     images: [img10mm1, img10mm2, img10mm3, img10mm4, img10mm5, img10mm6, img10mm7],
     category: ["handgun"],
-    popular: 84,
+    popular: 83,
     price: 34,
     isNew: false,
 
@@ -387,7 +387,7 @@ export const mockProducts = [
       "Inert 10mm snap caps designed for safe handgun training and dry fire practice. Ideal for recoil management drills, loading exercises, and firearm handling. Bright color ensures clear identification and added safety during training sessions.",
     benefits: baseBenefits,
     specs: {
-      caliber: "10 mm",
+      caliber: "10mm Auto",
       platform: "Semi-auto pistols",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
@@ -407,14 +407,14 @@ export const mockProducts = [
     category: ["handgun"],
     popular: 73,
     price: 30,
-    isNew: false,
+    isNew: true,
 
     description:
       ".357 SIG snap caps built for high-performance handgun training. Ideal for dry fire drills, reload practice, and malfunction simulations. Supports consistent training without live ammunition risks.",
     benefits: baseBenefits,
     specs: {
       caliber: ".357 SIG",
-      platform: "Shotguns",
+      platform: "Semi-auto pistols",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
@@ -431,7 +431,7 @@ export const mockProducts = [
     image: img45acp1,
     images: [img45acp1, img45acp2, img45acp3, img45acp4, img45acp5],
     category: ["handgun"],
-    popular: 86,
+    popular: 90,
     price: 44,
     isNew: true,
 
@@ -440,7 +440,7 @@ export const mockProducts = [
     benefits: baseBenefits,
     specs: {
       caliber: ".45 ACP",
-      platform: "AR platform rifles",
+      platform: "Semi-auto pistols",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["Bundle / quote-based"],
@@ -457,7 +457,7 @@ export const mockProducts = [
     image: img38spl1,
     images: [img38spl1, img38spl2, img38spl3, img38spl4, img38spl5, img38spl6],
     category: ["revolver", "handgun"],
-    popular: 77,
+    popular: 76,
     price: 42,
     isNew: false,
 
@@ -465,8 +465,8 @@ export const mockProducts = [
       ".38 Special snap caps for safe revolver training and dry fire practice. Perfect for trigger control, loading drills, and firearm familiarization. Designed for consistent and repeatable training sessions.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".38 SPECIAL",
-      platform: "Rifles",
+      caliber: ".38 Special",
+      platform: "Revolvers",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["Bundle / quote-based"],
@@ -477,13 +477,13 @@ export const mockProducts = [
   },
 
   {
-    slug: "fn5.7*28mm",
-    title: ".FN 5.7x28mm",
+    slug: "5.7×28mm",
+    title: "FN 5.7×28mm", 
     subtitle: "Starter Bundle",
     image: imgfn1,
     images: [imgfn1, imgfn2, imgfn3, imgfn4, imgfn5, imgfn6, imgfn7],
     category: ["handgun"],
-    popular: 90,
+    popular: 88,
     price: 46,
     isNew: true,
 
@@ -491,8 +491,8 @@ export const mockProducts = [
       "FN 5.7×28mm snap caps designed for modern handgun and PDW training. Ideal for dry fire practice, magazine drills, and function testing. Supports safe and effective training for specialized platforms.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".FN 5.7x28mm",
-      platform: "Semi-auto pistols",
+      caliber: "5.7×28mm",
+      platform: "Semi-auto pistols & PDWs" ,
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["Bundle / quote-based"],
@@ -508,7 +508,7 @@ export const mockProducts = [
     image: img223rem1,
     images: [img223rem1, img223rem2, img223rem3, img223rem4, img223rem5, img223rem6],
     category: ["rifle"],
-    popular: 90,
+    popular: 94,
     price: 46,
     isNew: true,
 
@@ -516,8 +516,8 @@ export const mockProducts = [
       ".223 Remington snap caps designed for rifle training and AR-platform drills. Ideal for dry fire practice, malfunction clearing, and magazine handling. Provides safe and effective training for modern sporting rifles.",
     benefits: baseBenefits,
     specs: {
-      caliber: ".FN 5.7x28mm",
-      platform: "Semi-auto pistols",
+      caliber: ".223 Remington",
+      platform: "Rifles (AR-platform & bolt-action)",
       material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["Bundle / quote-based"],

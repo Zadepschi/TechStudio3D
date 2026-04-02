@@ -1,7 +1,9 @@
 
 
 export const CALIBERS = [
-  "9 mm",
+  "9 mm PLA",
+  "9 mm Metal",
+  "9 mm Brass",
   "10 mm",
   ".40 S&W",
   ".45 ACP",

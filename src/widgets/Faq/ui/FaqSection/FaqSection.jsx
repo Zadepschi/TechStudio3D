@@ -1,22 +1,16 @@
 import { useEffect, useState } from "react";
-import badge from '@/shared/assets/images/faq.webp'
+import badge from "@/shared/assets/images/faq.webp";
 
 import { FaqItem } from "../FaqItem/FaqItem";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 import { Stack } from "@/shared/ui/Stack/Stack";
 import { Typography } from "@/shared/ui/Typography";
-import { WhatsAppLink } from "@/shared/ui/WhatsAppLink";
 
 import styles from "./FaqSection.module.scss";
 import { faqApi } from "@/features/ManageFaq/api/faqApi";
-import { contactsApi } from "@/features/ManageContacts/api/contactsApi";
 
 export const FaqSection = () => {
   const [faqData, setFaqData] = useState({ items: [] });
-  const [contacts, setContacts] = useState({
-    phone: "",
-    whatsappMessage: "",
-  });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -35,28 +29,16 @@ export const FaqSection = () => {
     }
   };
 
-  const fetchContacts = async () => {
-    try {
-      const data = await contactsApi();
-      setContacts(data);
-    } catch (err) {
-      console.error("Error fetching contacts:", err);
-    }
-  };
-
   useEffect(() => {
     fetchFaq();
-    fetchContacts();
   }, []);
 
   return (
     <Stack tag="section" id="faq" direction="column" gap="32" className={styles.faq}>
       <Stack direction="column" gap="16">
-<h2 className={styles.headingStyle}>
-  <img src={badge} alt="FAQ" />
-</h2>
-
-
+        <h2 className={styles.headingStyle}>
+          <img src={badge} alt="FAQ" />
+        </h2>
 
         <Typography className={styles.textStyle}>
           Here are answers to the most frequently asked questions.
@@ -74,8 +56,6 @@ export const FaqSection = () => {
           ))
         )}
       </Stack>
-
-
     </Stack>
   );
 };

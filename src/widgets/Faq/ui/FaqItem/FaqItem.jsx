@@ -6,8 +6,6 @@ import { Typography } from "@/shared/ui/Typography";
 import { Button } from "@/shared/ui/Button/Button";
 
 export const FaqItem = memo(({ item, defaultOpen = false }) => {
-  if (!item) return null;
-
   const contentId = useId();
 
   const [isOpen, setIsOpen] = useState(defaultOpen);
@@ -17,17 +15,17 @@ export const FaqItem = memo(({ item, defaultOpen = false }) => {
     setIsOpen(defaultOpen);
   }, [defaultOpen]);
 
-  const question = item.question ?? "Question";
-  const hasVariants = Array.isArray(item.variants) && item.variants.length > 0;
+  const question = item?.question ?? "Question";
+  const hasVariants = Array.isArray(item?.variants) && item.variants.length > 0;
 
   const safeActiveVariant = useMemo(() => {
     if (!hasVariants) return 0;
     return Math.min(Math.max(activeVariant, 0), item.variants.length - 1);
-  }, [activeVariant, hasVariants, item.variants?.length]);
+  }, [activeVariant, hasVariants, item?.variants?.length]);
 
   const answer = hasVariants
-    ? item.variants[safeActiveVariant]?.answer ?? "Answer is unavailable"
-    : item.answer ?? "Answer is unavailable";
+    ? item?.variants?.[safeActiveVariant]?.answer ?? "Answer is unavailable"
+    : item?.answer ?? "Answer is unavailable";
 
   const toggle = () => setIsOpen((p) => !p);
 
@@ -37,6 +35,8 @@ export const FaqItem = memo(({ item, defaultOpen = false }) => {
       toggle();
     }
   };
+
+  if (!item) return null;
 
   return (
     <div className={styles.faqItem}>
@@ -78,32 +78,29 @@ export const FaqItem = memo(({ item, defaultOpen = false }) => {
                 const isActive = index === safeActiveVariant;
 
                 return (
-            <Button
-  key={v.label}
-  type="button"
-  size="xs"
-  variant={isActive ? "primary" : "secondary"}
-  className={styles.variantBtn}
-  data-active={isActive ? "true" : "false"}
-  ariaLabel={`Select ${v.label}`}
-  onClick={(e) => {
-    e.stopPropagation();
-    setActiveVariant(index);
-  }}
->
-  {v.label}
-</Button>
+                  <Button
+                    key={v.label}
+                    type="button"
+                    size="xs"
+                    variant={isActive ? "primary" : "secondary"}
+                    className={styles.variantBtn}
+                    data-active={isActive ? "true" : "false"}
+                    ariaLabel={`Select ${v.label}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveVariant(index);
+                    }}
+                  >
+                    {v.label}
+                  </Button>
                 );
               })}
             </Stack>
           )}
 
           <Typography className={styles.content}>{answer}</Typography>
-          
         </Stack>
       )}
     </div>
   );
 });
-
-
