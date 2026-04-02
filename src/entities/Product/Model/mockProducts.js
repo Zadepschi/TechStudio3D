@@ -143,13 +143,14 @@ export const mockProducts = [
     image: img9mm,
     images: [img9mm, img9mm1, img9mm2, img9mm3,img9mm4],
     category: ["handgun"],
+    type: "Snap caps (inert training rounds)",
     popular: 98,
     price: 49,
     isNew: false,
     tag: "MOST POPULAR",
 
     description:
-       "Inert 9mm snap caps designed for safe, repeatable handgun training. Ideal for dry fire practice, malfunction drills, loading and unloading exercises, and routine function checks. High-visibility orange color ensures clear identification during training.",
+       "Inert 9mm Luger snap caps made from lightweight PLA polymer, designed for safe and repeatable handgun training. Ideal for dry fire practice, trigger control, and everyday handling drills.   High-visibility orange color allows quick identification, while the reusable design makes them perfect for regular training sessions.",
     benefits: baseBenefits,
     specs: {
       caliber: "9×19mm Luger",
@@ -175,12 +176,12 @@ export const mockProducts = [
     isNew: true,
 
     description:
-      "AR-platform oriented inert snap caps for safe practice and drills. Built for repeated handling, chambering, and basic function checks during dry fire routines.",
+      "Heavy-duty .44 Magnum snap caps designed for revolver training and dry fire practice. Ideal for handling drills and cylinder loading exercises. Provides safe training for powerful revolver platforms.",
     benefits: baseBenefits,
     specs: {
       caliber: ".44 Magnum",
       platform: "AR-15 platform rifles",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
@@ -201,7 +202,7 @@ export const mockProducts = [
     isNew: true,
 
     description:
-      "Inert 9mm snap caps for safe handgun training and dry practice. Great for manipulation drills, reload practice, and routine function checks.",
+      "9mm Luger brass snap caps designed for realistic weight and reliable feeding during training. Perfect for dry fire practice, malfunction drills, and magazine handling exercises. Durable brass construction closely simulates live ammunition for a more authentic training experience.",
     benefits: baseBenefits,
     specs: {
       caliber: "9mm Luger",
@@ -227,12 +228,12 @@ export const mockProducts = [
     isNew: false,
 
     description:
-      "Inert dummy rounds for 12 gauge training workflows. Useful for safe loading/unloading practice and basic function checks with high-visibility identification.",
+      "12 Gauge snap caps designed for shotgun training and safe handling practice. Ideal for loading drills, pump-action cycling, and function checks. Perfect for both beginners and experienced shooters.",
     benefits: baseBenefits,
     specs: {
       caliber: "12 Gauge",
       platform: "Shotguns",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
@@ -253,12 +254,12 @@ export const mockProducts = [
     isNew: false,
 
     description:
-      "Inert .40 S&W snap caps for safe pistol training and repeated dry fire routines. High-visibility design supports easy identification during drills.",
+      ".40 S&W snap caps for safe and controlled firearm training. Perfect for dry fire drills, trigger practice, and malfunction simulations. Designed to improve handling skills while protecting internal firearm components.",
     benefits: baseBenefits,
     specs: {
       caliber: ".40 S&W",
       platform: "Semi-auto pistols",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
@@ -279,12 +280,12 @@ export const mockProducts = [
     isNew: false,
 
     description:
-      "Inert .45 ACP snap caps for safe practice and repeated handling drills. Designed for function checks and dry fire routines with clear visual identification.",
+      ".22 LR snap caps designed for safe rimfire training and dry fire practice. Ideal for beginner shooters, training drills, and firearm maintenance checks. Lightweight and easy to use across a wide range of firearms.",
     benefits: baseBenefits,
     specs: {
       caliber: ".22 LR",
       platform: "Semi-auto pistols",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
@@ -305,7 +306,7 @@ export const mockProducts = [
     isNew: false,
 
     description:
-      "Inert 12 gauge training rounds for safe practice sessions. Helps support consistent handling drills and basic function checks.",
+      "Durable 9mm metal snap caps built for intensive training and repeated use. Designed for dry fire practice, cycling drills, and firearm function testing.  Metal construction ensures extended lifespan and consistent performance.",
     benefits: baseBenefits,
     specs: {
       caliber: "9 mm",
@@ -331,12 +332,12 @@ export const mockProducts = [
     isNew: false,
 
     description:
-      "Inert .357 Magnum snap caps for safe revolver practice and handling basics. High-visibility design supports easy identification during training routines.",
+      ".308 Winchester snap caps built for precision rifle training and safe dry fire practice. Ideal for bolt-action rifles and long-range shooting preparation. Ensures safe handling and consistent training routines.",
     benefits: baseBenefits,
     specs: {
       caliber: ".308 Winchester",
       platform: "Revolvers",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
@@ -357,12 +358,12 @@ export const mockProducts = [
     isNew: false,
 
     description:
-      "Inert .40 S&W snap caps for safe drills, handling practice, and function checks. Suitable for repeated dry fire routines.",
+      "Compact .380 ACP snap caps designed for safe concealed carry training and dry fire practice. Ideal for subcompact pistols and everyday carry users. Lightweight and easy to identify, ensuring safe practice sessions.",
     benefits: baseBenefits,
     specs: {
       caliber: ".380 ACP",
       platform: "Semi-auto pistols",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
@@ -383,12 +384,12 @@ export const mockProducts = [
     isNew: false,
 
     description:
-      "Inert .45 ACP snap caps designed for safe practice sessions. Supports dry fire routines, manipulation drills, and routine checks.",
+      "Inert 10mm snap caps designed for safe handgun training and dry fire practice. Ideal for recoil management drills, loading exercises, and firearm handling. Bright color ensures clear identification and added safety during training sessions.",
     benefits: baseBenefits,
     specs: {
       caliber: "10 mm",
       platform: "Semi-auto pistols",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
@@ -409,12 +410,12 @@ export const mockProducts = [
     isNew: false,
 
     description:
-      "Inert 12 gauge dummy rounds for safe shotgun training workflows. High-visibility color supports quick identification during drills.",
+      ".357 SIG snap caps built for high-performance handgun training. Ideal for dry fire drills, reload practice, and malfunction simulations. Supports consistent training without live ammunition risks.",
     benefits: baseBenefits,
     specs: {
       caliber: ".357 SIG",
       platform: "Shotguns",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["5 pack", "10 pack", "20 pack"],
       inert: "No primer / no powder",
@@ -435,12 +436,12 @@ export const mockProducts = [
     isNew: true,
 
     description:
-      "A practical AR platform training bundle concept for safe, repeatable drills. Great for instruction environments and bulk purchase requests.",
+      "Inert .45 ACP snap caps engineered for reliable training and dry fire practice. Suitable for full-size handguns and tactical drills. Provides realistic handling without the risks of live ammunition.",
     benefits: baseBenefits,
     specs: {
       caliber: ".45 ACP",
       platform: "AR platform rifles",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["Bundle / quote-based"],
       inert: "No primer / no powder",
@@ -461,12 +462,12 @@ export const mockProducts = [
     isNew: false,
 
     description:
-      "A rifle training bundle concept for safe practice routines and handling drills. Quote-based packs available for clubs and instructors.",
+      ".38 Special snap caps for safe revolver training and dry fire practice. Perfect for trigger control, loading drills, and firearm familiarization. Designed for consistent and repeatable training sessions.",
     benefits: baseBenefits,
     specs: {
       caliber: ".38 SPECIAL",
       platform: "Rifles",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["Bundle / quote-based"],
       inert: "No primer / no powder",
@@ -487,12 +488,12 @@ export const mockProducts = [
     isNew: true,
 
     description:
-      "A handgun starter bundle concept for safe dry fire routines and handling practice. Designed for training environments and bulk quote requests.",
+      "FN 5.7×28mm snap caps designed for modern handgun and PDW training. Ideal for dry fire practice, magazine drills, and function testing. Supports safe and effective training for specialized platforms.",
     benefits: baseBenefits,
     specs: {
       caliber: ".FN 5.7x28mm",
       platform: "Semi-auto pistols",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["Bundle / quote-based"],
       inert: "No primer / no powder",
@@ -512,12 +513,12 @@ export const mockProducts = [
     isNew: true,
 
     description:
-      "A handgun starter bundle concept for safe dry fire routines and handling practice. Designed for training environments and bulk quote requests.",
+      ".223 Remington snap caps designed for rifle training and AR-platform drills. Ideal for dry fire practice, malfunction clearing, and magazine handling. Provides safe and effective training for modern sporting rifles.",
     benefits: baseBenefits,
     specs: {
       caliber: ".FN 5.7x28mm",
       platform: "Semi-auto pistols",
-      material: "Matte inert polymer",
+      material: "Durable PLA polymer",
       color: "High-visibility orange",
       packOptions: ["Bundle / quote-based"],
       inert: "No primer / no powder",
