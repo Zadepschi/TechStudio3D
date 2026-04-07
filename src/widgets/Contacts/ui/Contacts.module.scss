@@ -10,7 +10,7 @@
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-  padding: clamp(18px, 2.4vw, 40px);
+  padding: clamp(16px, 4vw, 40px);
 
   background:
     radial-gradient(900px 520px at 80% 15%, rgba(255, 106, 0, 0.10), transparent 58%),
@@ -61,28 +61,29 @@
   letter-spacing: 0.12em;
   margin: 0;
   color: rgba(255, 255, 255, 0.92);
-   font-family: var(--font-poiret-one);
+  font-family: var(--font-poiret-one);
   @include section-title;
-  
 }
 
 .contentGrid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: clamp(18px, 2.2vw, 34px);
-  align-items: start;
-  
-
-  @include mobile-xl {
-    grid-template-columns: 1fr 1.05fr;
-  }
+  align-items: stretch;
+  width: 100%;
 }
 
-
+.leftPanel,
+.rightPanel {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
 .leftPanel {
   border-radius: 18px;
-  padding: clamp(16px, 2vw, 28px);
+  padding: clamp(16px, 4vw, 28px);
 
   background:
     radial-gradient(700px 320px at 20% 0%, rgba(255, 106, 0, 0.12), transparent 60%),
@@ -92,12 +93,11 @@
   box-shadow:
     0 18px 44px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    align-self: center;
 }
 
 .rightPanel {
   border-radius: 18px;
-  padding: clamp(16px, 2vw, 28px);
+  padding: clamp(16px, 4vw, 28px);
 
   background:
     radial-gradient(700px 320px at 80% 0%, rgba(255, 106, 0, 0.12), transparent 60%),
@@ -127,6 +127,7 @@
   text-decoration: none;
   letter-spacing: 0.06em;
   transition: color 160ms ease, text-shadow 160ms ease;
+  word-break: break-word;
 
   &:hover {
     color: rgba(255, 140, 0, 0.95);
@@ -142,14 +143,32 @@
 
 .picture {
   width: 100%;
+  min-width: 0;
 
   img {
     width: 100%;
     height: 700px;
     object-fit: cover;
+    display: block;
   }
 }
 
 .ctaLink {
   margin-top: auto;
+}
+
+@media (min-width: 1078px) {
+  .contentGrid {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .leftPanel,
+  .rightPanel {
+    flex: 1 1 0;
+  }
+
+  .rightPanel {
+    flex: 1.05 1 0;
+  }
 }
