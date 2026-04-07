@@ -7,6 +7,7 @@ import { Typography } from "@/shared/ui/Typography";
 
 export const AdvantagesSection = () => {
   return (
+    <section id="advantages"> 
     <Stack
       tag="section"
       id="why-choose-us"
@@ -65,5 +66,6 @@ export const AdvantagesSection = () => {
         </Stack>
       </Stack>
     </Stack>
+     </section>
   );
 };
