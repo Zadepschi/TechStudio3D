@@ -139,7 +139,7 @@ export const mockProducts = [
   {
     slug: "9mm-pla",
     title: "9mm PLA",
-    subtitle: "Dry Fire Training",
+    subtitle: "Handgun Training • Polymer",
     image: img9mm,
     images: [img9mm, img9mm1, img9mm2, img9mm3,img9mm4],
     category: ["handgun"],
@@ -167,7 +167,7 @@ export const mockProducts = [
   {
     slug: "44magnum",
     title: ".44 Magnum",
-    subtitle: "AR-15 Compatible",
+    subtitle: "Revolver Training",
     image: img44Mag1,
     images: [img44Mag1, img44Mag2, img44Mag3, img44Mag4, img44Mag5, img44Mag6],
     category: ["revolver", "handgun"],
@@ -193,7 +193,7 @@ export const mockProducts = [
   {
     slug: "9mm-brass",
     title: "9mm Brass",
-    subtitle: "Handgun Training",
+    subtitle: "Handgun Training • Brass",
     image: img9mmBrass1,
     images: [img9mmBrass1, img9mmBrass2, img9mmBrass3, img9mmBrass4, img9mmBrass5, img9mmBrass6, img9mmBrass7],
     category: ["handgun"],
@@ -219,7 +219,7 @@ export const mockProducts = [
   {
     slug: "12gauge",
     title: "12 GAUGE",
-    subtitle: "Shotgun Dummy Rounds",
+    subtitle: "Shotgun Training",
     image: img12ga1,
     images: [img12ga1, img12ga2, img12ga3, img12ga4, img12ga5, img12ga6],
     category: ["shotgun"],
@@ -245,7 +245,7 @@ export const mockProducts = [
   {
     slug: "40s&w",
     title: ".40 S&W",
-    subtitle: "Pistol Snap Caps",
+    subtitle: "Handgun Training",
     image: img40sw1,
     images: [img40sw1, img40sw2, img40sw3, img40sw4, img40sw5, img40sw6, img40sw7],
     category: ["handgun"],
@@ -271,7 +271,7 @@ export const mockProducts = [
   {
     slug: "22lr",
     title: ".22 lr",
-    subtitle: "Dry Fire Training",
+    subtitle: "Rimfire Training",
     image: img22lr1,
     images: [img22lr1, img22lr2, img22lr3, img22lr4, img22lr5, img22lr6],
     category: ["rimfire"],
@@ -297,7 +297,7 @@ export const mockProducts = [
   {
     slug: "9mm-metal",
     title: "9mm Metal",
-    subtitle: "Shotgun Dummy Rounds",
+    subtitle: "Handgun Training • Metal",
     image: imgNeon1,
     images: [imgNeon1, imgNeon2, imgNeon3, imgNeon4, imgNeon5, imgNeon6, imgNeon7],
     category: ["handgun"],
@@ -323,7 +323,7 @@ export const mockProducts = [
   {
     slug: "308-winchester",
     title: ".308 WINCHESTER",
-    subtitle: "Revolver Basics",
+    subtitle: "Rifle Training",
     image: img308win1,
     images: [img308win1, img308win2, img308win3, img308win4, img308win5, img308win6],
     category: ["rifle"],
@@ -349,7 +349,7 @@ export const mockProducts = [
   {
     slug: "380-acp",
     title: ".380 ACP",
-    subtitle: "Pistol Snap Caps",
+    subtitle: "Handgun Training",
     image: img380acp1,
     images: [img380acp1, img380acp2, img380acp3, img380acp4, img380acp5],
     category: ["handgun"],
@@ -375,7 +375,7 @@ export const mockProducts = [
   {
     slug: "10mm",
     title: "10mm",
-    subtitle: "Dry Fire Training",
+    subtitle: "Handgun Training",
     image: img10mm1,
     images: [img10mm1, img10mm2, img10mm3, img10mm4, img10mm5, img10mm6, img10mm7],
     category: ["handgun"],
@@ -401,7 +401,7 @@ export const mockProducts = [
   {
     slug: "357sig",
     title: ".357 SIG",
-    subtitle: "Shotgun Dummy Rounds",
+    subtitle: "Handgun Training",
     image: img357sig1,
     images: [img357sig1, img357sig2, img357sig3, img357sig4, img357sig5, img357sig6],
     category: ["handgun"],
@@ -427,7 +427,7 @@ export const mockProducts = [
   {
     slug: "45acp",
     title: ".45 ACP",
-    subtitle: "Platform Essentials",
+    subtitle: "Handgun Training",
     image: img45acp1,
     images: [img45acp1, img45acp2, img45acp3, img45acp4, img45acp5],
     category: ["handgun"],
@@ -453,7 +453,7 @@ export const mockProducts = [
   {
     slug: "38special",
     title: ".38 SPECIAL",
-    subtitle: "Practice Pack",
+    subtitle: "Revolver Training",
     image: img38spl1,
     images: [img38spl1, img38spl2, img38spl3, img38spl4, img38spl5, img38spl6],
     category: ["revolver", "handgun"],
@@ -479,7 +479,7 @@ export const mockProducts = [
   {
     slug: "5.7×28mm",
     title: "FN 5.7×28mm", 
-    subtitle: "Starter Bundle",
+    subtitle: "Specialty Training",
     image: imgfn1,
     images: [imgfn1, imgfn2, imgfn3, imgfn4, imgfn5, imgfn6, imgfn7],
     category: ["handgun"],
@@ -504,7 +504,7 @@ export const mockProducts = [
   {
     slug: "223rem",
     title: ".223 Remington",
-    subtitle: "Starter Bundle",
+    subtitle: "Rifle Training",
     image: img223rem1,
     images: [img223rem1, img223rem2, img223rem3, img223rem4, img223rem5, img223rem6],
     category: ["rifle"],
