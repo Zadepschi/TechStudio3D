@@ -58,9 +58,10 @@
 }
 
 .headingStyle {
-  text-transform: var(--text-uppercase);
-  letter-spacing: 0.12em;
-  margin: 0;
+ @include section-title;
+    font-family: var(--font-poiret-one);
+  
+
 }
 
 /* ===== Text tuning ===== */

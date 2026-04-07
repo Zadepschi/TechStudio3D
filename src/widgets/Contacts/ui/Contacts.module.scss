@@ -4,15 +4,12 @@
 .sectionContacts {
   @include section-style;
 
-  /* ✅ full screen feel */
   min-height: 100svh;
   min-height: 100vh;
 
-  /* premium backplate */
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-
   padding: clamp(18px, 2.4vw, 40px);
 
   background:
@@ -26,11 +23,10 @@
     0 30px 80px rgba(0, 0, 0, 0.55),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: clamp(18px, 2.2vw, 34px);
 
-  /* glow border */
   &::before {
     content: "";
     position: absolute;
@@ -43,67 +39,75 @@
     opacity: 0.75;
   }
 
-  /* subtle texture */
   &::after {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
     border-radius: 24px;
-    background: radial-gradient(circle at 30% 10%, rgba(255,255,255,0.04), transparent 40%);
+    background: radial-gradient(circle at 30% 10%, rgba(255, 255, 255, 0.04), transparent 40%);
     opacity: 0.55;
     mix-blend-mode: overlay;
   }
 
-  /* keep content above overlays */
   > * {
     position: relative;
     z-index: 1;
   }
-
-  @include mobile-xl {
-    grid-template-columns: 1fr 1.05fr; /* форму чуть шире */
-    align-items: start;
-  }
 }
 
-/* LEFT COLUMN — content panel */
-.sectionContacts > :first-child {
-  border-radius: 18px;
-  padding: clamp(16px, 2vw, 28px);
-
-  background:
-    radial-gradient(700px 320px at 20% 0%, rgba(255, 106, 0, 0.12), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 18px 44px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.06);
-}
-
-/* RIGHT COLUMN — form card */
-.sectionContacts > :last-child {
-  border-radius: 18px;
-  padding: clamp(16px, 2vw, 28px);
-
-  background:
-    radial-gradient(700px 320px at 80% 0%, rgba(255, 106, 0, 0.12), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-
-  border: 1px solid rgba(255, 106, 0, 0.18);
-  box-shadow:
-    0 26px 70px rgba(0,0,0,0.55),
-    0 0 26px rgba(255, 106, 0, 0.10),
-    inset 0 1px 0 rgba(255,255,255,0.06);
-}
-
-/* typography */
 .headingStyle {
   text-transform: var(--text-uppercase);
   letter-spacing: 0.12em;
   margin: 0;
   color: rgba(255, 255, 255, 0.92);
+   font-family: var(--font-poiret-one);
+  @include section-title;
+  
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(18px, 2.2vw, 34px);
+  align-items: start;
+  
+
+  @include mobile-xl {
+    grid-template-columns: 1fr 1.05fr;
+  }
+}
+
+
+
+.leftPanel {
+  border-radius: 18px;
+  padding: clamp(16px, 2vw, 28px);
+
+  background:
+    radial-gradient(700px 320px at 20% 0%, rgba(255, 106, 0, 0.12), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    align-self: center;
+}
+
+.rightPanel {
+  border-radius: 18px;
+  padding: clamp(16px, 2vw, 28px);
+
+  background:
+    radial-gradient(700px 320px at 80% 0%, rgba(255, 106, 0, 0.12), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+
+  border: 1px solid rgba(255, 106, 0, 0.18);
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.55),
+    0 0 26px rgba(255, 106, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .textStyle {
@@ -113,18 +117,15 @@
   color: rgba(255, 255, 255, 0.78);
 }
 
-/* contact rows: icon + link */
 .sectionContacts :global(svg) {
   color: rgba(255, 255, 255, 0.85);
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.45));
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.45));
 }
 
-/* style links in list */
 .sectionContacts :global(a) {
   color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
   letter-spacing: 0.06em;
-
   transition: color 160ms ease, text-shadow 160ms ease;
 
   &:hover {
@@ -139,7 +140,6 @@
   }
 }
 
-/* legacy - если используешь */
 .picture {
   width: 100%;
 

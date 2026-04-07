@@ -3,7 +3,7 @@ import { Skeleton } from "@/shared/ui/Skeleton";
 import { Stack } from "@/shared/ui/Stack";
 import { useEffect, useState } from "react";
 import styles from "./Contacts.module.scss";
-import { CONTACT_ITEMS } from "../lib/contacts.config";
+import { CONTACT_ITEMS, CONTACT_CONTENT } from "../lib/contacts.config";
 import { Typography } from "@/shared/ui/Typography";
 import contactsData from "@/shared/mockDb/contactsPage.json";
 import { RequestQuoteForm } from "@/features/RequestQuote";
@@ -41,14 +41,18 @@ export const Contacts = () => {
   }
 
   return (
-    <section id="contacts" className={styles.sectionContacts}>
-      <Stack direction="column" gap="40">
-        <Stack direction="column" gap="24">
-          <Typography variant="h2" className={styles.headingStyle}>
-            {"Contact Title"}
-          </Typography>
+  <section id="contacts" className={styles.sectionContacts}>
+    <Typography variant="h2" className={styles.headingStyle}>
+      {CONTACT_CONTENT.title}
+    </Typography>
 
-          <Typography className={styles.textStyle}>{"Contact Text"}</Typography>
+
+    <div className={styles.contentGrid}>
+      <Stack direction="column" gap="40" className={styles.leftPanel}>
+        <Stack direction="column" gap="24">
+          <Typography className={styles.textStyle}>
+            {CONTACT_CONTENT.text}
+          </Typography>
         </Stack>
 
         <Stack direction="column" gap="16">
@@ -56,11 +60,9 @@ export const Contacts = () => {
             <Skeleton height="5vh" />
           ) : (
             CONTACT_ITEMS.map((item) => {
-              // 1) Спец-элементы (например WhatsAppLink) — рендерим компонентом
               if (item.component) {
                 const Component = item.component;
 
-                // WhatsAppLink требует phone
                 if (!contacts?.phone) return null;
 
                 return (
@@ -70,7 +72,6 @@ export const Contacts = () => {
                 );
               }
 
-              // 2) Обычные элементы (email/phone)
               const { _id, icon: Icon, getHref, getText, external } = item;
 
               const href = getHref?.(contacts);
@@ -91,7 +92,10 @@ export const Contacts = () => {
         </Stack>
       </Stack>
 
-      {isLoading ? <Skeleton height="700px" /> : <RequestQuoteForm />}
-    </section>
-  );
+      <div className={styles.rightPanel}>
+        {isLoading ? <Skeleton height="700px" /> : <RequestQuoteForm />}
+      </div>
+    </div>
+  </section>
+);
 };

@@ -80,6 +80,7 @@
 
 .title {
   @include section-title;
+   font-family: var(--font-poiret-one);
 }
 
 .text {

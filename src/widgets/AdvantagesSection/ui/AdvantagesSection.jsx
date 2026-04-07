@@ -15,10 +15,10 @@ export const AdvantagesSection = () => {
       className={styles.advantagesSection}
     >
       <Stack direction="column" gap="16">
-        <Typography variant="h2" weight="bold" className={styles.headingStyle}>
+        <Typography variant="h2"  font="poiretOne"  className={styles.headingStyle}>
           Why Professionals Choose TechStudio3D
         </Typography>
-          <Typography  variant="h3" weight="bold"> 
+          <Typography  variant="h3" > 
             Precision-made inert training rounds for instructors, training facilities, and distributors.
            </Typography>
       </Stack>

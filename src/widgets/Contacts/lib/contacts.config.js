@@ -1,6 +1,11 @@
 import { Mail, Phone } from "lucide-react";
 import { WhatsAppLink } from "@/shared/ui/WhatsAppLink";
 
+export const CONTACT_CONTENT = {
+  title: "Contact Us",
+  text: "We’re here to assist with any questions or custom requests.",
+};
+
 export const CONTACT_ITEMS = [
   {
     _id: "1",
