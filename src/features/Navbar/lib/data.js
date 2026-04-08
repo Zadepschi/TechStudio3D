@@ -11,10 +11,6 @@ export const navigation = {
         path: "products",
         text: "Products"
     },
-    advantages: {
-        path: "advantages",
-        text: "Advantages"
-    },
     whyChooseUs: {
         path: "why-choose-us",
         text: "Why Choose Us"
