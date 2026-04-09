@@ -440,16 +440,10 @@ function RequestQuoteFormInner({ onSuccess }) {
               onClick={() => setStep(1)}
               disabled={isSubmitting}
             >
-              Back
+             ← Back
             </button>
 
-            <button
-              className={styles.secondaryBtn}
-              type="submit"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Sending..." : "Skip"}
-            </button>
+          
           </div>
 
           <button

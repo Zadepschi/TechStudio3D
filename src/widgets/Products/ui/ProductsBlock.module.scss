@@ -34,8 +34,6 @@
   );
   filter: blur(60px);
   z-index: 0;
-
-  /* ✅ вот это добавь */
   pointer-events: none;
 }
 
@@ -79,22 +77,71 @@
   z-index: 2;
   margin: 50px auto 0;
   display: inline-flex;
-  padding: 16px 32px;
-  border-radius: 18px;
+  padding: 12px 56px;
+  border-radius: 20px;
 
-  background: rgba(18, 18, 18, 0.6);
-  border: 1px solid rgba(255, 123, 0, 0.5);
+  font-size: 1.1rem;
   color: #fff;
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+   font-family: var(--font-lato);
+  background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(10,10,10,0.9));
+  border: 1px solid rgba(255, 123, 0, 0.4);
 
-  box-shadow: 0 0 30px rgba(255, 123, 0, 0.15);
+  box-shadow:
+    0 0 20px rgba(255, 123, 0, 0.2),
+    inset 0 0 10px rgba(255, 123, 0, 0.1);
+
+  overflow: hidden;
+  transition: all 0.35s ease;
+
+  // ✨ светящаяся линия
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+
+    background: conic-gradient(
+      from 0deg,
+      transparent,
+      rgba(255, 123, 0, 0.5),
+      transparent
+    );
+
+    animation: rotateGlow 4s linear infinite;
+    opacity: 0.4;
+  }
+
+  // затемнение центра (glass эффект)
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 18px;
+    background: rgba(15, 15, 15, 0.9);
+    z-index: -1;
+  }
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.03);
+
     box-shadow:
-      0 0 50px rgba(255, 123, 0, 0.35),
-      0 20px 50px rgba(0, 0, 0, 0.6);
+      0 0 40px rgba(255, 123, 0, 0.5),
+      0 15px 40px rgba(0, 0, 0, 0.7);
+
+    border-color: rgba(255, 123, 0, 0.9);
+  }
+}
+
+// 🔁 анимация свечения
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

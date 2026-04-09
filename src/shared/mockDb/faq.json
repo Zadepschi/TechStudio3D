@@ -30,49 +30,61 @@
       "question": "Who are these rounds intended for?",
       "answer": "Our products are primarily supplied to shooting instructors, training centers, firearms schools, retailers, distributors, and law enforcement training programs."
     },
-   {
+{
   "_id": "calibers",
   "question": "Which calibers do your dummy rounds support?",
   "variants": [
     {
       "label": "9mm",
-      "answer": "Our 9mm dummy rounds are designed for safe dry-fire training, magazine drills, and chamber checks in most 9mm pistols."
-    },
-    {
-      "label": ".223 Rem",
-      "answer": ".223 Rem dummy rounds are used for loading practice, malfunction clearing drills, and function checks in AR-platform rifles and similar semi-automatic rifles."
-    },
-    {
-      "label": ".308 Win",
-      "answer": ".308 Winchester dummy rounds are ideal for bolt-action and semi-automatic rifle training, helping simulate realistic handling and cycling practice."
-    },
-    {
-      "label": ".22 LR",
-      "answer": ".22 LR dummy rounds are suitable for training with rimfire pistols and rifles commonly used for beginner practice and target shooting."
-    },
-    {
-      "label": ".38 Special",
-      "answer": ".38 Special dummy rounds are designed for revolver training, including loading, unloading, and safe handling exercises."
-    },
-    {
-      "label": ".45 ACP",
-      "answer": ".45 ACP dummy rounds are intended for training with full-size and compact pistols chambered in .45 ACP, supporting dry-fire and function checks."
-    },
-    {
-      "label": ".40 S&W",
-      "answer": ".40 S&W dummy rounds are used for dry-fire practice and handling drills in pistols chambered for .40 S&W."
-    },
-    {
-      "label": ".12 Gauge",
-      "answer": "12 Gauge dummy rounds are designed for shotgun training, including loading drills, cycling practice, and safe handling instruction."
-    },
-    {
-      "label": ".44 Magnum",
-      "answer": ".44 Magnum dummy rounds are intended for revolver training and function checks in firearms chambered for .44 Magnum."
+      "answer": "Our 9mm dummy rounds are designed for safe dry-fire training, loading and unloading drills, magazine practice, and chamber checks in firearms chambered in 9mm."
     },
     {
       "label": "10mm",
-      "answer": "10mm dummy rounds are suitable for training with pistols chambered in 10mm Auto, supporting realistic dry-fire and handling practice."
+      "answer": "Our 10mm dummy rounds are intended for safe dry-fire training, handling drills, and function checks in firearms chambered in 10mm Auto."
+    },
+    {
+      "label": ".40 S&W",
+      "answer": "Our .40 S&W dummy rounds are suitable for safe dry-fire practice, loading drills, and handling exercises in firearms chambered in .40 S&W."
+    },
+    {
+      "label": ".45 ACP",
+      "answer": "Our .45 ACP dummy rounds are designed for safe training use, including dry-fire practice, magazine drills, and chamber checks in firearms chambered in .45 ACP."
+    },
+    {
+      "label": ".380 ACP",
+      "answer": "Our .380 ACP dummy rounds are ideal for safe dry-fire training, loading and unloading drills, and function checks in firearms chambered in .380 ACP."
+    },
+    {
+      "label": ".357 SIG",
+      "answer": "Our .357 SIG dummy rounds are intended for safe dry-fire training, handling drills, and chamber checks in firearms chambered in .357 SIG."
+    },
+    {
+      "label": ".44 Magnum",
+      "answer": "Our .44 Magnum dummy rounds are designed for safe training, including loading, unloading, and function-check practice in firearms chambered in .44 Magnum."
+    },
+    {
+      "label": ".38 Special",
+      "answer": "Our .38 Special dummy rounds are made for safe revolver training, including loading and unloading drills, handling practice, and cylinder function checks."
+    },
+    {
+      "label": ".22 LR",
+      "answer": "Our .22 LR dummy rounds are suitable for safe training with rimfire firearms, supporting loading practice, handling drills, and basic function checks."
+    },
+    {
+      "label": ".223 Remington",
+      "answer": "Our .223 Remington dummy rounds are designed for safe rifle training, including loading and unloading drills, cycling practice, and function checks in firearms chambered in .223 Remington."
+    },
+    {
+      "label": ".308 Winchester",
+      "answer": "Our .308 Winchester dummy rounds are ideal for safe rifle training, helping with loading drills, cycling practice, and general function checks in firearms chambered in .308 Winchester."
+    },
+    {
+      "label": "12 Gauge",
+      "answer": "Our 12 Gauge dummy rounds are intended for safe shotgun training, including loading and unloading drills, action cycling practice, and handling exercises."
+    },
+    {
+      "label": "FN 5.7×28mm",
+      "answer": "Our FN 5.7×28mm dummy rounds are designed for safe dry-fire training, handling drills, and function checks in firearms chambered in 5.7×28mm."
     }
   ]
 }
