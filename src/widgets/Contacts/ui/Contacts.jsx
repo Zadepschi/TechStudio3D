@@ -17,10 +17,7 @@ export const Contacts = () => {
     const load = async () => {
       try {
         setIsLoading(true);
-
-        // опционально: имитация загрузки (чтобы Skeleton был виден)
         await new Promise((r) => setTimeout(r, 300));
-
         setContacts(contactsData);
       } catch (e) {
         setError(e?.message || "Ошибка получения данных");
@@ -35,67 +32,89 @@ export const Contacts = () => {
   if (error) {
     return (
       <section id="contacts" className={styles.sectionContacts}>
-        <Typography>{"Contacts Error"}</Typography>
+        <Typography>Contacts Error</Typography>
       </section>
     );
   }
 
   return (
-  <section id="contacts" className={styles.sectionContacts}>
-    <Typography variant="h2" className={styles.headingStyle}>
-      {CONTACT_CONTENT.title}
-    </Typography>
+    <section id="contacts" className={styles.sectionContacts}>
+      <Typography variant="h2" className={styles.headingStyle}>
+        {CONTACT_CONTENT.title}
+      </Typography>
 
+      <div className={styles.contentGrid}>
+        <Stack direction="column" gap="40" className={styles.leftPanel}>
+          <Stack direction="column" gap="24">
+            <Typography className={styles.textStyle}>
+              {CONTACT_CONTENT.text}
+            </Typography>
+          </Stack>
 
-    <div className={styles.contentGrid}>
-      <Stack direction="column" gap="40" className={styles.leftPanel}>
-        <Stack direction="column" gap="24">
-          <Typography className={styles.textStyle}>
-            {CONTACT_CONTENT.text}
-          </Typography>
-        </Stack>
+          <Stack direction="column" gap="16">
+            {isLoading ? (
+              <Skeleton height="5vh" />
+            ) : (
+              CONTACT_ITEMS.map((item) => {
+                const text = item.getText?.(contacts);
 
-        <Stack direction="column" gap="16">
-          {isLoading ? (
-            <Skeleton height="5vh" />
-          ) : (
-            CONTACT_ITEMS.map((item) => {
-              if (item.component) {
-                const Component = item.component;
+                if (item.component) {
+                  const Component = item.component;
+                  const Icon = item.icon;
+                  const props = item.getProps?.(contacts);
 
-                if (!contacts?.phone) return null;
+                  if (!props?.phone || !text) return null;
+
+                  return (
+                    <Stack
+                      key={item._id}
+                      gap="24"
+                      align="center"
+                      className={styles.contactItem}
+                    >
+                      {Icon && <Icon />}
+                      <Component {...props} className={styles.contactLink}>
+                        {text}
+                      </Component>
+                    </Stack>
+                  );
+                }
+
+                const { _id, icon: Icon, getHref, external } = item;
+                const href = getHref?.(contacts);
+
+                if (!href || !text) return null;
 
                 return (
-                  <Stack key={item._id} gap="24" align="center">
-                    <Component phone={contacts.phone} />
+                  <Stack
+                    key={_id}
+                    gap="24"
+                    align="center"
+                    className={styles.contactItem}
+                  >
+                    {Icon && <Icon strokeWidth={1.25} size={40} />}
+                    <Link
+                      href={href}
+                      ariaLabel={text}
+                      external={external}
+                      className={styles.contactLink}
+                    >
+                      {text}
+                    </Link>
                   </Stack>
                 );
-              }
-
-              const { _id, icon: Icon, getHref, getText, external } = item;
-
-              const href = getHref?.(contacts);
-              const text = getText?.(contacts);
-
-              if (!href || !text) return null;
-
-              return (
-                <Stack key={_id} gap="24" align="center">
-                  {Icon && <Icon strokeWidth={1.25} size={40} />}
-                  <Link href={href} ariaLabel={text} external={external}>
-                    {text}
-                  </Link>
-                </Stack>
-              );
-            })
-          )}
+              })
+            )}
+          </Stack>
         </Stack>
-      </Stack>
 
-      <div className={styles.rightPanel}>
-        {isLoading ? <Skeleton height="700px" /> : <RequestQuoteForm />}
+        <div className={styles.rightPanel}>
+          {isLoading ? <Skeleton height="700px" /> : <RequestQuoteForm />}
+        </div>
       </div>
-    </div>
-  </section>
-);
+      <Typography className={styles.responseNote}>
+        Our team will get back to you within 24 hours.
+      </Typography>
+    </section>
+  );
 };

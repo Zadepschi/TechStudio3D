@@ -1,5 +1,6 @@
 import { Mail, Phone } from "lucide-react";
 import { WhatsAppLink } from "@/shared/ui/WhatsAppLink";
+import { WhatsAppIcon } from "@/shared/assets/svg/WhatsAppIcon";
 
 export const CONTACT_CONTENT = {
   title: "Contact Us",
@@ -23,11 +24,14 @@ export const CONTACT_ITEMS = [
     getText: (contacts) => contacts?.phone,
     external: false,
   },
-  // WhatsApp — отдельным компонентом, без JSX в конфиге
   {
     _id: "3",
+    icon: WhatsAppIcon,
     component: WhatsAppLink,
-    // можно оставить подпись/aria, если нужно
-    getText: () => "WhatsApp",
+    getText: () => "Contact us on WhatsApp",
+    getProps: (contacts) => ({
+      phone: contacts?.phone,
+      ariaLabel: "Contact us on WhatsApp",
+    }),
   },
 ];

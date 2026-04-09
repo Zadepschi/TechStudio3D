@@ -3,6 +3,11 @@
 
 
 .section {
+   @include section-style;
+  @include section-surface;
+  @include glow-frame;
+  @include surface-texture;
+
   width: 100%;
   padding: 20px 24px 20px;
   position: relative;
@@ -16,7 +21,7 @@
   );
 }
 
-/* 🔥 Нижнее оранжевое свечение */
+/* Нижнее оранжевое свечение */
 .section::after {
   content: "";
   position: absolute;
