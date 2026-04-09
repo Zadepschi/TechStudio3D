@@ -6,6 +6,7 @@ import { ProductDescription } from "@/entities/Product/ui/ProductDescription/Pro
 import { ProductGallery } from "@/widgets/ProductGallery";
 import { RequestQuoteButton, RequestQuoteModal } from "@/features/RequestQuote";
 import { TABS } from "@/features/ProductFilters/Model/filters.config";
+import { WhatsAppLink } from "@/shared/ui/WhatsAppLink";
 import styles from "./ProductDetailsPage.module.scss";
 
 export default function ProductDetailsPage() {
@@ -30,13 +31,12 @@ export default function ProductDetailsPage() {
   const openQuote = () => setIsQuoteOpen(true);
   const closeQuote = () => setIsQuoteOpen(false);
 
-  const whatsappLink =
-    product.contacts?.whatsapp ||
-    "https://wa.me/15550001111?text=" +
-      encodeURIComponent(`Hello! I want a quote for ${product.title}.`);
+  const whatsappPhone = product.contacts?.phone || "+1 (669) 224-9627";
+  const whatsappMessage =
+    product.contacts?.whatsappMessage ||
+    `Hello! I want a quote for ${product.title}.`;
 
   const { specs, benefits, description } = product;
-
   const formattedCategory = formatCategory(product.category);
 
   return (
@@ -64,14 +64,14 @@ export default function ProductDetailsPage() {
           <div className={styles.actions}>
             <RequestQuoteButton onClick={openQuote} />
 
-            <a
+            <WhatsAppLink
+              phone={whatsappPhone}
+              message={whatsappMessage}
               className={styles.secondaryBtn}
-              href={whatsappLink}
-              target="_blank"
-              rel="noreferrer"
+              ariaLabel={`WhatsApp about ${product.title}`}
             >
               WhatsApp
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </div>
