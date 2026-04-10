@@ -59,14 +59,14 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ✅ HERO-STYLE LOGO (adapted for footer) */
+
 .footerLogoOutside {
   /* from Hero, but not absolute in footer */
   font-family: var(--font-poiret-one);
   text-transform: uppercase;
   white-space: nowrap;
   line-height: 1;
-
+  text-decoration: none;
   color: rgba(255, 255, 255, 0.92);
 
   /* size tuned for footer */

@@ -1,4 +1,5 @@
 import { ProductCard } from "@/entities/Product";
+import { Typography } from "@/shared/ui/Typography"; // путь поправь
 
 export function ProductsGrid({
   products,
@@ -22,11 +23,24 @@ export function ProductsGrid({
 
       <div className={moreWrapClassName}>
         {canShowMore ? (
-          <button type="button" className={moreBtnClassName} onClick={onShowMore}>
-            View More <span className={arrowClassName}>→</span>
+          <button
+            type="button"
+            className={moreBtnClassName}
+            onClick={onShowMore}
+          >
+            <Typography as="span" variant="body16" noMargin>
+              View More
+            </Typography>{" "}
+            <span className={arrowClassName}>→</span>
           </button>
         ) : (
-          <div className={moreHintClassName}>No more items.</div>
+          <Typography
+            as="div"
+            variant="body14"
+            className={moreHintClassName}
+          >
+            No more items.
+          </Typography>
         )}
       </div>
     </section>

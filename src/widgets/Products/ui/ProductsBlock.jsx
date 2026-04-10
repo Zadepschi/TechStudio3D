@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "@/entities/Product";
+import { Typography } from "@/shared/ui/Typography"; // поправь путь под свой проект
 import { ProductsGrid } from "./ProductsGrid";
 import styles from "./ProductsBlock.module.scss";
 
@@ -26,26 +27,47 @@ export function ProductsBlock() {
     };
   }, []);
 
-  // ✅ На главной показываем только 4
   const previewItems = useMemo(() => items.slice(0, 4), [items]);
 
   return (
     <section className={styles.section} id="products">
       <div className={styles.header}>
         <div>
-          <h2 className={styles.title}>Products</h2>
-          <p className={styles.subtitle}>
-            Inert dummy training rounds for training, educational, and display purposes only.
-          </p>
+          <Typography
+            variant="h2"
+            as="h2"
+            className={styles.title}
+          >
+            Products
+          </Typography>
+
+          <Typography
+            variant="body16"
+            as="p"
+            className={styles.subtitle}
+          >
+            Inert dummy training rounds for training, educational, and display
+            purposes only.
+          </Typography>
         </div>
 
-        <Link className={styles.viewAll} to="/products" aria-label="View all products">
+        <Link
+          className={styles.viewAll}
+          to="/products"
+          aria-label="View all products"
+        >
           View all
         </Link>
       </div>
 
       {loading ? (
-        <div className={styles.loading}>Loading products…</div>
+        <Typography
+          variant="body16"
+          as="div"
+          className={styles.loading}
+        >
+          Loading products…
+        </Typography>
       ) : (
         <ProductsGrid products={previewItems} />
       )}

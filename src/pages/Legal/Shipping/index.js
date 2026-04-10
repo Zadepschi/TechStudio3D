@@ -1,0 +1,1 @@
+export { ShippingPolicy } from "./ui/ShippingPolicy";
