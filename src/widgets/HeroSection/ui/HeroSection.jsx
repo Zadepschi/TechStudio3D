@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import techStudio from "@/shared/assets/images/hero.webp";
 import style from "./HeroSection.module.scss";
 import { Typography } from "@/shared/ui/Typography";
 
@@ -16,10 +15,8 @@ export const HeroSection = () => {
     <section
       id="hero_section"
       className={style.hero}
-      style={{ backgroundImage: `url(${techStudio})` }}
       aria-label="Hero section"
     >
-      {/* ЛОГО */}
       <Typography
         as="p"
         variant="body16"
@@ -32,17 +29,14 @@ export const HeroSection = () => {
       <div className={style.backdrop} />
 
       <div className={style.card} role="region" aria-label="Hero content">
-        {/* SEO H1 */}
         <Typography as="h1" variant="h1" className={style.title}>
           {HERO.headline}
         </Typography>
 
-        {/* Основной текст */}
         <Typography variant="body14" className={style.subtitle}>
           {HERO.subheadline}
         </Typography>
 
-        {/* 🔥 SEO ДОБАВКА */}
         <Typography variant="body12" className={style.seoLine}>
           {HERO.seoText}
         </Typography>

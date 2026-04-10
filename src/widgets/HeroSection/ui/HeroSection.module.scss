@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
 
+  background-image: url("@/shared/assets/images/hero.webp");
   background-size: contain;
   background-position: right center;
   background-repeat: no-repeat;
@@ -90,7 +91,6 @@
       transparent 360deg
     );
 
-  /* ✅ добавили mask */
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
@@ -206,7 +206,8 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
-.subtitle, .seoLine {
+.subtitle,
+.seoLine {
   margin: 0 0 22px 0;
   line-height: 1.6;
 
@@ -229,7 +230,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 40%;
+  width: 60%;
   padding: 14px 22px;
   border-radius: 10px;
   text-decoration: none;
@@ -384,6 +385,13 @@
   }
 }
 
+/* ===== Переключение фона < 1200px ===== */
+@media (max-width: 1199px) {
+  .hero {
+    background-image: url("@/shared/assets/images/hero1.webp");
+  }
+}
+
 /* ===== Мобильные ===== */
 @media (max-width: 767px) {
   .hero {
@@ -413,6 +421,26 @@
   .logo {
     margin-bottom: 18px;
   }
+  .primaryButton{
+    width: 90%;
+  }
+}
+@media (max-width: 800px) {
+  .hero {
+    background-size: contain;
+    background-position: center 70px;
+    
+  }
+.backdrop {
+  background:
+    linear-gradient(
+       0deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.65) 40%,
+      rgba(0, 0, 0, 0.88) 30%,
+      rgba(0, 0, 0, 0) 100%
+    );
+}
 }
 
 
