@@ -46,36 +46,57 @@
 /* ========== Hero ========== */
 .hero {
   text-align: center;
-  padding: 12px 0 8px;
+  padding: 12px 0 6px;
 }
 
 .heroTopLine {
   height: 2px;
   max-width: 760px;
-  margin: 0 auto 18px;
+  margin: 0 auto 14px;
   background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.35), transparent);
   box-shadow: 0 0 18px rgba(255, 130, 0, 0.18);
 }
 
-
+.titleLabel {
+  margin: 0 0 8px;
+  text-align: center;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  opacity: 0.8;
+}
 
 .subtitle {
-  margin: 10px auto 0;
+  margin: 8px auto 0;
   max-width: 760px;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.72);
   font-family: var(--font-lato);
 }
 
 .subtitleDim {
   color: rgba(255, 255, 255, 0.62);
-   font-family: var(--font-lato);
+  font-family: var(--font-lato);
+}
+
+/* ========== Compact SEO Top ========== */
+.seoIntro {
+  max-width: 900px;
+  margin: 0 auto 12px;
+  padding: 0 12px;
+  text-align: center;
+}
+
+.seoIntroText {
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.55;
+  font-family: var(--font-lato);
 }
 
 /* ========== Controls ========== */
 .controls {
-  margin-top: 8px;
+  margin-top: 4px;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-areas:
@@ -180,13 +201,33 @@
 
 /* ========== Grid ========== */
 .gridSection {
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+}
+
+/* ========== Bottom SEO ========== */
+.seoContent {
+  max-width: 900px;
+  margin: 20px auto 0;
+  padding: 0 12px;
+  text-align: center;
+}
+
+.seoHeading {
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.seoText {
+  margin: 0 0 10px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-lato);
 }
 
 /* ========== More Button ========== */
@@ -222,8 +263,8 @@
 
 /* ========== Bottom CTA ========== */
 .bottomCta {
-  margin-top: 8px;
-  padding-top: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.10);
   text-align: center;
   margin-bottom: 8px;
@@ -316,6 +357,11 @@
   .grid {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+
+  .seoIntro,
+  .seoContent {
+    padding: 0;
   }
 }
 

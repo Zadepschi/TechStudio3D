@@ -4,8 +4,11 @@ import style from "./HeroSection.module.scss";
 import { Typography } from "@/shared/ui/Typography";
 
 const HERO = {
-  headline: "Snap Caps Dummy Rounds Built for Safe and Effective Training",
-  subheadline: "Protect your firearm, improve trigger control, and train with confidence using durable, high-visibility training rounds.",
+  headline: "Snap Caps & Dummy Rounds for Safe Training",
+  subheadline:
+    "Protect your firearm, improve trigger control, and train with confidence using durable, high-visibility training rounds.",
+  seoText:
+    "Manufacturer of snap caps and dummy rounds for dry fire training. Bulk and wholesale supply across the United States.",
 };
 
 export const HeroSection = () => {
@@ -16,27 +19,32 @@ export const HeroSection = () => {
       style={{ backgroundImage: `url(${techStudio})` }}
       aria-label="Hero section"
     >
-      {/* ЛОГО — ВНЕ карточки, поверх фото */}
+      {/* ЛОГО */}
       <Typography
-        variant="h1"
+        as="p"
+        variant="body16"
         font="poiretOne"
-        weight="normal"
         className={style.logoOutside}
       >
         tec<span>h</span>studio<span>3d</span>
       </Typography>
 
-      {/* Тёмный градиент поверх фото */}
       <div className={style.backdrop} />
 
-      {/* Glass-карточка */}
       <div className={style.card} role="region" aria-label="Hero content">
-        <Typography variant="h2" className={style.title}>
+        {/* SEO H1 */}
+        <Typography as="h1" variant="h1" className={style.title}>
           {HERO.headline}
         </Typography>
 
+        {/* Основной текст */}
         <Typography variant="body14" className={style.subtitle}>
           {HERO.subheadline}
+        </Typography>
+
+        {/* 🔥 SEO ДОБАВКА */}
+        <Typography variant="body12" className={style.seoLine}>
+          {HERO.seoText}
         </Typography>
 
         <div className={style.actions}>
@@ -51,7 +59,6 @@ export const HeroSection = () => {
             </span>
           </Link>
         </div>
-
       </div>
     </section>
   );

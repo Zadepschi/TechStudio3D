@@ -4,6 +4,7 @@ import cls from "./ProductsPage.module.scss";
 import { mockProducts } from "@/entities/Product";
 import { TABS, SORTS } from "@/features/ProductFilters/Model/filters.config";
 import { RequestQuoteButton, RequestQuoteModal } from "@/features/RequestQuote";
+import { Typography } from "@/shared/ui/Typography";
 import { useProductsCatalog } from "@/widgets/ProductsCatalog/model/useProductsCatalog";
 import { ProductsGrid } from "@/widgets/ProductsCatalog/ui/ProductsGrid";
 import { ProductsControls } from "@/widgets/ProductsCatalog/ui/ProductsCatalog";
@@ -32,15 +33,36 @@ export default function ProductsPage() {
       <div className={cls.container}>
         <header className={cls.hero}>
           <div className={cls.heroTopLine} />
-          <h1 className={cls.title}>PRODUCTS</h1>
-          <p className={cls.subtitle}>
+
+          <Typography
+            as="p"
+            variant="body14"
+            font="poiretOne"
+            className={cls.titleLabel}
+          >
+            PRODUCTS
+          </Typography>
+
+          <Typography variant="h1" font="poiretOne" className={cls.title}>
+            Snap Caps & Dummy Rounds
+          </Typography>
+
+          <Typography variant="body16" className={cls.subtitle}>
             Choose your caliber.
             <br />
             <span className={cls.subtitleDim}>
               Precision-made inert training rounds for <b>dry fire practice</b>.
             </span>
-          </p>
+          </Typography>
         </header>
+
+        {/* Короткий SEO-блок сверху */}
+        <section className={cls.seoIntro}>
+          <Typography variant="body14" className={cls.seoIntroText}>
+            Bulk snap caps and dummy rounds for dry fire training, distributors,
+            retailers, and training facilities across the United States.
+          </Typography>
+        </section>
 
         <ProductsControls
           query={query}
@@ -75,10 +97,39 @@ export default function ProductsPage() {
           moreHintClassName={cls.moreHint}
         />
 
+        {/* Основной SEO-текст вниз страницы */}
+        <section
+          className={cls.seoContent}
+          aria-labelledby="products-seo-heading"
+        >
+          <Typography
+            as="h2"
+            variant="h3"
+            font="poiretOne"
+            className={cls.seoHeading}
+            id="products-seo-heading"
+          >
+            Bulk & Wholesale Snap Caps
+          </Typography>
+
+          <Typography variant="body14" className={cls.seoText}>
+            TechStudio3D manufactures high-quality snap caps and dummy rounds for
+            safe firearm handling and dry fire practice. Our products are built
+            for long-term use and supplied in bulk for distributors, shooting
+            ranges, training centers, and online retailers.
+          </Typography>
+
+          <Typography variant="body14" className={cls.seoText}>
+            Available categories include handgun snap caps, rifle dummy rounds,
+            shotgun training rounds, and rimfire snap caps. Contact us for
+            wholesale pricing and custom orders.
+          </Typography>
+        </section>
+
         <section className={cls.bottomCta}>
-          <p className={cls.bottomText}>
+          <Typography variant="body16" className={cls.bottomText}>
             Training facility / Distributor? Request wholesale pricing.
-          </p>
+          </Typography>
 
           <RequestQuoteButton onClick={openQuote} />
         </section>

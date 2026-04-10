@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { mockProducts } from "@/entities/Product/Model";
@@ -21,6 +22,19 @@ export default function ProductDetailsPage() {
   if (!product) {
     return (
       <div className={styles.wrap}>
+        <Helmet>
+          <title>Product not found</title>
+          <meta
+            name="description"
+            content="Requested product was not found."
+          />
+          <meta property="og:title" content="Product not found" />
+          <meta
+            property="og:description"
+            content="Requested product was not found."
+          />
+        </Helmet>
+
         <h1>Product not found</h1>
         <p>Slug: {slug}</p>
         <Link to="/products">← Back</Link>
@@ -39,8 +53,26 @@ export default function ProductDetailsPage() {
   const { specs, benefits, description } = product;
   const formattedCategory = formatCategory(product.category);
 
+  const pageTitle = product.seo?.title || `${product.title} | Products`;
+  const pageDescription =
+    product.seo?.description ||
+    description ||
+    `Explore specifications, features, and quote request options for ${product.title}.`;
+
   return (
     <div className={styles.wrap}>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="product" />
+        {product.images?.[0] ? (
+          <meta property="og:image" content={product.images[0]} />
+        ) : null}
+      </Helmet>
+
       <Link className={styles.back} to="/products">
         ← Back to products
       </Link>
