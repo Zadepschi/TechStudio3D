@@ -141,7 +141,6 @@ export default function PrivacyPolicyPage() {
           </ul>
         </div>
 
-        {/* 5–12 сокращены одинаково (оставил структуру) */}
 
         <div className={styles.section}>
           <Typography variant="h2" className={styles.sectionTitle}>
@@ -153,21 +152,26 @@ export default function PrivacyPolicyPage() {
             please contact us:
           </Typography>
 
-          <div className={styles.contactBox}>
-            <Typography variant="body14" className={styles.contactText}>
-              <strong>Email:</strong>{" "}
-              <a href="mailto:boralditechstudio3d@gmail.com" className={styles.link}>
-                boralditechstudio3d@gmail.com
-              </a>
-            </Typography>
+         <div className={styles.contactBox}>
+  <Typography variant="body14" className={styles.contactText}>
+    <strong>Email:</strong>{" "}
+    <a href="mailto:boralditechstudio3d@gmail.com" className={styles.link}>
+      boralditechstudio3d@gmail.com
+    </a>
+  </Typography>
 
-            <Typography variant="body14" className={styles.contactText}>
-              <strong>Phone:</strong>{" "}
-              <a href="tel:+16692249627" className={styles.link}>
-                +1 (669) 224-9627
-              </a>
-            </Typography>
-          </div>
+  <Typography variant="body14" className={styles.contactText}>
+    <strong>Phone:</strong>{" "}
+    <a href="tel:+16692249627" className={styles.link}>
+      +1 (669) 224-9627
+    </a>
+  </Typography>
+
+  <Typography variant="body14" className={styles.contactText}>
+    <strong>Address:</strong>{" "}
+    7488 Bayliss CT, San Jose, CA 95139, United States
+  </Typography>
+</div>
         </div>
       </div>
     </section>

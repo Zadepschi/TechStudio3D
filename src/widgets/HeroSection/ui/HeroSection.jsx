@@ -3,11 +3,11 @@ import style from "./HeroSection.module.scss";
 import { Typography } from "@/shared/ui/Typography";
 
 const HERO = {
-  headline: "Snap Caps & Dummy Rounds for Safe Training",
+  headline: "Snap Caps & Dummy Rounds for Dry Fire Training",
   subheadline:
-    "Protect your firearm, improve trigger control, and train with confidence using durable, high-visibility training rounds.",
+    "Protect your firearm, improve trigger control, and train with confidence using durable, high-visibility inert training rounds.",
   seoText:
-    "Manufacturer of snap caps and dummy rounds for dry fire training. Bulk and wholesale supply across the United States.",
+    "TechStudio3D manufactures snap caps and dummy rounds for safe dry fire training, reload drills, malfunction practice, and firearm handling. Available in popular calibers including 9mm, .223 Remington, .308 Winchester, 12 Gauge, .45 ACP, and more. Bulk and wholesale supply across the United States.",
 };
 
 export const HeroSection = () => {
@@ -15,7 +15,7 @@ export const HeroSection = () => {
     <section
       id="hero_section"
       className={style.hero}
-      aria-label="Hero section"
+      aria-label="Snap caps and dummy rounds for dry fire training"
     >
       <Typography
         as="p"
@@ -45,7 +45,7 @@ export const HeroSection = () => {
           <Link
             to="/products"
             className={style.primaryButton}
-            aria-label="Navigate to products"
+            aria-label="See snap caps and dummy rounds products"
           >
             SEE PRODUCTS
             <span className={style.arrow} aria-hidden="true">

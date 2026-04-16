@@ -7,7 +7,11 @@ import { aboutContent } from "../lib/aboutContent";
 
 export const AboutSection = () => {
   return (
-    <section id="about" className={styles.sectionAbout}>
+     <section
+      id="about"
+      className={styles.sectionAbout}
+      aria-label="About TechStudio3D snap caps and dummy rounds"
+    >
       <picture className={styles.picture}>
         <img
           src={aboutImg}

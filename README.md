@@ -73,7 +73,6 @@ TechStudio3D is built with a strong focus on:
 
 ## 📌 Future Improvements
 
-* 🌍 Multi-language support
 * 🛒 Ordering system / cart functionality
 * 🔎 Advanced filtering and search
 * 🔗 Backend/API integration

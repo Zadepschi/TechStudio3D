@@ -110,9 +110,6 @@ import imgfn7 from "@/shared/assets/productsImages/fn5.7×28mm/fn5.7-4.webp";
 
 
 
-
-
-
 const baseBenefits = [
   "Safe & inert — no primer, no powder",
   "High-visibility color for quick identification",
@@ -126,40 +123,121 @@ const baseIncluded = [
   "Protective packaging for storage and transport",
 ];
 
-const baseContacts = {
-  whatsapp:
-    "https://wa.me/15550001111?text=" +
-    encodeURIComponent("Hello! I’d like a quote for TechStudio3D snap caps."),
-  quoteTarget: "modal",
-};
+
+
+function dedupeKeywords(keywords = []) {
+  return [...new Set(keywords.map((item) => item.trim()))];
+}
+
+function getCategorySearchTerms(categoryLabel) {
+  const map = {
+    handgun: ["handgun snap caps", "pistol dummy rounds", "handgun training rounds"],
+    revolver: ["revolver snap caps", "revolver dummy rounds", "revolver training rounds"],
+    rifle: ["rifle snap caps", "rifle dummy rounds", "rifle training rounds"],
+    shotgun: ["shotgun snap caps", "shotgun dummy rounds", "shotgun training rounds"],
+    rimfire: ["rimfire snap caps", "rimfire dummy rounds", "rimfire training rounds"],
+  };
+
+  return map[categoryLabel] || ["training rounds", "dummy rounds", "snap caps"];
+}
+
+function getMaterialSearchTerms(variant) {
+  const normalized = variant?.toLowerCase();
+
+  if (normalized === "pla") {
+    return {
+      label: "PLA",
+      short: "lightweight polymer",
+      phrases: [
+        "PLA snap caps",
+        "polymer dummy rounds",
+        "lightweight snap caps",
+      ],
+    };
+  }
+
+  if (normalized === "brass") {
+    return {
+      label: "Brass",
+      short: "brass",
+      phrases: [
+        "brass snap caps",
+        "brass dummy rounds",
+        "realistic training rounds",
+      ],
+    };
+  }
+
+  if (normalized === "metal") {
+    return {
+      label: "Metal",
+      short: "metal",
+      phrases: [
+        "metal snap caps",
+        "metal dummy rounds",
+        "durable training rounds",
+      ],
+    };
+  }
+
+  return {
+    label: "",
+    short: "",
+    phrases: [],
+  };
+}
 
 function createProductSEO({
-  title,
-  caliber,
+  primaryKeyword,   // ex: "9mm", ".223 Remington", "12 Gauge"
+  variant,          // ex: "PLA", "Brass", "Metal" or undefined
+  caliber,          // ex: "9×19mm Luger"
   platform,
   material,
   categoryLabel,
 }) {
+  const { label: variantLabel, short: variantShort, phrases: materialPhrases } =
+    getMaterialSearchTerms(variant);
+
+  const variantPrefix = variantLabel ? `${variantLabel} ` : "";
+  const variantBracket = variantLabel ? ` (${variantLabel})` : "";
+  const variantSentence = variantLabel
+    ? ` This ${variantShort} version is designed for shooters who want ${variantLabel === "Brass"
+        ? "more realistic handling and feeding characteristics"
+        : variantLabel === "Metal"
+        ? "extra durability for repeated training cycles"
+        : "a lightweight and practical option for routine practice"
+      }.`
+    : "";
+
+  const categoryTerms = getCategorySearchTerms(categoryLabel);
+
   return {
-    title: `${title} Snap Caps | Dummy Rounds for Dry Fire Training | TechStudio3D`,
-    description: `${title} snap caps for safe dry fire training and firearm handling. Durable inert dummy rounds for ${platform}. Bulk and wholesale supply available in the United States.`,
-    h1: `${title} Snap Caps for Dry Fire Training`,
-    intro: `${title} snap caps are designed for safe firearm handling, dry fire practice, and repeated training use. Built from ${material}, these inert training rounds are suitable for ${platform} and available for bulk and wholesale orders.`,
-    keywords: [
-      `${title} snap caps`,
-      `${title} dummy rounds`,
+    title: `${primaryKeyword} ${variantPrefix}Snap Caps | Dummy Rounds for Dry Fire Training | TechStudio3D`,
+
+    description: `${primaryKeyword}${variantBracket} snap caps and dummy rounds for safe dry fire training, reload drills, malfunction practice, and firearm handling. Inert training rounds for ${platform}.${variantSentence}`,
+
+    h1: `${primaryKeyword} Snap Caps for Dry Fire Training`,
+
+    intro: `${primaryKeyword}${variantBracket} snap caps are inert dummy rounds designed for safe dry fire training, function checks, reload drills, and firearm handling. Built from ${material}, these training rounds are suitable for ${platform} and help support repeated practice without live ammunition.`,
+
+    keywords: dedupeKeywords([
+      `${primaryKeyword} snap caps`,
+      `${primaryKeyword} dummy rounds`,
+      `${primaryKeyword} dry fire training`,
+      `${primaryKeyword} dry fire practice`,
+      `${primaryKeyword} inert rounds`,
+      `${primaryKeyword} training rounds`,
+      `${primaryKeyword} snap caps for sale`,
+      `${primaryKeyword} bulk snap caps`,
       `${caliber} snap caps`,
-      `${categoryLabel} training rounds`,
-      `dry fire training ${title}`,
-      `bulk ${title} snap caps`,
-    ],
+      `${caliber} dummy rounds`,
+      ...categoryTerms.map((term) => `${primaryKeyword} ${term}`),
+      ...materialPhrases.map((term) => `${primaryKeyword} ${term}`),
+      variantLabel ? `${primaryKeyword} ${variantLabel.toLowerCase()} snap caps` : "",
+      variantLabel ? `${primaryKeyword} ${variantLabel.toLowerCase()} dummy rounds` : "",
+    ].filter(Boolean)),
   };
 }
-
-
-
-
-
 
 export const mockProducts = [
   {
@@ -192,9 +270,9 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: "9mm PLA",
+      primaryKeyword: "9mm",
+      variant: "PLA",
       caliber: "9×19mm Luger",
       platform: "semi-auto pistols, SMGs & carbines",
       material: "durable PLA polymer",
@@ -230,9 +308,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: ".44 Magnum",
+      primaryKeyword: ".44 Magnum",
       caliber: ".44 Remington Magnum",
       platform: "revolvers",
       material: "durable PLA polymer",
@@ -277,9 +354,9 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: "9mm Brass",
+      primaryKeyword: "9mm",
+      variant: "Brass",
       caliber: "9×19mm Luger",
       platform: "semi-auto pistols, SMGs & carbines",
       material: "brass casing",
@@ -315,9 +392,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: "12 Gauge",
+      primaryKeyword: "12 Gauge",
       caliber: "12 Gauge",
       platform: "shotguns",
       material: "durable PLA polymer",
@@ -326,7 +402,7 @@ export const mockProducts = [
   },
 
   {
-    slug: "40s&w",
+    slug: "40sw",
     title: ".40 S&W",
     subtitle: "Handgun Training",
     image: img40sw1,
@@ -353,9 +429,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: ".40 S&W",
+      primaryKeyword: ".40 S&W",
       caliber: ".40 Smith & Wesson",
       platform: "semi-auto pistols",
       material: "durable PLA polymer",
@@ -391,9 +466,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: ".22 LR",
+      primaryKeyword: ".22 LR",
       caliber: ".22 Long Rifle",
       platform: "rimfire pistols and rifles",
       material: "durable PLA polymer",
@@ -430,9 +504,9 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: "9mm Metal",
+      primaryKeyword: "9mm",
+      variant: "Metal",
       caliber: "9×19mm Luger",
       platform: "semi-auto pistols, SMGs & carbines",
       material: "metal alloy",
@@ -468,9 +542,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: ".308 Winchester",
+      primaryKeyword: ".308 Winchester",
       caliber: ".308 Winchester",
       platform: "bolt-action and semi-auto rifles",
       material: "durable PLA polymer",
@@ -506,9 +579,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: ".380 ACP",
+      primaryKeyword: ".380 ACP",
       caliber: ".380 ACP",
       platform: "compact and subcompact pistols",
       material: "durable PLA polymer",
@@ -544,9 +616,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: "10mm",
+      primaryKeyword: "10mm",
       caliber: "10mm Auto",
       platform: "semi-auto pistols",
       material: "durable PLA polymer",
@@ -582,9 +653,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: ".357 SIG",
+      primaryKeyword: ".357 SIG",
       caliber: ".357 SIG",
       platform: "semi-auto pistols",
       material: "durable PLA polymer",
@@ -620,9 +690,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: ".45 ACP",
+      primaryKeyword: ".45 ACP",
       caliber: ".45 ACP",
       platform: "semi-auto pistols",
       material: "durable PLA polymer",
@@ -658,9 +727,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: ".38 Special",
+      primaryKeyword: ".38 Special",
       caliber: ".38 Special",
       platform: "revolvers",
       material: "durable PLA polymer",
@@ -669,7 +737,7 @@ export const mockProducts = [
   },
 
   {
-    slug: "5.7×28mm",
+    slug: "5-7x28mm",
     title: "FN 5.7×28mm",
     subtitle: "Specialty Training",
     image: imgfn1,
@@ -696,9 +764,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: "FN 5.7×28mm",
+      primaryKeyword: "5.7x28mm",
       caliber: "5.7×28mm",
       platform: "semi-auto pistols and PDWs",
       material: "durable PLA polymer",
@@ -734,9 +801,8 @@ export const mockProducts = [
       inert: "No primer / no powder",
     },
     whatsIncluded: baseIncluded,
-    contacts: baseContacts,
     seo: createProductSEO({
-      title: ".223 Remington",
+      primaryKeyword: ".223 Remington",
       caliber: ".223 Remington",
       platform: "AR-platform and bolt-action rifles",
       material: "durable PLA polymer",

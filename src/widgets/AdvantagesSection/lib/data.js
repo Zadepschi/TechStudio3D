@@ -13,7 +13,7 @@ export const steps = [
   {
     icon: safeIcon,
     title: "Safe Inert Training Design",
-    text: "Non-live, inert training rounds created specifically for безопасной firearm handling practice, malfunction drills, and dry-fire training environments.",
+    text: "Non-live, inert training rounds designed for safe firearm handling practice, malfunction drills, and dry-fire training.",
   },
   {
     icon: precisionIcon,
