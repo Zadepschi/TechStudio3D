@@ -56,11 +56,46 @@ export default function ProductsPage() {
           </Typography>
         </header>
 
-        {/* Короткий SEO-блок сверху */}
         <section className={cls.seoIntro}>
           <Typography variant="body14" className={cls.seoIntroText}>
             Bulk snap caps and dummy rounds for dry fire training, distributors,
             retailers, and training facilities across the United States.
+          </Typography>
+        </section>
+
+        <section
+          className={cls.seoExplain}
+          aria-labelledby="what-are-snap-caps-heading"
+        >
+          <Typography
+            as="h2"
+            variant="h3"
+            font="poiretOne"
+            className={cls.seoHeading}
+            id="what-are-snap-caps-heading"
+          >
+            What Are Snap Caps and Dummy Rounds?
+          </Typography>
+
+          <Typography variant="body14" className={cls.seoText}>
+            Snap caps and dummy rounds are inert training cartridges designed for
+            safe dry fire practice and firearm handling. Unlike live
+            ammunition, they contain no powder or primer, allowing shooters to
+            safely train without risk.
+          </Typography>
+
+          <Typography variant="body14" className={cls.seoText}>
+            At TechStudio3D, we manufacture precision snap caps for a wide range
+            of calibers including 9mm, .45 ACP, .308 Winchester, .223
+            Remington, and more. Our products are engineered for consistent
+            chamber fit, durability, and repeated use.
+          </Typography>
+
+          <Typography variant="body14" className={cls.seoText}>
+            Snap caps are widely used for dry fire training, trigger control
+            improvement, malfunction drills, safety instruction, and firearm
+            demonstrations. They are essential tools for shooting ranges,
+            instructors, and professional users.
           </Typography>
         </section>
 
@@ -97,7 +132,6 @@ export default function ProductsPage() {
           moreHintClassName={cls.moreHint}
         />
 
-        {/* Основной SEO-текст вниз страницы */}
         <section
           className={cls.seoContent}
           aria-labelledby="products-seo-heading"
@@ -124,6 +158,53 @@ export default function ProductsPage() {
             shotgun training rounds, and rimfire snap caps. Contact us for
             wholesale pricing and custom orders.
           </Typography>
+        </section>
+
+        <section className={cls.faq} aria-labelledby="products-faq-heading">
+          <Typography
+            as="h2"
+            variant="h3"
+            font="poiretOne"
+            className={cls.seoHeading}
+            id="products-faq-heading"
+          >
+            FAQ – Snap Caps & Dummy Rounds
+          </Typography>
+
+          <div className={cls.faqList}>
+            <div className={cls.faqItem}>
+              <Typography as="h3" variant="body16" className={cls.faqQuestion}>
+                What calibers of snap caps do you offer?
+              </Typography>
+              <Typography variant="body14" className={cls.faqAnswer}>
+                We offer snap caps and dummy rounds for a wide range of
+                calibers including 9mm, .45 ACP, .308 Winchester, .223
+                Remington, 12 Gauge, .22 LR, and more.
+              </Typography>
+            </div>
+
+            <div className={cls.faqItem}>
+              <Typography as="h3" variant="body16" className={cls.faqQuestion}>
+                Are your snap caps suitable for professional training?
+              </Typography>
+              <Typography variant="body14" className={cls.faqAnswer}>
+                Yes. Our products are designed for shooting ranges, instructors,
+                distributors, and training facilities that require durable and
+                reliable inert training rounds.
+              </Typography>
+            </div>
+
+            <div className={cls.faqItem}>
+              <Typography as="h3" variant="body16" className={cls.faqQuestion}>
+                Do you offer bulk and wholesale orders?
+              </Typography>
+              <Typography variant="body14" className={cls.faqAnswer}>
+                Yes. TechStudio3D supplies bulk snap caps and dummy rounds for
+                wholesale buyers, online retailers, and commercial training
+                operations across the United States.
+              </Typography>
+            </div>
+          </div>
         </section>
 
         <section className={cls.bottomCta}>
