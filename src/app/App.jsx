@@ -10,7 +10,7 @@ import { initAnalytics, trackPageView } from "@/shared/lib";
 function App() {
   const location = useLocation();
 
-  // 🔥 Инициализация GA после Accept
+
   useEffect(() => {
     const consent = Cookies.get("cookie_consent");
 
@@ -19,7 +19,7 @@ function App() {
     }
   }, []);
 
-  // 🔥 Отслеживание переходов по страницам
+
   useEffect(() => {
     const consent = Cookies.get("cookie_consent");
 
